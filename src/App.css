@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Display;
+  src: url(/src/assets/fonts/Bugar.ttf);
+}
+
+@font-face {
+  font-family: Main;
+  src: url(/src/assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+.font-display{
+  font-family: Display, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.font-main{
+  font-family: Main, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.font-outline-black{
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+
+.font-outline-emerald{
+  -webkit-text-stroke: 1px rgba(0, 189, 107, 0.998);
+}
