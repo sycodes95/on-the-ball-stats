@@ -1,6 +1,7 @@
-export const getPlayers = () => {
-  const currentYear = new Date().getFullYear();
-  return fetch(`${import.meta.env.VITE_API_FOOTBALL_URL}/v3/players?season=${currentYear}`, {
+export const getLeagueTopScorers = (leagueID: number) => {
+  const currentSeason = new Date().getFullYear()
+  const previousYear = currentSeason - 1
+  return fetch(`https://api-football-v1.p.rapidapi.com/v3/players/topscorers?league=${leagueID}&season=${previousYear}`,{
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
@@ -10,9 +11,7 @@ export const getPlayers = () => {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    if(data.response.length) return data.response
-    return 'N/A'
-  
+    return data
   })
   .catch(error => {
     console.error(error)

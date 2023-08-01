@@ -1,5 +1,6 @@
-export const getLeagues = () => {
-  return fetch(`${import.meta.env.VITE_API_FOOTBALL_URL}/v3/leagues?type=league`, {
+export const getLeagueInfo = (leagueID: number) => {
+  
+  return fetch(`https://api-football-v1.p.rapidapi.com/v3/leagues?id=${leagueID}`,{
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
@@ -8,9 +9,9 @@ export const getLeagues = () => {
   })
   .then(res => res.json())
   .then(data => {
-    if(data.response.length) return data.response
-    return 'N/A'
-  
+    if(data && data.response.length){
+      return data
+    }
   })
   .catch(error => {
     console.error(error)

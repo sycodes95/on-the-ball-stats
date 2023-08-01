@@ -4,8 +4,9 @@ import { topLeagueIds } from "../features/leagues/constants";
 
 import { Oval } from "react-loader-spinner";
 import LeagueLink from "../features/leagues/components/leagueLink";
+import { getBetter } from "../services/getBetter";
 
-type League = {
+export type League = {
   country: {name : string, code: string, flag: string},
   league: {id: number, name: string, type: string, logo: string},
   seasons: []
@@ -17,7 +18,6 @@ function Leagues () {
   useEffect(()=> {  
 
     setIsLoading(true)
-
     getLeagues()
     .then(data => {
       setIsLoading(false)
@@ -25,7 +25,6 @@ function Leagues () {
         setLeagues([]);
       } else {
         const topLeagues = data.filter(data => topLeagueIds.some(league => league.id === data.league.id))
-        console.log(topLeagues);
         setLeagues(topLeagues);
       }
     })
@@ -64,7 +63,6 @@ function Leagues () {
       secondaryColor="#A9A9A9"
       strokeWidth={4}
       strokeWidthSecondary={4}
-
       />
       }
     </div>
