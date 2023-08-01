@@ -1,7 +1,7 @@
 
 function Footer () {
   return (
-    <div className="flex items-center justify-center w-full h-16 text-black bg-emerald-300">
+    <div className="flex items-center justify-center w-full h-16 max-w-6xl text-black bg-black rounded-t-md">
       Footer Stuff
     </div>
   )

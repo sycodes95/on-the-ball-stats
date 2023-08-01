@@ -6,12 +6,13 @@ import LeagueHeader from "../features/leagueDetails/components/leagueHeader";
 import { League } from "./leagues";
 import LeagueTopScorers from "../features/leagueDetails/components/leagueTopScorers";
 import { Player } from "../features/leagueDetails/types/types";
-
-
+import { getLeagueTopAssists } from "../features/leagueDetails/services/getLeagueTopAssists";
+import LeagueTopAssists from "../features/leagueDetails/components/leagueTopAssists";
 
 function LeagueDetails () {
   const [leaguePlayers, setLeaguePlayers] = useState([])
   const [leagueTopScorers, setLeagueTopScorers] = useState<Player[]>([])
+  const [leagueTopAssists, setLeagueTopAssists] = useState<Player[]>([])
   const [leagueInfo, setLeagueInfo] = useState<League | null>(null)
 
   const { leagueID } = useParams()
@@ -25,6 +26,11 @@ function LeagueDetails () {
     getLeagueTopScorers(Number(leagueID))
     .then(data => setLeagueTopScorers(data.response))
     .catch(err => console.error(err))
+
+    getLeagueTopAssists(Number(leagueID))
+    .then(data => setLeagueTopAssists(data.response))
+    .catch(err => console.error(err))
+
 
   },[])
 
@@ -43,6 +49,7 @@ function LeagueDetails () {
       <LeagueHeader leagueInfo={leagueInfo}/>
       }
       <LeagueTopScorers leagueTopScorers={leagueTopScorers} />
+      <LeagueTopAssists leagueTopAssists={leagueTopAssists} />
       
     </div>
   )
