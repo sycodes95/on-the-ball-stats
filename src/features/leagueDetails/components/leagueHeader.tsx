@@ -7,7 +7,6 @@ type LeagueHeaderProps = {
 
 function LeagueHeader ({ leagueInfo }: LeagueHeaderProps) {
   useEffect(()=>{
-    console.log(leagueInfo);
   },[leagueInfo])
   return (
     <div className="flex items-center justify-between w-full gap-4 bg-black rounded-b-md">

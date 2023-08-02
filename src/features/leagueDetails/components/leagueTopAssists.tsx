@@ -8,7 +8,7 @@ type LeagueTopAssistsProps = {
 function LeagueTopAssists ({ leagueTopAssists }: LeagueTopAssistsProps) {
   return (
     <div className="w-full p-4">
-      <p className="text-xl text-black"> TOP SCORERS</p>
+      <p className="text-xl text-black"> TOP ASSISTS</p>
       <div className="grid w-full h-full grid-cols-1 gap-2 p-4 md:grid-flow-col md:grid-cols-2 grid-rows-10">
       {
       leagueTopAssists && leagueTopAssists.length &&
