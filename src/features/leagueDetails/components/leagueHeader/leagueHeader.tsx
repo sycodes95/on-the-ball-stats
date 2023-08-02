@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { League } from "../../../pages/leagues";
+import { League } from "../../../../pages/leagues";
 
 type LeagueHeaderProps = {
   leagueInfo: League;

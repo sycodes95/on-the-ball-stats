@@ -4,7 +4,6 @@ import { topLeagueIds } from "../features/leagues/constants";
 
 import { Oval } from "react-loader-spinner";
 import LeagueLink from "../features/leagues/components/leagueLink";
-import { getBetter } from "../services/getBetter";
 
 export type League = {
   country: {name : string, code: string, flag: string},
@@ -24,7 +23,7 @@ function Leagues () {
       if (data === "N/A") {
         setLeagues([]);
       } else {
-        const topLeagues = data.filter(data => topLeagueIds.some(league => league.id === data.league.id))
+        const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
         setLeagues(topLeagues);
       }
     })

@@ -1,4 +1,3 @@
-import { Player } from "../../features/leagueDetails/types/types";
 
 type PlayerCardProps = {
   number: number;
@@ -20,6 +19,7 @@ function PlayerCard ({
   topValueColor
 }: PlayerCardProps) {
 
+
   return (
     
     <div className="flex items-center justify-between w-full gap-2 p-1 transition-all border-l-4 border-black border-opacity-25 rounded-sm shadow-md shadow-slate-300 hover:cursor-pointer hover:bg-black hover:bg-opacity-20">
@@ -30,13 +30,13 @@ function PlayerCard ({
         <img className="h-6 rounded-full" src={playerPhoto} alt="player-photo" />
         <p>{playerName}</p>
       </div>
-      {
+      
       <div className="flex items-center ">
         <p className={`${topValueColor} flex items-center h-6 pl-2 pr-2 text-2xl font-bold rounded-md whitespace-nowrap font-display`}>
           {topValue}
         </p>
       </div>
-      }
+      
       
     </div>
     

@@ -1,5 +1,5 @@
-import PlayerCard from "../../../components/ui/playerCard";
-import { Player } from "../types/types";
+import PlayerCard from "../../../../components/ui/playerCard";
+import { Player } from "../../types/types";
 
 type LeagueTopAssistsProps = {
   leagueTopAssists: Player[]
@@ -20,6 +20,7 @@ function LeagueTopAssists ({ leagueTopAssists }: LeagueTopAssistsProps) {
         playerName={player.player.name}
         playerID={player.player.id}
         topValue={player.statistics[0].goals.assists}
+        topValueColor={`text-blue-400`}
         key={index}/>
       ))
       }

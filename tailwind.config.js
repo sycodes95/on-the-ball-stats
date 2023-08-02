@@ -10,7 +10,7 @@ export default {
         camaro: ['Camaro', 'Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
-        primary: '#10B981'
+        primary: 'rgb(55 65 81)'
       }
     },
   },

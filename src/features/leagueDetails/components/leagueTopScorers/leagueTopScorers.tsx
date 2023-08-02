@@ -1,5 +1,5 @@
-import PlayerCard from "../../../components/ui/playerCard";
-import { Player } from "../types/types";
+import PlayerCard from "../../../../components/ui/playerCard";
+import { Player } from "../../types/types";
 
 type LeagueTopScorersProps = {
   leagueTopScorers: Player[]
