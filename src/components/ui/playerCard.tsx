@@ -24,10 +24,10 @@ function PlayerCard ({
     
     <div className="flex items-center justify-between w-full gap-2 p-1 transition-all border-l-4 border-black border-opacity-25 rounded-sm shadow-md shadow-slate-300 hover:cursor-pointer hover:bg-black hover:bg-opacity-20">
       
-      <div className="flex items-center gap-2 text-xs text-gray-700 whitespace-nowrap">
+      <div className="flex items-center h-8 gap-2 text-xs text-gray-700 whitespace-nowrap">
         <p className="w-6 whitespace-nowrap"> # {number}</p>
-        <img className="h-6" src={teamLogo} alt="league-logo"/>
-        <img className="h-6 rounded-full" src={playerPhoto} alt="player-photo" />
+        <img className="h-full" src={teamLogo} alt="league-logo"/>
+        <img className="h-full rounded-full" src={playerPhoto} alt="player-photo" />
         <p>{playerName}</p>
       </div>
       

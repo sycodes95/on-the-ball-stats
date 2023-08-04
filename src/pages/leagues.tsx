@@ -23,7 +23,13 @@ function Leagues () {
       if (data === "N/A") {
         setLeagues([]);
       } else {
-        const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
+        // const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
+        const topLeagues = []
+
+        for (let i = 0; i < 24; i++){
+          topLeagues.push(data[i])
+        }
+       
         setLeagues(topLeagues);
       }
     })

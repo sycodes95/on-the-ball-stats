@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { TeamStanding } from "../../types/types";
+import { extractRankDescriptions } from "../../utils/extractRankDescriptions";
+import TableRow from "./components/tableRow";
 
 
 type LeagueTeamStandingsProps = {
@@ -8,19 +10,22 @@ type LeagueTeamStandingsProps = {
 }
 function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandingsProps) {
   const [teams, setTeams] = useState<TeamStanding[]>([])
+  const [rankDescriptions, setRankDescriptions] = useState<string[]>([])
 
   useEffect(()=> {
     console.log(leagueTeamStandings);
     leagueTeamStandings && setTeams(leagueTeamStandings)
+    setRankDescriptions(extractRankDescriptions(leagueTeamStandings))
   },[leagueTeamStandings])
 
   useEffect(()=>{
-console.log(teams);
-  },[teams])
+  console.log(teams);
+  console.log(rankDescriptions);
+  },[teams, rankDescriptions])
 
   
   return (
-    <div className="w-full p-4">
+    <div className="w-full p-4 md:min-w-max">
       <p className="text-xl text-black"> LEAGUE STANDINGS</p>
 
       <div className="w-full p-4 text-xl rounded-md">
@@ -41,51 +46,24 @@ console.log(teams);
           </thead>
           <tbody className="text-xs text-primary">
             {
-            teams.map((data, index) => (
-              <tr key={data.team.id} className="hover:bg-black hover:bg-opacity-20">
-                <td className="flex items-center h-8">
-                  <span className="flex items-center justify-center w-6 h-full border-l-4 border-black border-opacity-25 rounded-l-sm">{data.rank}</span>
-                  <img className="h-8 p-2" src={data.team.logo} alt="team-logo"/>
-                  <span>{data.team.name}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.played}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.win}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.draw}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.lose}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.goals.for}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.all.goals.against}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.goalsDiff}</span>
-                </td>
-                <td className="text-center">
-                  <span>{data.points}</span>
-                </td>
-                <td className="text-center">
-                  {
-                  Array.from(data.form).map((result, index) => (
-                    <button className={`
-                    w-4 font-semibold
-                    ${result.toLowerCase() === 'w' && 'text-green-500'}
-                    ${result.toLowerCase() === 'l' && 'text-red-500'}
-                    `}>{result}</button>
-                  ))
-                  }
-                </td>
-
-
-              </tr>
+            teams.map(data => (
+              <TableRow 
+              key={data.team.id} 
+              description={data.description}
+              rank={data.rank}
+              teamLogo={data.team.logo}
+              teamName={data.team.name}
+              played={data.all.played}
+              win={data.all.win}
+              draw={data.all.draw}
+              lose={data.all.lose}
+              goalsFor={data.all.goals.for}
+              goalsAgainst={data.all.goals.against}
+              goalsDiff={data.goalsDiff}
+              points={data.points}
+              form={data.form}
+              />
+              
             ))
             }
           </tbody>

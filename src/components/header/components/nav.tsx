@@ -4,7 +4,7 @@ function Nav () {
 
   return (
     <div className="flex items-center h-full gap-4 text-sm font-semibold text-gray-700">
-      <Link to='/'>
+      <Link to='/leagues'>
         LEAGUES
       </Link>
       {/* <Link to={`/teams`}>

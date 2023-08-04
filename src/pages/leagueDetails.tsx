@@ -5,12 +5,13 @@ import { getLeagueInfo } from "../features/leagueDetails/services/getLeagueInfo"
 import LeagueHeader from "../features/leagueDetails/components/leagueHeader/leagueHeader";
 import { League } from "./leagues";
 import LeagueTopScorers from "../features/leagueDetails/components/leagueTopScorers/leagueTopScorers";
-import { Player, TeamStanding } from "../features/leagueDetails/types/types";
+import { TeamStanding } from "../features/leagueDetails/types/types";
 import { getLeagueTopAssists } from "../features/leagueDetails/services/getLeagueTopAssists";
 import LeagueTopAssists from "../features/leagueDetails/components/leagueTopAssists/leagueTopAssists";
 import { getLeagueTeamStandings } from "../features/leagueDetails/services/getLeagueTeamStandings";
 import LeagueTeamStandings from "../features/leagueDetails/components/leagueTeamStandings/leagueTeamStandings";
 import '../features/leagueDetails/styles/styles.css'
+import { Player } from "../types/types";
 
 function LeagueDetails () {
   const [loading, setLoading] = useState(true);
@@ -38,36 +39,6 @@ function LeagueDetails () {
     .catch((err) => console.error(err));
   }, [leagueID]);
   
-  // useEffect(()=>{
-    
-  //   getLeagueInfo(Number(leagueID))
-  //   .then(data => setLeagueInfo(data.response[0]))
-  //   .catch(err => console.error(err))
-    
-  //   getLeagueTopScorers(Number(leagueID))
-  //   .then(data => setLeagueTopScorers(data.response))
-  //   .catch(err => console.error(err))
-
-  //   getLeagueTopAssists(Number(leagueID))
-  //   .then(data => setLeagueTopAssists(data.response))
-  //   .catch(err => console.error(err))
-
-  //   getLeagueTeamStandings(Number(leagueID))
-  //   .then(data => setLeagueTeamStandings(data.response[0].league.standings))
-  //   .catch(err => console.error(err))
-
-
-  // },[])
-
-
-
-  // useEffect(()=>{
-  //   console.log(leagueTopScorers);
-  // },[leagueTopScorers])
-
-  // useEffect(()=>{
-  //   console.log(leagueInfo);
-  // },[leagueInfo])
   useEffect(()=> {
     console.log(leagueTeamStandings);
   },[leagueTeamStandings])

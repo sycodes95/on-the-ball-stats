@@ -8,12 +8,21 @@
   src: url(/src/assets/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: Logo;
+  src: url(/src/assets/fonts/Exeroe.ttf);
+}
+
 .font-display{
   font-family: Display, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .font-main{
   font-family: Main, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.font-logo{
+  font-family: Logo, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .font-outline-black{
