@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: Logo;
-  src: url(/src/assets/fonts/Exeroe.ttf);
+  src: url(/src/assets/fonts/Crop\ Crap.ttf);
 }
 
 .font-display{
@@ -26,7 +26,7 @@
 }
 
 .font-outline-black{
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  -webkit-text-stroke: 2px rgb(79, 79, 79);
 }
 
 .font-outline-emerald{

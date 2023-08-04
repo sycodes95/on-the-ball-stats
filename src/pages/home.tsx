@@ -49,9 +49,11 @@ function Home () {
   },[topGoalContributors])
 
   const returnContributionWidthPct = (player: Player) => {
+    
     const highestContribution = topGoalContributors[0].statistics[0].goals.total + topGoalContributors[0].statistics[0].goals.assists;
     const currentContribution = player.statistics[0].goals.total + player.statistics[0].goals.assists;
     return `${((currentContribution / highestContribution) * 100).toFixed(0)}%`
+    
   }
 
   const returnSubContributionWidthPct = (contributions: number, subcontribution: number) => {
@@ -63,19 +65,36 @@ function Home () {
     <div className="flex flex-col w-full gap-4 p-4 text-primary">
       <p className="text-black">TOP PLAYERS</p>
       <div className="flex flex-col w-full gap-2 p-4 border rounded-md shadow-lg border-slate-300 shadow-slate-300">
+        <div className="flex items-center gap-4 p-2">
+          <div className="flex items-center gap-2">
+            <p className="w-4 h-4 bg-blue-300"></p>
+            <p>Goals</p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <p className="w-4 h-4 bg-green-300"></p>
+            <p>Assists</p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <p className="w-4 h-4 bg-orange-400"></p>
+            <p>Total</p>
+          </div>
+          
+        </div>
+        
       {
-      topGoalContributors && topGoalContributors.length &&
       topGoalContributors.map((player: Player, index) => (
         <div className="flex items-center h-6 gap-2 text-xs">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <img className="h-full rounded-full w-fit" src={player.statistics[0].team.logo} alt="team-icon"/>
             <img className="h-full rounded-full w-fit" src={player.player.photo} alt="player-photo"/>
-            <div className="w-44 whitespace-nowrap min-w-max">{player.player.name}</div>
+            <div className="h-full border-r-4 border-slate-300 w-44 whitespace-nowrap min-w-max">{player.player.name}</div>
           </div>
          
           <div className="relative w-full h-full overflow-hidden">
-            <div className="absolute top-0 flex items-center h-full"
+            <div className="absolute top-0 flex items-center w-0 h-full transition-all duration-500 bg-white"
             style={{width: `
             ${index === 0 ? '100%' : returnContributionWidthPct(player)}
             `}}>
@@ -90,7 +109,7 @@ function Home () {
 
             </div>
           </div>
-          <div className="flex items-center justify-center w-8 h-full p-1 bg-yellow-300 rounded-sm">
+          <div className="flex items-center justify-center w-8 h-full p-1 font-semibold text-white bg-orange-400 rounded-sm">
             {player.statistics[0].goals.total + player.statistics[0].goals.assists} 
           </div>
         </div>
