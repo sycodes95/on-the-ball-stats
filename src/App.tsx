@@ -4,7 +4,7 @@ import Header from './components/header/header';
 import Leagues from './pages/leagues';
 import Footer from './components/footer/footer';
 import LeagueDetails from './pages/leagueDetails';
-import Home from './pages/home';
+import Overall from './pages/overall';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Header/>
         <div className='flex flex-grow w-full max-w-5xl'>
         <Routes>
-          <Route path='/' element={<Home/>}/> 
+          <Route path='/' element={<Overall/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>
           <Route path='/leagues/:leagueID' element={<LeagueDetails/>}/>
           {/* <Route path='/players' element={<Players/>}/>

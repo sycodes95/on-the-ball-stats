@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getLeagueTopScorers } from "../features/leagueDetails/services/getLeagueTopScorers";
+import { getLeagueTopScorers } from "../services/getLeagueTopScorers";
 import { getLeagueInfo } from "../features/leagueDetails/services/getLeagueInfo";
 import LeagueHeader from "../features/leagueDetails/components/leagueHeader/leagueHeader";
 import { League } from "./leagues";

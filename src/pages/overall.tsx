@@ -1,52 +1,27 @@
 import { useEffect, useState } from "react";
 import { top5Leagues } from "../constants/top5Leagues";
-import { getLeagueTopScorers } from "../features/leagueDetails/services/getLeagueTopScorers";
+import { getLeagueTopScorers } from "../services/getLeagueTopScorers";
 import { Player } from "../types/types";
 import { ResponsiveBar, ResponsiveBarCanvas } from "@nivo/bar";
+import { getTopGoalContributors, getTopPlayers } from "../features/overall/services/getTopGoalContributors";
+import { getTopDefenders } from "../features/overall/services/getTopDefenders";
 
-function Home () {
+function Overall () {
 
   // const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([])
-  const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([])
+  const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([]);
+  const [topDefenders, setTopDefenders] = useState<Player[]>([]);
 
 
   useEffect(()=>{
-    const fetchTopPlayers = async () => {
-      const allTopPlayers = await Promise.all(
-        top5Leagues.map(async (league) => {
-          const data = await getLeagueTopScorers(league.id);
-          return data.response;
-        })
-      );
-
-      const topPlayers = allTopPlayers.flat()
-      const sortedPlayers = topPlayers.sort((a: Player, b: Player) => 
-        (b.statistics[0].goals.total + b.statistics[0].goals.assists) 
-        - (a.statistics[0].goals.total + a.statistics[0].goals.assists)
-      ) 
-      const top10Players = sortedPlayers.splice(0, 10)
-      console.log(top10Players);
-      const formattedData = top10Players.map((player: Player) => {
-        return {
-          player : player.player.name,
-          clubLogo : player.statistics[0].team.logo,
-          clubID : player.statistics[0].team.id,
-          leagueLogo : player.statistics[0].league.logo,
-          leagueID : player.statistics[0].league.id,
-          goals : player.statistics[0].goals.total,
-          assists: player.statistics[0].goals.assists
-        }
-      })
-      // setTopGoalContributors(formattedData.reverse());
-      setTopGoalContributors(top10Players)
-    };
-  
-    fetchTopPlayers();
+    getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
+    // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 
   useEffect(()=> {
     console.log(topGoalContributors);
-  },[topGoalContributors])
+    console.log(topDefenders);
+  },[topGoalContributors, topDefenders])
 
   const returnContributionWidthPct = (player: Player) => {
     
@@ -57,14 +32,14 @@ function Home () {
   }
 
   const returnSubContributionWidthPct = (contributions: number, subcontribution: number) => {
-    console.log(`${((subcontribution / contributions) * 100).toFixed(0)}%`);
     return `${((subcontribution / contributions) * 100).toFixed(0)}%`
   }
 
   return (
-    <div className="flex flex-col w-full gap-4 p-4 text-primary">
-      <p className="text-black">TOP PLAYERS</p>
-      <div className="flex flex-col w-full gap-2 p-4 border rounded-md shadow-lg border-slate-300 shadow-slate-300">
+    <div className="flex flex-col w-full gap-4 p-2 text-primary">
+      <p className="text-3xl text-slate-600 font-display ">TOP PLAYERS</p>
+
+      <div className="flex flex-col w-full gap-2 p-2 text-xs border rounded-md shadow-lg border-slate-300 shadow-slate-300">
         <div className="flex items-center gap-4 p-2">
           <div className="flex items-center gap-2">
             <p className="w-4 h-4 bg-blue-300"></p>
@@ -76,21 +51,21 @@ function Home () {
             <p>Assists</p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="items-center hidden gap-2 md:flex">
             <p className="w-4 h-4 bg-orange-400"></p>
-            <p>Total</p>
+            <p>Total Contributions</p>
           </div>
           
         </div>
         
       {
       topGoalContributors.map((player: Player, index) => (
-        <div className="flex items-center h-6 gap-2 text-xs">
+        <div className="flex items-center h-6 gap-1 text-xs">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <img className="h-full rounded-full w-fit" src={player.statistics[0].team.logo} alt="team-icon"/>
             <img className="h-full rounded-full w-fit" src={player.player.photo} alt="player-photo"/>
-            <div className="h-full border-r-4 border-slate-300 w-44 whitespace-nowrap min-w-max">{player.player.name}</div>
+            <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>
           </div>
          
           <div className="relative w-full h-full overflow-hidden">
@@ -109,7 +84,7 @@ function Home () {
 
             </div>
           </div>
-          <div className="flex items-center justify-center w-8 h-full p-1 font-semibold text-white bg-orange-400 rounded-sm">
+          <div className="items-center justify-center hidden w-8 h-full p-1 font-semibold text-white bg-orange-400 rounded-sm md:flex">
             {player.statistics[0].goals.total + player.statistics[0].goals.assists} 
           </div>
         </div>
@@ -222,4 +197,4 @@ function Home () {
   )
 }
 
-export default Home;
+export default Overall;

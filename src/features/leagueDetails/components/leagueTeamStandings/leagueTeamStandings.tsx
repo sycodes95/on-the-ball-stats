@@ -13,14 +13,11 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
   const [rankDescriptions, setRankDescriptions] = useState<string[]>([])
 
   useEffect(()=> {
-    console.log(leagueTeamStandings);
     leagueTeamStandings && setTeams(leagueTeamStandings)
     setRankDescriptions(extractRankDescriptions(leagueTeamStandings))
   },[leagueTeamStandings])
 
   useEffect(()=>{
-  console.log(teams);
-  console.log(rankDescriptions);
   },[teams, rankDescriptions])
 
   
