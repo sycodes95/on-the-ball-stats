@@ -5,6 +5,8 @@ import { Player } from "../types/types";
 import { ResponsiveBar, ResponsiveBarCanvas } from "@nivo/bar";
 import { getTopGoalContributors, getTopPlayers } from "../features/overall/services/getTopGoalContributors";
 import { getTopDefenders } from "../features/overall/services/getTopDefenders";
+import { getLeagueTopYellows } from "../services/getLeagueTopYellows";
+import { getTopYellows } from "../features/overall/services/getTopYellows";
 
 function Overall () {
 
@@ -15,6 +17,7 @@ function Overall () {
 
   useEffect(()=>{
     getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
+    getTopYellows()
     // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 
