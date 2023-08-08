@@ -9,8 +9,8 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className="flex flex-col w-full gap-2 p-2 text-xs border rounded-md shadow-lg border-slate-300 shadow-slate-300">
-      <p className="text-3xl text-slate-600 font-display ">TOP PLAYERS</p>
+    <div className="flex flex-col w-full gap-2 p-2 text-xs border rounded-md ">
+      <p className="mb-4 text-3xl text-slate-600 font-display">TOP PLAYERS</p>
       {
       topGoalContributors.map((player: Player, index) => (
         <div className="flex items-center h-6 gap-1 text-xs">
