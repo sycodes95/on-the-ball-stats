@@ -11,6 +11,7 @@ import TopGoalContributorsGraph from "../features/overall/components/topGoalCont
 import TopYellowsGraph from "../features/overall/components/topCards/topCards";
 import { getTopReds } from "../features/overall/services/getTopReds";
 import TopCardsGraph from "../features/overall/components/topCards/topCards";
+import { getFixturesFromTop20Leagues } from "../features/overall/services/getFIxturesFromTop20Leagues";
 
 function Overall () {
 
@@ -25,7 +26,7 @@ function Overall () {
     getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
     getTopYellows().then(topYellows => setTopYellows(topYellows))
     getTopReds().then(topReds => setTopReds(topReds))
-
+    getFixturesFromTop20Leagues().then
     // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 
@@ -37,7 +38,7 @@ function Overall () {
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-primary">
       <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
-      <div className="flex gap-4">
+      <div className="flex flex-col gap-4 md:flex-row">
       <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
       <TopCardsGraph topCards={topReds} cardType="RED"/>
       </div>
