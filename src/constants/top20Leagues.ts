@@ -22,4 +22,20 @@ export const top20Leagues = [
   {id: 197, name: 'Super League'},
   {id: 299, name: 'Primera Divison'},
   {id: 98, name: 'J1 League'},
+
+  {id: 4, name: 'Euro Championship'}, 
+  {id: 21, name: 'Confederations Cup'},
+  {id: 1, name: 'World Cup'},
+  {id: 803, name: 'Asian Games'},
+  {id: 804, name: 'Caribbean Cup'},
+
+  {id: 7, name: 'Asian Cup'}, 
+  {id: 8, name: 'World Cup - Women'},
+  {id: 15, name: 'FIFA Club World Cup'},
+  {id: 2, name: 'UEFA Champions League'},
+  {id: 220, name: 'Cup'},
+
+  {id: 848, name: 'UEFA Europa Conference League'}
+
+
 ]

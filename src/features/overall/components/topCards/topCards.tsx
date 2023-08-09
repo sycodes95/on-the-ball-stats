@@ -27,8 +27,8 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
             <div className="flex items-center w-40 h-full whitespace-nowrap min-w-max">{player.player.name}</div>
           </div>
          
-          <div className="relative h-full overflow-hidden">
-            <p className={`flex items-center h-full p-2 font-semibold transition-all duration-500 
+          <div className="relative w-8 h-full overflow-hidden min-w-fit">
+            <p className={`flex justify-center items-center h-full p-2 font-semibold transition-all duration-500 
             ${cardType === `YELLOW`? 'bg-yellow-400' : 'bg-red-500'} 
             ${cardType === `YELLOW`? 'text-primary' : 'text-white'}
             `}>
