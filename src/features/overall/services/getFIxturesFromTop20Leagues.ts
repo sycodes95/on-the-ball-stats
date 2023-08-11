@@ -1,5 +1,5 @@
 import { top20Leagues } from "../../../constants/top20Leagues";
-import { getLeagueFixtures } from "../../../services/getLeagueFixtures";
+import { getLeagueFixtures } from "../../../services/getFIxturesByDate";
 
 export const getFixturesFromTop20Leagues = async () => {
   const fixtures = await Promise.all(

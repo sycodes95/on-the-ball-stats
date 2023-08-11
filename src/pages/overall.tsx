@@ -12,7 +12,9 @@ import TopYellowsGraph from "../features/overall/components/topCards/topCards";
 import { getTopReds } from "../features/overall/services/getTopReds";
 import TopCardsGraph from "../features/overall/components/topCards/topCards";
 import { getFixturesFromTop20Leagues } from "../features/overall/services/getFIxturesFromTop20Leagues";
-import { getLeagueFixtures } from "../services/getLeagueFixtures";
+import { getFixturesByDate, getLeagueFixtures } from "../services/getFIxturesByDate";
+import Fixtures from "../features/overall/components/fixtures/fixtures";
+import { Fixture } from "../features/overall/types/types";
 
 function Overall () {
 
@@ -21,14 +23,16 @@ function Overall () {
   const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
-  const [fixtures, setFixtures] = useState([])
+  const [fixtures, setFixtures] = useState<Fixture[]>([])
 
 
   useEffect(()=>{
+    // document.documentElement.classList.add('dark')
+
     getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
     getTopYellows().then(topYellows => setTopYellows(topYellows))
     getTopReds().then(topReds => setTopReds(topReds))
-    getLeagueFixtures().then(fixtures => setFixtures(fixtures))
+    getFixturesByDate().then(fixtures => setFixtures(fixtures))
     // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 
@@ -39,6 +43,7 @@ function Overall () {
 
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-primary">
+      <Fixtures fixtures={fixtures}/>
       <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
       <div className="flex flex-col gap-4 md:flex-row">
       <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>

@@ -1,5 +1,6 @@
 import { format, add } from 'date-fns';
 import { top20Leagues } from '../constants/top20Leagues';
+import { Fixture } from '../features/overall/types/types';
 
 // export const getLeagueFixtures = (leagueID: number) => {
 //   const today = new Date()
@@ -29,11 +30,15 @@ import { top20Leagues } from '../constants/top20Leagues';
 
 
 
-export const getLeagueFixtures = () => {
+export const getFixturesByDate = () => {
   const today = new Date();
+  const yesterday = new Date(today)
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
+  yesterday.setDate(today.getDate() - 1 )
+
   // const season = today.getFullYear() - 1;
+  const yesterdayFormatted = format(today,'yyyy-MM-dd');
   const todayFormatted = format(today,'yyyy-MM-dd');
   const tomorrowFormatted = format(tomorrow,'yyyy-MM-dd');
   return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${tomorrowFormatted}`,{
@@ -44,9 +49,10 @@ export const getLeagueFixtures = () => {
   })
   .then(res => res.json())
   .then(data => {
-    const topLeaguesAndCupsFixures = data.response.filter(fixture => {
+    const topLeaguesAndCupsFixures = data.response.filter((fixture: Fixture) => {
       return top20Leagues.some(league => league.id === fixture.league.id)
     })
+    .sort((a : Fixture, b : Fixture) => a.league.id - b.league.id)
     console.log(data.response);
     return topLeaguesAndCupsFixures
   })
