@@ -16,9 +16,7 @@ export const getTopYellows = async () => {
     (b.statistics[0].cards.yellow) - (a.statistics[0].cards.yellow)
   );
   const top10Players = sortedPlayers.splice(0, 10);
-  console.log(top10Players.map((player: Player) => {
-    return { name : player.player.name , yellowCards: player.statistics[0].cards.yellow, league: player.statistics[0].league.name}
-  }));
+  
 
   return top10Players;
 }

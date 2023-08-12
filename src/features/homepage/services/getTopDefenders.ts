@@ -7,7 +7,6 @@ export const getTopDefenders = async () => {
   const allPlayers = await Promise.all(
     top5Leagues.map(async (league) => {
       const data = await getLeaguePlayersAll(league.id);
-      console.log(data);
       return data;
     })
   );

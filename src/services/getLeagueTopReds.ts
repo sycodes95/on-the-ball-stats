@@ -9,7 +9,6 @@ export const getLeagueTopReds  = (leagueID: number) => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data)
     if(data) return data
   })
 }

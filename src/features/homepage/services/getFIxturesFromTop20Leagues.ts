@@ -8,6 +8,5 @@ export const getFixturesFromTop20Leagues = async () => {
       return data.response;
     })
   );
-    console.log(fixtures);
   return fixtures
 }

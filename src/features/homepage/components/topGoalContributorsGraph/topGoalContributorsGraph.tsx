@@ -10,8 +10,8 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className="flex flex-col w-full gap-2 p-2 text-xs border rounded-md ">
-      <p className="mb-4 text-3xl text-slate-600 font-display">TOP PLAYERS</p>
+    <div className="flex flex-col w-full gap-2 text-xs border rounded-md ">
+      <p className="mb-4 text-2xl text-slate-600 font-display">TOP PLAYERS</p>
       {
       topGoalContributors.map((player: Player, index) => (
         <div className="flex items-center h-6 gap-1 text-xs">
@@ -22,17 +22,17 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
             <img className="h-full rounded-full w-fit" src={player.player.photo} alt="player-photo"/>
             <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>
           </div>
-         
+          
           <div className="relative w-full h-full overflow-hidden">
             <div className="absolute top-0 flex items-center w-0 h-full transition-all duration-500 bg-white"
             style={{width: `
             ${index === 0 ? '100%' : returnContributionWidthPct(player, topGoalContributors)}
             `}}>
-              <div className="flex items-center justify-center h-full bg-blue-300"
+              <div className="flex items-center justify-center h-full font-semibold bg-blue-300"
               style={{width: returnSubContributionWidthPct(player.statistics[0].goals.total + player.statistics[0].goals.assists, player.statistics[0].goals.total)}}> 
               {player.statistics[0].goals.total}
               </div>
-              <div className="flex items-center justify-center h-full bg-green-300"
+              <div className="flex items-center justify-center h-full font-semibold bg-green-300"
               style={{width: returnSubContributionWidthPct(player.statistics[0].goals.total + player.statistics[0].goals.assists, player.statistics[0].goals.assists)}}> 
               {player.statistics[0].goals.assists}
               </div>

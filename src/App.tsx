@@ -3,8 +3,10 @@ import './App.css'
 import Header from './components/header/header';
 import Leagues from './pages/leagues';
 import Footer from './components/footer/footer';
-import LeagueDetails from './pages/leagueDetails';
-import Overall from './pages/overall';
+import LeagueDetails from './pages/leagueStats';
+import Overall from './pages/homepage';
+import LeagueStats from './pages/leagueStats';
+import Homepage from './pages/homepage';
 
 function App() {
 
@@ -16,9 +18,9 @@ function App() {
         <Header/>
         <div className='flex flex-grow w-full max-w-5xl'>
         <Routes>
-          <Route path='/' element={<Overall/>}/> 
+          <Route path='/' element={<Homepage/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>
-          <Route path='/leagues/:leagueID' element={<LeagueDetails/>}/>
+          <Route path='/leagues/:leagueID' element={<LeagueStats/>}/>
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}
         </Routes>

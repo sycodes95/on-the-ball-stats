@@ -14,7 +14,7 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
 
   },[])
   return (
-    <div className="flex flex-col w-full gap-2 p-2 text-xs border rounded-md ">
+    <div className="flex flex-col w-full gap-2 text-xs border rounded-md ">
       <p className="mb-4 text-3xl text-slate-600 font-display">TOP {cardType} CARDS</p>
       <div className="flex flex-col gap-1">
       {

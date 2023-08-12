@@ -3,21 +3,22 @@ import { top5Leagues } from "../constants/top5Leagues";
 import { getLeagueTopScorers } from "../services/getLeagueTopScorers";
 import { Player } from "../types/types";
 import { ResponsiveBar, ResponsiveBarCanvas } from "@nivo/bar";
-import { getTopGoalContributors, getTopPlayers } from "../features/overall/services/getTopGoalContributors";
-import { getTopDefenders } from "../features/overall/services/getTopDefenders";
+import { getTopGoalContributors, getTopPlayers } from "../features/homepage/services/getTopGoalContributors";
+import { getTopDefenders } from "../features/homepage/services/getTopDefenders";
 import { getLeagueTopYellows } from "../services/getLeagueTopYellows";
-import { getTopYellows } from "../features/overall/services/getTopYellows";
-import TopGoalContributorsGraph from "../features/overall/components/topGoalContributorsGraph/topGoalContributorsGraph";
-import TopYellowsGraph from "../features/overall/components/topCards/topCards";
-import { getTopReds } from "../features/overall/services/getTopReds";
-import TopCardsGraph from "../features/overall/components/topCards/topCards";
-import { getFixturesFromTop20Leagues } from "../features/overall/services/getFIxturesFromTop20Leagues";
+import { getTopYellows } from "../features/homepage/services/getTopYellows";
+import TopGoalContributorsGraph from "../features/homepage/components/topGoalContributorsGraph/topGoalContributorsGraph";
+import TopYellowsGraph from "../features/homepage/components/topCards/topCards";
+import { getTopReds } from "../features/homepage/services/getTopReds";
+import TopCardsGraph from "../features/homepage/components/topCards/topCards";
+import { getFixturesFromTop20Leagues } from "../features/homepage/services/getFIxturesFromTop20Leagues";
 import { getFixturesByDate, getLeagueFixtures } from "../services/getFIxturesByDate";
-import Fixtures from "../features/overall/components/fixtures/fixtures";
-import { Fixture } from "../features/overall/types/types";
-import '../features/overall/styles.css'
+import Fixtures from "../features/homepage/components/fixtures/fixtures";
+import { Fixture } from "../features/homepage/types/types";
+import '../features/homepage/styles.css'
+import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
 
-function Overall () {
+function Homepage () {
 
   // const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([])
   const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([]);
@@ -54,12 +55,12 @@ function Overall () {
 
   useEffect(()=> {
    
-    console.log(fixtures);
   },[topGoalContributors, topYellows, fixtures])
 
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-primary">
       <Fixtures fixtures={fixtures}/>
+      <YoutubeFootball />
       <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
       <div className="flex flex-col gap-4 md:flex-row">
       <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
@@ -72,4 +73,4 @@ function Overall () {
   )
 }
 
-export default Overall;
+export default Homepage;

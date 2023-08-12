@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getLeagueTopScorers } from "../services/getLeagueTopScorers";
-import { getLeagueInfo } from "../features/leagueDetails/services/getLeagueInfo";
-import LeagueHeader from "../features/leagueDetails/components/leagueHeader/leagueHeader";
+import { getLeagueInfo } from "../features/leagueStats/services/getLeagueInfo";
+import LeagueHeader from "../features/leagueStats/components/leagueHeader/leagueHeader";
 import { League } from "./leagues";
-import LeagueTopScorers from "../features/leagueDetails/components/leagueTopScorers/leagueTopScorers";
-import { TeamStanding } from "../features/leagueDetails/types/types";
-import { getLeagueTopAssists } from "../features/leagueDetails/services/getLeagueTopAssists";
-import LeagueTopAssists from "../features/leagueDetails/components/leagueTopAssists/leagueTopAssists";
-import { getLeagueTeamStandings } from "../features/leagueDetails/services/getLeagueTeamStandings";
-import LeagueTeamStandings from "../features/leagueDetails/components/leagueTeamStandings/leagueTeamStandings";
-import '../features/leagueDetails/styles/styles.css'
+import LeagueTopScorers from "../features/leagueStats/components/leagueTopScorers/leagueTopScorers";
+import { TeamStanding } from "../features/leagueStats/types/types";
+import { getLeagueTopAssists } from "../features/leagueStats/services/getLeagueTopAssists";
+import LeagueTopAssists from "../features/leagueStats/components/leagueTopAssists/leagueTopAssists";
+import { getLeagueTeamStandings } from "../features/leagueStats/services/getLeagueTeamStandings";
+import LeagueTeamStandings from "../features/leagueStats/components/leagueTeamStandings/leagueTeamStandings";
+import '../features/leagueStats/styles/styles.css'
 import { Player } from "../types/types";
 
-function LeagueDetails () {
+function LeagueStats () {
   const [loading, setLoading] = useState(true);
   const [leagueTopScorers, setLeagueTopScorers] = useState<Player[]>([])
   const [leagueTopAssists, setLeagueTopAssists] = useState<Player[]>([])
@@ -40,7 +40,6 @@ function LeagueDetails () {
   }, [leagueID]);
   
   useEffect(()=> {
-    console.log(leagueTeamStandings);
   },[leagueTeamStandings])
   return (
     <div className="flex flex-col w-full pb-16 text-black">
@@ -65,4 +64,4 @@ function LeagueDetails () {
     </div>
   )
 }
-export default LeagueDetails;
+export default LeagueStats;
