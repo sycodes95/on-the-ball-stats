@@ -46,7 +46,7 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
       fixtureStatus.short === 'PEN' && 
       <div className="flex gap-2">
         <p className="text-orange-600">{fixturePenalties.home}</p>
-        <p>FT PEN</p>
+        <p className="text-center">FT PEN</p>
         <p className="text-orange-600">{fixturePenalties.away}</p>
       </div>
       }
