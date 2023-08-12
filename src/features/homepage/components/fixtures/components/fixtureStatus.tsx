@@ -43,6 +43,10 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
       fixtureStatus.short === 'AET' && 
       <p>AET</p>
       }
+      {
+      fixtureStatus.short === 'PST' && 
+      <p className="text-orange-600">Postponed</p>
+      }
 
       {
       fixtureStatus.short === 'PEN' && 
@@ -57,6 +61,7 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
       fixtureStatus.short !== 'NS' && 
       fixtureStatus.short !== 'AET' &&
       fixtureStatus.short !== 'PEN' &&
+      fixtureStatus.short !== 'PST' &&
       <div className="flex items-center justify-center w-full gap-2 ">
         <p className="w-2 h-2 bg-red-600 rounded-full"></p>
         <p>Live</p>

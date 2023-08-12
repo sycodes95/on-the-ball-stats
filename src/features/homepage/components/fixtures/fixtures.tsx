@@ -17,13 +17,7 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
   const [fixturesDay, setFixturesDay] = useState('today')
 
   useEffect(()=> {
-    const fixtureDate = new Date();
-    // if(fixturesDay === 'yesterday'){
-    //   fixtureDate.setDate(fixtureDate.getDate() - 1);
-    // } else if (fixturesDay === 'tomorrow'){
-    //   fixtureDate.setDate(fixtureDate.getDate() + 1);
-    // }
-    console.log(fixtureDate);
+    console.log(fixtures);
     getFixturesByDate(fixturesDay).then(fixtures => setFixtures(fixtures))
   },[fixturesDay])
 
