@@ -26,11 +26,14 @@ function Fixtures ({fixtures} : FixturesProps) {
               
               <FixtureLeagueInfo leagueLogo={fixture.league.logo} leagueName={fixture.league.name}/>
               
-              <div className="justify-center w-full h-full gap-4 fixture-grid"> 
+              <div className="justify-center w-full h-full gap-2 fixture-grid"> 
                 <FixtureTeam teamLogo={fixture.teams.home.logo} teamName={fixture.teams.home.name} side={`home`}/>
                 
                 <div className="flex flex-col items-center justify-center w-full gap-2">
-                  <FixtureStatus  fixtureStatus={fixture.fixture.status} fixtureDate={fixture.fixture.date}/>
+                  <FixtureStatus  
+                  fixtureStatus={fixture.fixture.status} 
+                  fixtureDate={fixture.fixture.date} 
+                  fixturePenalties={fixture.score.penalty}/>
                   {
                     typeof fixture.goals.home === 'number' && typeof fixture.goals.away === 'number' &&
                     <FixtureScore homeGoals={fixture.goals.home} awayGoals={fixture.goals.away}/>
@@ -50,7 +53,7 @@ function Fixtures ({fixtures} : FixturesProps) {
     {
     fixtures.length > fixturesToDisplay && 
     <div className="w-full">
-      <button className="w-full h-8 text-xl text-white rounded-sm bg-opacity-70 bg-primary font-display" onClick={()=> setFixturesToDisplay(() => fixturesToDisplay + defaultFixturesToDisplay)}>
+      <button className="w-full h-8 text-xl text-white bg-opacity-50 rounded-sm bg-primary font-display" onClick={()=> setFixturesToDisplay(() => fixturesToDisplay + defaultFixturesToDisplay)}>
         SHOW MORE
       </button>
     </div>    
@@ -59,7 +62,7 @@ function Fixtures ({fixtures} : FixturesProps) {
     {
     (defaultFixturesToDisplay * 2) <= fixturesToDisplay && 
     <div className="w-full">
-      <button className="w-full h-8 text-xl text-white rounded-sm bg-opacity-70 bg-primary font-display" onClick={()=> setFixturesToDisplay(() => defaultFixturesToDisplay)}>
+      <button className="w-full h-8 text-xl text-white bg-opacity-50 rounded-sm bg-primary font-display" onClick={()=> setFixturesToDisplay(() => defaultFixturesToDisplay)}>
         SHOW LESS
       </button>
     </div>

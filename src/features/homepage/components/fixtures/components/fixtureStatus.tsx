@@ -7,12 +7,16 @@ type FixtureStatusProps = {
     elapsed: number | null;
     long: string | null;
     short: string | null;
-  },
+  };
   fixtureDate: string;
+  fixturePenalties: {
+    home: number | null;
+    away: number | null;
+  };
 }
 
 
-function FixtureStatus ({ fixtureStatus, fixtureDate }: FixtureStatusProps) {
+function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: FixtureStatusProps) {
   const [timeUntilFixtureStart, setTimeUntilFixtureStart] = useState< null | string >(null)
   
   const fixtureStartDate = new Date(fixtureDate)
@@ -37,17 +41,28 @@ function FixtureStatus ({ fixtureStatus, fixtureDate }: FixtureStatusProps) {
       fixtureStatus.short === 'AET' && 
       <p>AET</p>
       }
+
       {
-      fixtureStatus.short !== 'FT' && fixtureStatus.short !== 'NS' && fixtureStatus.short !== 'AET' &&
+      fixtureStatus.short === 'PEN' && 
+      <div className="flex gap-2">
+        <p className="text-orange-600">{fixturePenalties.home}</p>
+        <p>FT PEN</p>
+        <p className="text-orange-600">{fixturePenalties.away}</p>
+      </div>
+      }
+      {
+      fixtureStatus.short !== 'FT' && 
+      fixtureStatus.short !== 'NS' && 
+      fixtureStatus.short !== 'AET' &&
+      fixtureStatus.short !== 'PEN' &&
       <div className="flex items-center justify-center w-full gap-2 ">
         <p className="w-2 h-2 bg-red-600 rounded-full"></p>
         <p>Live</p>
       </div>
-      
       }
       {
       fixtureStatus.short === 'NS' && 
-      <p>Starts in {timeUntilFixtureStart}</p>
+      <p className="text-center">Kickoff in {timeUntilFixtureStart}</p>
       }
     </div>
   )
