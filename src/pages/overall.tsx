@@ -15,6 +15,7 @@ import { getFixturesFromTop20Leagues } from "../features/overall/services/getFIx
 import { getFixturesByDate, getLeagueFixtures } from "../services/getFIxturesByDate";
 import Fixtures from "../features/overall/components/fixtures/fixtures";
 import { Fixture } from "../features/overall/types/types";
+import '../features/overall/styles.css'
 
 function Overall () {
 
@@ -27,12 +28,27 @@ function Overall () {
 
 
   useEffect(()=>{
+    
+    Promise.all([
+      getTopGoalContributors(),
+      getTopYellows(), 
+      getTopReds(), 
+      getFixturesByDate()
+    ])
+    .then(([topPlayers, topYellows, topReds, fixtures]) => {
+      setTopGoalContributors(topPlayers);
+      setTopYellows(topYellows);
+      setTopReds(topReds);
+      setFixtures(fixtures);
+    })
+    
     // document.documentElement.classList.add('dark')
+    
+    // getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
+    // getTopYellows().then(topYellows => setTopYellows(topYellows))
+    // getTopReds().then(topReds => setTopReds(topReds))
+    // getFixturesByDate().then(fixtures => setFixtures(fixtures))
 
-    getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
-    getTopYellows().then(topYellows => setTopYellows(topYellows))
-    getTopReds().then(topReds => setTopReds(topReds))
-    getFixturesByDate().then(fixtures => setFixtures(fixtures))
     // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 

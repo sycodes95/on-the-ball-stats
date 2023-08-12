@@ -41,7 +41,7 @@ export const getFixturesByDate = () => {
   const yesterdayFormatted = format(today,'yyyy-MM-dd');
   const todayFormatted = format(today,'yyyy-MM-dd');
   const tomorrowFormatted = format(tomorrow,'yyyy-MM-dd');
-  return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${tomorrowFormatted}`,{
+  return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${yesterdayFormatted}`,{
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
       'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
