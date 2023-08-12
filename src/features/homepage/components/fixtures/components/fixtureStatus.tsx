@@ -18,19 +18,21 @@ type FixtureStatusProps = {
 
 function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: FixtureStatusProps) {
   const [timeUntilFixtureStart, setTimeUntilFixtureStart] = useState< null | string >(null)
+  useEffect(()=> {
+
+  },[])
   
-  const fixtureStartDate = new Date(fixtureDate)
-  const userCurrentDate = new Date()
   console.log(fixtureDate);
   useEffect(()=> {
     if(fixtureStatus.short === 'NS') {
       console.log(timeUntilFixtureStart);
+      const fixtureStartDate = new Date(fixtureDate)
+      const userCurrentDate = new Date()
       setTimeUntilFixtureStart(getTimeDifference(fixtureStartDate, userCurrentDate))
     }
-  },[])
+  },[fixtureStatus])
 
-  console.log(fixtureStartDate);
-  console.log(userCurrentDate);
+ 
   return (
     <div className="flex items-center">
       {

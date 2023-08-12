@@ -59,7 +59,7 @@ function Homepage () {
 
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-primary">
-      <Fixtures fixtures={fixtures}/>
+      <Fixtures fixtures={fixtures} setFixtures={setFixtures}/>
       <YoutubeFootball />
       <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
       <div className="flex flex-col gap-4 md:flex-row">

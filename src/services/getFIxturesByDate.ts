@@ -4,15 +4,20 @@ import { Fixture } from '../features/homepage/types/types';
 import { timeZone } from './getTimeZone';
 import { formatYMD } from '../utils/formatYMD';
 
-export const getFixturesByDate = () => {
-  const today = new Date();
-  const yesterday = new Date(today)
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  yesterday.setDate(today.getDate() - 1 )
+export const getFixturesByDate = (fixtureDay: string) => {
+  
+  
+  const day = new Date;
+
+  if(fixtureDay === 'yesterday') {
+    day.setDate(day.getDate() - 1)
+  } else if (fixtureDay === 'tomorrow'){
+    day.setDate(day.getDate() + 1)
+  } 
+  
   // const season = today.getFullYear() - 1;
   
-  return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${formatYMD(today)}&timezone=${timeZone}`,{
+  return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${formatYMD(day)}&timezone=${timeZone}`,{
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
       'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
