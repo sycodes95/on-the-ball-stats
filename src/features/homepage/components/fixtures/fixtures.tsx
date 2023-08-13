@@ -4,7 +4,7 @@ import FixtureLeagueInfo from "./components/fixtureLeagueInfo";
 import FixtureScore from "./components/fixtureScore";
 import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
-import { getFixturesByDate } from "../../../../services/getFIxturesByDate";
+import { getFixturesByDate } from "../../../../services/getFixturesByDate";
 import { Oval, RotatingSquare } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 

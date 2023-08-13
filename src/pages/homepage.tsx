@@ -12,7 +12,7 @@ import TopYellowsGraph from "../features/homepage/components/topCards/topCards";
 import { getTopReds } from "../features/homepage/services/getTopReds";
 import TopCardsGraph from "../features/homepage/components/topCards/topCards";
 import { getFixturesFromTop20Leagues } from "../features/homepage/services/getFIxturesFromTop20Leagues";
-import { getFixturesByDate, getLeagueFixtures } from "../services/getFIxturesByDate";
+import { getFixturesByDate, getLeagueFixtures } from "../services/getFixturesByDate";
 import Fixtures from "../features/homepage/components/fixtures/fixtures";
 import { Fixture } from "../features/homepage/types/types";
 import '../features/homepage/styles.css'
