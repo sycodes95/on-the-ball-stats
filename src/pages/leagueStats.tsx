@@ -20,14 +20,14 @@ function LeagueStats () {
   const [leagueTeamStandings, setLeagueTeamStandings] = useState<TeamStanding[]>([])
   const [leagueInfo, setLeagueInfo] = useState<League | null>(null)
 
-  const { leagueID } = useParams()
+  const { leagueId } = useParams()
 
   useEffect(() => {
     Promise.all([
-      getLeagueInfo(Number(leagueID)),
-      getLeagueTopScorers(Number(leagueID)),
-      getLeagueTopAssists(Number(leagueID)),
-      getLeagueTeamStandings(Number(leagueID)),
+      getLeagueInfo(Number(leagueId)),
+      getLeagueTopScorers(Number(leagueId)),
+      getLeagueTopAssists(Number(leagueId)),
+      getLeagueTeamStandings(Number(leagueId)),
     ])
     .then(([infoData, topScorersData, topAssistsData, teamStandingsData]) => {
       setLeagueInfo(infoData.response[0]);
@@ -37,7 +37,7 @@ function LeagueStats () {
       setLoading(false); // Set loading to false after all fetches are complete
     })
     .catch((err) => console.error(err));
-  }, [leagueID]);
+  }, [leagueId]);
   
   useEffect(()=> {
   },[leagueTeamStandings])
@@ -54,7 +54,7 @@ function LeagueStats () {
       {
       !loading &&
       <>
-      <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueID={Number(leagueID)}/>
+      <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueID={Number(leagueId)}/>
       <LeagueTopScorers leagueTopScorers={leagueTopScorers} />
       <LeagueTopAssists leagueTopAssists={leagueTopAssists} />
       </>

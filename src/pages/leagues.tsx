@@ -45,7 +45,7 @@ function Leagues () {
       !isLoading && leagues && leagues.length &&
       leagues.map((data, index) => (
         <LeagueLink 
-        leagueID={data.league.id}
+        leagueId={data.league.id}
         leagueName={data.league.name} 
         leagueLogo={data.league.logo} 
         countryFlag={data.country.flag}

@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
 type LeagueLinkProps = {
-  leagueID: number;
+  leagueId: number;
   leagueName: string;
   leagueLogo: string;
   countryFlag: string;
 };
 
-function LeagueLink ({ leagueID, leagueName, leagueLogo, countryFlag }: LeagueLinkProps) {
+function LeagueLink ({ leagueId, leagueName, leagueLogo, countryFlag }: LeagueLinkProps) {
   
   return (
-    <Link className="flex items-center justify-between gap-2 p-2 rounded-md shadow-md shadow-slate-300 hover:cursor-pointer hover:bg-gray-300 hover:bg-opacity-80" to={`/leagues/${leagueID}`}>
+    <Link className="flex items-center justify-between gap-2 p-2 rounded-md shadow-md shadow-slate-300 hover:cursor-pointer hover:bg-gray-300 hover:bg-opacity-80" to={`/leagues/${leagueId}`}>
       <div className="flex items-center gap-2">
         
         <div className="flex justify-center w-16 h-10">
