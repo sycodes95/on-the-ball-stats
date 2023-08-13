@@ -1,4 +1,4 @@
-export const formatYMDHMS = (date: Date) => {
+export const formatYMDHMS = (date: Date): Date => {
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',

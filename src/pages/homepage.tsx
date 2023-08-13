@@ -30,27 +30,31 @@ function Homepage () {
 
   useEffect(()=>{
     
+    // Promise.all([
+    //   getTopGoalContributors(),
+    //   getTopYellows(), 
+    //   getTopReds(), 
+    //   getFixturesByDate()
+    // ])
+    // .then(([topPlayers, topYellows, topReds, fixtures]) => {
+    //   setTopGoalContributors(topPlayers);
+    //   setTopYellows(topYellows);
+    //   setTopReds(topReds);
+    //   setFixtures(fixtures);
+    // })
+
     Promise.all([
       getTopGoalContributors(),
       getTopYellows(), 
       getTopReds(), 
-      getFixturesByDate()
     ])
-    .then(([topPlayers, topYellows, topReds, fixtures]) => {
+    .then(([topPlayers, topYellows, topReds ]) => {
       setTopGoalContributors(topPlayers);
       setTopYellows(topYellows);
       setTopReds(topReds);
-      setFixtures(fixtures);
     })
     
-    // document.documentElement.classList.add('dark')
     
-    // getTopGoalContributors().then(topPlayers => setTopGoalContributors(topPlayers))
-    // getTopYellows().then(topYellows => setTopYellows(topYellows))
-    // getTopReds().then(topReds => setTopReds(topReds))
-    // getFixturesByDate().then(fixtures => setFixtures(fixtures))
-
-    // getTopDefenders().then(topPlayers => setTopDefenders(topPlayers))
   },[])
 
   useEffect(()=> {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { formatYMDHMS } from "../../../../../utils/formatYMDHMS";
 import { getTimeDifference } from "../../../../../utils/getTImeDIfference";
 
 type FixtureStatusProps = {

@@ -10,11 +10,15 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className="flex flex-col w-full gap-2 text-xs border rounded-md ">
-      <p className="mb-4 text-2xl text-slate-600 font-display">TOP PLAYERS</p>
+    <div className="flex flex-col w-full gap-2 text-xs rounded-md">
+      <p className="text-2xl text-slate-600 font-display">TOP PLAYERS</p>
+
+      <div className="flex flex-col gap-2 pt-4 rounded-md ">
+
+      
       {
       topGoalContributors.map((player: Player, index) => (
-        <div className="flex items-center h-6 gap-1 text-xs">
+        <div className="flex items-center h-6 gap-1 text-xs border">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <ListClubImage src={player.statistics[0].team.logo}/>
@@ -46,23 +50,24 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
       ))
       }
       <div className="flex items-center gap-4 p-2">
-          <div className="flex items-center gap-2">
-            <p className="w-4 h-4 bg-blue-300"></p>
-            <p>Goals</p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <p className="w-4 h-4 bg-green-300"></p>
-            <p>Assists</p>
-          </div>
-
-          <div className="items-center hidden gap-2 md:flex">
-            <p className="w-4 h-4 bg-orange-400"></p>
-            <p>Total Contributions</p>
-          </div>
-          
+        <div className="flex items-center gap-2">
+          <p className="w-4 h-4 bg-blue-300"></p>
+          <p>Goals</p>
         </div>
+
+        <div className="flex items-center gap-2">
+          <p className="w-4 h-4 bg-green-300"></p>
+          <p>Assists</p>
+        </div>
+
+        <div className="items-center hidden gap-2 md:flex">
+          <p className="w-4 h-4 bg-orange-400"></p>
+          <p>Total Contributions</p>
+        </div>
+        
       </div>
+    </div>
+  </div>
   )
 }
 
