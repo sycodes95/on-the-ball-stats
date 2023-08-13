@@ -6,6 +6,7 @@ import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
 import { getFixturesByDate } from "../../../../services/getFIxturesByDate";
 import { Oval, RotatingSquare } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 type FixturesProps = {
   fixtures: Fixture[];
@@ -59,12 +60,14 @@ function Fixtures () {
       </div>
 
       
-      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2">
+      <div className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2">
       {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <li className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border rounded-sm shadow-md h-28 border-slate-300 shadow-slate-300 text-primary hover:cursor-pointer hover:bg-slate-300 hover:bg-opacity-70" >
+            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border rounded-sm shadow-md h-28 border-slate-300 shadow-slate-300 text-primary hover:cursor-pointer hover:bg-slate-300 hover:bg-opacity-70"
+            to={`/fixture-statistics/${fixture.fixture.id}`}
+            >
               
               <FixtureLeagueInfo 
               leagueLogo={fixture.league.logo} 
@@ -94,12 +97,12 @@ function Fixtures () {
                 teamName={fixture.teams.away.name} 
                 side={`away`}/>
               </div>
-            </li>
+            </Link>
           )
         }
       })
       }
-    </ul>
+    </div>
     
     <div className="flex flex-col w-full gap-2">
       {
