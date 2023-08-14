@@ -23,7 +23,7 @@ function FixtureStats () {
   const { fixtureId } = useParams()
   const [fixture, setFixture] = useState<Fixture | null>(null)
   const [fixtureViewMode, setFixtureViewMode ] = useState(fixtureViewModeOptions[0])
-  const [head2HeadFixtures, setHead2HeadFixtures] = useState<Fixture[]>([])
+  const [head2HeadFixtures, setHead2HeadFixtures] = useState<Fixture[] | null>(null)
   useEffect(()=> {
     getFixturesById(Number(fixtureId)).then(fixture => setFixture(fixture))
   },[])
@@ -91,7 +91,13 @@ function FixtureStats () {
 
       <div className="flex flex-col justify-center w-full gap-2 p-2 rounded-sm border-slate-300">
       {
-      head2HeadFixtures.length > 0 && fixtureViewMode === 'H2H' &&
+      head2HeadFixtures && head2HeadFixtures.length === 0 &&
+      <div className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300">
+        No previous matches between teams.
+      </div>
+      }
+      {
+      head2HeadFixtures && head2HeadFixtures.length > 0 && fixtureViewMode === 'H2H' &&
       head2HeadFixtures.map((fixture, index) => {
         if(new Date(fixture.fixture.date) < new Date()){
           return (
@@ -108,20 +114,26 @@ function FixtureStats () {
 
               <div className="items-center justify-center hidden gap-2 whitespace-nowrap md:flex">
                 <span className="flex justify-end min-w-fit w-44">{fixture.teams.home.name}</span>
-                <span className="flex items-center justify-center w-12 pl-2 pr-2 font-semibold text-white rounded-md bg-slate-400">{fixture.goals.home} - {fixture.goals.away}</span>
+                <div className="flex items-center justify-center w-12 gap-1 pl-2 pr-2 font-semibold text-white rounded-md bg-slate-400">
+                  <span>{fixture.goals.home}</span>  
+                  <span>-</span>
+                  <span>{fixture.goals.away}</span>
+                </div>
                 <span className="flex justify-start w-44 min-w-fit">{fixture.teams.away.name}</span>
               </div>
 
               <div className="flex items-center justify-center gap-2 whitespace-nowrap md:hidden">
+
                 <div className="flex flex-col items-center w-4 p-1 rounded-md bg-slate-400">
                   <span className="justify-center font-semibold text-white rounded-md">{fixture.goals.home}</span>
                   <span className="justify-center font-semibold text-white rounded-md">{fixture.goals.away}</span>
-
                 </div>
+
                 <div className="flex flex-col gap-1">
                   <span className="flex justify-start min-w-fit md:w-44">{fixture.teams.home.name}</span>
                   <span className="flex justify-start md:w-44 min-w-fit">{fixture.teams.away.name}</span>
                 </div>
+                
               </div>
               
             </div>
