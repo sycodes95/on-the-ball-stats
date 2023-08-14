@@ -8,6 +8,8 @@ import { getFixturesByDate } from "../../../../services/getFixturesByDate";
 import { RotatingSquare } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import FixtureHeader from "./components/fixtureLeagueInfo";
+import ShowMoreButton from "../../../../components/ui/showMoreButton";
+import ShowLessButton from "../../../../components/ui/showLessButton";
 
 function Fixtures () {
   const defaultfixturesDisplayAmount : number = 6
@@ -112,20 +114,11 @@ function Fixtures () {
     <div className="flex flex-col w-full gap-2">
       {
       fixtures.length > fixturesDisplayAmount && 
-      <div className="w-full">
-        <button className="w-full h-8 text-xl border rounded-sm shadow-md shadow-slate-300 text-slate-400 border-slate-300 font-display hover:bg-slate-300 hover:bg-opacity-70" onClick={()=> setFixturesDisplayAmount(() => fixturesDisplayAmount + defaultfixturesDisplayAmount)}>
-          SHOW MORE
-        </button>
-      </div>    
+      <ShowMoreButton onClick={()=> setFixturesDisplayAmount(() => fixturesDisplayAmount + defaultfixturesDisplayAmount)}/>
       }
-
       {
       (defaultfixturesDisplayAmount * 2) <= fixturesDisplayAmount && 
-      <div className="w-full">
-        <button className="w-full h-8 text-xl border rounded-sm shadow-md shadow-slate-300 text-slate-400 border-slate-300 font-display hover:bg-slate-300 hover:bg-opacity-70" onClick={()=> setFixturesDisplayAmount(() => defaultfixturesDisplayAmount)}>
-          SHOW LESS
-        </button>
-      </div>
+      <ShowLessButton onClick={()=> setFixturesDisplayAmount(() => defaultfixturesDisplayAmount)}/>
       }
     </div>
     
