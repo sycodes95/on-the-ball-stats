@@ -75,6 +75,7 @@ function Fixtures () {
               <FixtureHeader
               leagueLogo={fixture.league.logo} 
               leagueName={fixture.league.name}
+              countryFlag={fixture.league.flag}
               />
 
               </div>

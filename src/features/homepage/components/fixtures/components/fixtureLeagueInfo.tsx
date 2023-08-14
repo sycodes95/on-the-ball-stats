@@ -1,19 +1,25 @@
 type FixtureHeaderProps = {
   leagueLogo: string;
   leagueName: string;
+  countryFlag: string;
 }
 
-function FixtureHeader ({leagueLogo, leagueName} : FixtureHeaderProps) {
+function FixtureHeader ({leagueLogo, leagueName, countryFlag} : FixtureHeaderProps) {
   return (
     <div className="flex justify-between w-full gap-2">
 
       <div className="flex items-center gap-2">
-        <div className="relative w-6 h-6 overflow-hidden">
-          <img className="object-contain w-full h-full" src={leagueLogo} alt="team-icon"/>
+        <div className="relative flex w-full gap-1 overflow-hidden">
+          <img className="object-contain w-4 h-4" src={leagueLogo} alt="team-icon"/>
+          <p className="flex items-center pl-2 pr-2 text-xs font-semibold rounded-md ">{leagueName.toUpperCase()}</p>
         </div>
-        <p className="flex items-center pl-2 pr-2 text-xs font-semibold rounded-md ">{leagueName.toUpperCase()}</p>
       </div>
-
+      {
+      countryFlag &&
+      <div>
+        <img className="object-contain w-4 h-4 rounded-md" src={countryFlag} alt="" />
+      </div>
+      }
       
     </div>
   )

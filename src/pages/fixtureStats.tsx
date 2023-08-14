@@ -47,7 +47,9 @@ function FixtureStats () {
       <div className="flex flex-col w-full gap-2 p-2 border rounded-sm shadow-md border-slate-300 bg-slate-300 bg-opacity-70 shadow-slate-300">
         <FixtureLeagueInfo 
         leagueLogo={fixture.league.logo} 
-        leagueName={fixture.league.name}/>
+        leagueName={fixture.league.name}
+        countryFlag={fixture.league.flag}/>
+        
         
         <div className="justify-center w-full h-full gap-2 fixture-grid"> 
           <FixtureTeam 
@@ -101,7 +103,7 @@ function FixtureStats () {
       head2HeadFixtures.map((fixture, index) => {
         if(new Date(fixture.fixture.date) < new Date()){
           return (
-            <div className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300">
+            <div className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300" key={index}>
               <div className="flex items-center gap-2 md:w-32">
                 <img className="object-contain w-4 h-4" src={fixture.league.logo} />
                 <span className="hidden md:flex">{fixture.league.name}</span>
