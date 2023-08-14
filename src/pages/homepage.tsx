@@ -25,7 +25,6 @@ function Homepage () {
   const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
-  const [fixtures, setFixtures] = useState<Fixture[]>([])
 
 
   useEffect(()=>{
@@ -59,11 +58,11 @@ function Homepage () {
 
   useEffect(()=> {
    
-  },[topGoalContributors, topYellows, fixtures])
+  },[topGoalContributors, topYellows])
 
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-primary">
-      <Fixtures fixtures={fixtures} setFixtures={setFixtures}/>
+      <Fixtures />
       <YoutubeFootball />
       <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
       <div className="flex flex-col gap-4 md:flex-row">

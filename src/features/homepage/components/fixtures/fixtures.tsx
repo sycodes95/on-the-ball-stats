@@ -5,13 +5,9 @@ import FixtureScore from "./components/fixtureScore";
 import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
 import { getFixturesByDate } from "../../../../services/getFixturesByDate";
-import { Oval, RotatingSquare } from "react-loader-spinner";
+import { RotatingSquare } from "react-loader-spinner";
 import { Link } from "react-router-dom";
-
-type FixturesProps = {
-  fixtures: Fixture[];
-  setFixtures: (fixtures: Fixture[]) => void;
-}
+import FixtureHeader from "./components/fixtureLeagueInfo";
 
 function Fixtures () {
   const defaultfixturesDisplayAmount : number = 6
@@ -19,6 +15,12 @@ function Fixtures () {
   const [fixturesDisplayAmount, setFixturesDisplayAmount] = useState(defaultfixturesDisplayAmount)
   const [fixturesDay, setFixturesDay] = useState('today')
   const [isLoading, setIsLoading] = useState(false)
+
+  const fixturesDayOptions = [
+    'yesterday',
+    'today',
+    'tomorrow'
+  ]
 
   useEffect(()=> {
     setIsLoading(true)
@@ -32,17 +34,16 @@ function Fixtures () {
     <div className="flex flex-col gap-4">
       <p className="w-full text-2xl rounded-sm font-display">FIXTURES</p>
       <div className="flex items-center gap-2">
-        <div className="flex gap-2 text-xs border rounded-sm w-fit border-slate-300">
-          <button className={`p-2 w-20 ${fixturesDay === 'yesterday' && 'bg-slate-300'}`}
-          onClick={()=> setFixturesDay('yesterday')}
-          >Yesterday</button>
+        <div className="flex gap-2 text-xs font-semibold w-fit">
+          {
+          fixturesDayOptions.map((day, index) => (
           <button 
-          className={`p-2 w-20 ${fixturesDay === 'today' && 'bg-slate-300'}`} 
-          onClick={()=> setFixturesDay('today')}
-          >Today</button>
-          <button className={`p-2 w-20 ${fixturesDay === 'tomorrow' && 'bg-slate-300'}`}
-          onClick={()=> setFixturesDay('tomorrow')}
-          >Tomorrow</button>
+          className={`border border-slate-300 text-primary rounded-sm p-2 w-20 ${fixturesDay === day && 'bg-slate-300 '}`}
+          onClick={()=> setFixturesDay(day)}
+          key={index}
+          >{`${day.charAt(0).toUpperCase()}${day.slice(1)}`}</button> 
+          ))
+          }
         </div>
         {
         isLoading && 
@@ -65,13 +66,17 @@ function Fixtures () {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border rounded-sm shadow-md h-28 border-slate-300 shadow-slate-300 text-primary hover:cursor-pointer hover:bg-slate-300 hover:bg-opacity-70"
+            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border rounded-sm shadow-md h-28 border-slate-300 shadow-slate-300 text-primary hover:cursor-pointer hover:bg-emerald-100 hover:bg-opacity-70"
             to={`/fixture-statistics/${fixture.fixture.id}`}
             >
-              
-              <FixtureLeagueInfo 
+              <div className="flex items-center justify-between w-full">
+              <FixtureHeader
               leagueLogo={fixture.league.logo} 
-              leagueName={fixture.league.name}/>
+              leagueName={fixture.league.name}
+              />
+
+              </div>
+              
               
               <div className="justify-center w-full h-full gap-2 fixture-grid"> 
                 <FixtureTeam 

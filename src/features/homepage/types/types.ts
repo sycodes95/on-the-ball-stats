@@ -47,4 +47,5 @@ export type Fixture = {
       winner: null | string;
     };
   };
+  
 }
