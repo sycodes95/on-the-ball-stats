@@ -65,7 +65,7 @@ function Fixtures () {
       <div className={`relative min-h-44 grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 ${isLoading && 'bg-slate-300 bg-opacity-70'}`}>
       
         <div className={`${isLoading ? 'flex' : 'hidden'}
-        bg-slate-300 bg-opacity-50 z-10 absolute top-0 left-0 w-full h-full rounded-sm transition-all items-center justify-center
+        bg-slate-300 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full rounded-sm transition-all items-center justify-center
         `}>
           <div className="z-20 h-fit">
           <Oval
