@@ -8,7 +8,9 @@ import FixtureScore from "../features/homepage/components/fixtures/components/fi
 import { getFixturesH2H } from "../services/getFixturesH2H";
 import FixtureHeader from "../features/homepage/components/fixtures/components/fixtureHeader";
 import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
-
+import StatsView from "../features/fixtureStats/components/statsView/statsView";
+import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
+import '../features/fixtureStats/styles.css'
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
@@ -31,6 +33,7 @@ function FixtureStats () {
         // setheadToHeadFixtures(fixtures.sort((a:string, b:string) => new Date(b.fixture.date) - new Date(a.fixture.date)))
         setheadToHeadFixtures(fixtures)
       })
+      hasFixtureStarted(fixture)
     }
     console.log(fixture);
   },[fixture])
@@ -93,6 +96,10 @@ function FixtureStats () {
       {
       fixtureViewMode === 'HEAD TO HEAD' &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>
+      }
+      {
+      fixtureViewMode === 'STATS' && fixture &&
+      <StatsView fixture={fixture}/>
       }
       
     </div>

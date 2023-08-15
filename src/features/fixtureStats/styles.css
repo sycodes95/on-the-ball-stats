@@ -1,0 +1,5 @@
+.timeline-grid{
+  display: grid;
+  grid-template-columns: 3fr 2rem 3fr;
+  grid-template-rows: 1fr;
+}

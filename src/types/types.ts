@@ -1,91 +1,122 @@
 export type Player = {
   player: {
-    age: number;
-    birth: { 
+    age?: number;
+    birth?: { 
       date: string, 
       place: string, 
       country: string
     };
-    firstname: string;
-    height: string;
+    firstname?: string;
+    height?: string;
     id: number;
-    injured: boolean;
-    lastname: string;
-    name: string;
-    nationality: string;
-    photo: string;
-    weight: string;
+    injured?: boolean;
+    lastname?: string;
+    name?: string;
+    nationality?: string;
+    photo?: string;
+    weight?: string;
   },
   statistics: {
-    cards: {
+    cards?: {
       yellow: number;
       yellowred: number;
       red: number;
     };
-    dribbles: {
+    dribbles?: {
       attempts: number;
       success: number;
       past: null; // Update 'any' with the appropriate type if possible
     };
-    duels: {
+    duels?: {
       total: number;
       won: number;
     };
-    fouls: {
+    fouls?: {
       drawn: number;
       committed: number;
     };
-    games: {
+    games?: {
       appearences: number;
       lineups: number;
       minutes: number;
       number: null | number;
       position: string;
     };
-    goals: {
+    goals?: {
       total: number;
       conceded: number;
       assists: number;
       saves: null | number;
     };
-    league: {
+    league?: {
       id: number;
       name: string;
       country: string;
       logo: string;
       flag: string;
     };
-    passes: {
+    passes?: {
       total: number;
       key: number;
       accuracy: number;
     };
-    penalty: {
+    penalty?: {
       won: null | number;
       commited: null | number;
       scored: number;
       missed: number;
       saved: null | number;
     };
-    shots: {
+    shots?: {
       total: number;
       on: number;
     };
-    substitutes: {
+    substitutes?: {
       in: number;
       out: number;
       bench: number;
     };
-    tackles: {
+    tackles?: {
       total: number;
       blocks: number;
       interceptions: number;
     };
-    team: {
+    team?: {
       id: number;
       logo: string;
       name: string;
-      
     };
   }[]
+}
+
+export type Team = {
+  id: number;
+  logo: string;
+  name: string;
+  update?: string;
+}
+
+export type Lineups = {
+  coach: {
+    id: number;
+    name: string;
+    photo?: string;
+  };
+  formation: string;
+  startXI: {
+    player: {
+      grid: string;
+      id: number;
+      name: string;
+      number: number;
+      pos: string;
+    }
+  }[]
+}
+
+export type FixtureStatistics = {
+  statistics: {
+    [key: string] : [value: number | string]
+  }[]
+  team: Team;
 }

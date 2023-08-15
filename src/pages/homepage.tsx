@@ -17,6 +17,7 @@ import Fixtures from "../features/homepage/components/fixtures/fixtures";
 import { Fixture } from "../features/homepage/types/types";
 import '../features/homepage/styles.css'
 import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
+import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 
 function Homepage () {
 
@@ -25,23 +26,12 @@ function Homepage () {
   const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
 
   useEffect(()=>{
     
-    // Promise.all([
-    //   getTopGoalContributors(),
-    //   getTopYellows(), 
-    //   getTopReds(), 
-    //   getFixturesByDate()
-    // ])
-    // .then(([topPlayers, topYellows, topReds, fixtures]) => {
-    //   setTopGoalContributors(topPlayers);
-    //   setTopYellows(topYellows);
-    //   setTopReds(topReds);
-    //   setFixtures(fixtures);
-    // })
-
+    setIsLoading(true)
     Promise.all([
       getTopGoalContributors(),
       getTopYellows(), 
@@ -51,6 +41,7 @@ function Homepage () {
       setTopGoalContributors(topPlayers);
       setTopYellows(topYellows);
       setTopReds(topReds);
+      setIsLoading(false)
     })
     
     
@@ -61,18 +52,26 @@ function Homepage () {
   },[topGoalContributors, topYellows])
 
   return (
-    <div className="flex flex-col w-full gap-4 p-2 text-primary">
-      <Fixtures />
-      <YoutubeFootball />
-      <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
-      <div className="flex flex-col gap-4 md:flex-row">
-      <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
-      <TopCardsGraph topCards={topReds} cardType="RED"/>
+    <>
+    {
+      isLoading ? 
+      <div className="w-full h-full">
+        <OvalLoadingSpinner />
       </div>
-      
+      :
+      <div className="flex flex-col w-full gap-4 p-2 text-primary">
+        <Fixtures />
+        <YoutubeFootball />
+        <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
+        <div className="flex flex-col gap-4 md:flex-row">
+        <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
+        <TopCardsGraph topCards={topReds} cardType="RED"/>
+        </div>
+      </div>
 
-
-    </div>
+    }
+    </>
+    
   )
 }
 

@@ -62,24 +62,12 @@ function Fixtures () {
       </div>
 
       
-      <div className={`relative min-h-44 grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 ${isLoading && 'bg-slate-300 bg-opacity-70'}`}>
+      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 ${isLoading && 'bg-slate-300 bg-opacity-70'}`}>
       
         <div className={`${isLoading ? 'flex' : 'hidden'}
         bg-slate-300 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full rounded-sm transition-all items-center justify-center
         `}>
-          <div className="z-20 h-fit">
-          <Oval
-          color="#A5B2BE"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-          ariaLabel='oval-loading'
-          secondaryColor="#A9A9A9"
-          strokeWidth={4}
-          strokeWidthSecondary={4}
-          />
-          </div>
-
+          <div className="z-20 h-fit"></div>
         </div>
       {
       fixtures.map((fixture, index) => {

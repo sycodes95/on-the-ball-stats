@@ -1,3 +1,5 @@
+import { FixtureStatistics, Lineups, Player, Team } from "../../../types/types";
+
 export type Fixture = {
   fixture: {
     date: string;
@@ -47,5 +49,18 @@ export type Fixture = {
       winner: null | boolean;
     };
   };
-  
+  events?: {
+    assist: { id : null | number , name: null | string},
+    comments: string | null;
+    detail : string | null; 
+    player : { id: number, name: string };
+    team: {id : number, name: string, logo: string};
+    time: { elapsed: null | number };
+    type: string
+  }[];
+  players?: { players: Player[], team : Team }[]
+  lineups?: Lineups[]
+  statistics?: FixtureStatistics;
 }
+
+//players, lineups, statistics
