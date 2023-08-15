@@ -12,6 +12,7 @@ import { getLeagueTeamStandings } from "../features/leagueStats/services/getLeag
 import LeagueTeamStandings from "../features/leagueStats/components/leagueTeamStandings/leagueTeamStandings";
 import '../features/leagueStats/styles/styles.css'
 import { Player } from "../types/types";
+import { Oval } from "react-loader-spinner";
 
 function LeagueStats () {
   const [loading, setLoading] = useState(true);
@@ -45,7 +46,20 @@ function LeagueStats () {
     <div className="flex flex-col w-full pb-16 text-black">
       {
       loading &&
-      <div className="text-black">LOADING</div>
+      <div className="flex items-center justify-center w-full h-full text-black">
+      <Oval
+      height={80}
+      width={80}
+      color="#A5B2BE"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+      ariaLabel='oval-loading'
+      secondaryColor="#A9A9A9"
+      strokeWidth={4}
+      strokeWidthSecondary={4}
+      />
+      </div>
       }
       {
       !loading && leagueInfo && 

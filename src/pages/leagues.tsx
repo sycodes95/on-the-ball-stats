@@ -55,12 +55,15 @@ function Leagues () {
       ))
       }
       </div>
+
+      
       {
       isLoading &&
+      <div className="flex items-center justify-center w-full h-full">
       <Oval
       height={80}
       width={80}
-      color="#10B981"
+      color="#A5B2BE"
       wrapperStyle={{}}
       wrapperClass=""
       visible={true}
@@ -69,7 +72,9 @@ function Leagues () {
       strokeWidth={4}
       strokeWidthSecondary={4}
       />
+      </div>
       }
+      
     </div>
   )
 }

@@ -32,7 +32,7 @@ function TableRow ({
   form
 }: TableRowProps) {
   return (
-    <tr className={`hover:bg-black hover:bg-opacity-20
+    <tr className={`hover:bg-slate-300 hover:bg-opacity-70
     ${description && 'bg-yellow-300 bg-opacity-30'}`}>
       <td className="flex items-center h-8">
         <span className="flex items-center justify-center w-6 h-full border-l-4 border-gray-300 rounded-l-sm">{rank}</span>
