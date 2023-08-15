@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Fixture } from "../../types/types";
-import FixtureLeagueInfo from "./components/fixtureLeagueInfo";
+import FixtureLeagueInfo from "./components/fixtureHeader";
 import FixtureScore from "./components/fixtureScore";
 import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
 import { getFixturesByDate } from "../../../../services/getFixturesByDate";
 import { RotatingSquare } from "react-loader-spinner";
 import { Link } from "react-router-dom";
-import FixtureHeader from "./components/fixtureLeagueInfo";
+import FixtureHeader from "./components/fixtureHeader";
 import ShowMoreButton from "../../../../components/ui/showMoreButton";
 import ShowLessButton from "../../../../components/ui/showLessButton";
 

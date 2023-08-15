@@ -38,13 +38,13 @@ export type Fixture = {
       id: number;
       name: string;
       logo: string;
-      winner: null | string;
+      winner: null | boolean;
     };
     home: {
       id: number;
       name: string;
       logo: string;
-      winner: null | string;
+      winner: null | boolean;
     };
   };
   

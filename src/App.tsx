@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
+import 'react-circular-progressbar/dist/styles.css';
 import Header from './components/header/header';
 import Leagues from './pages/leagues';
 import Footer from './components/footer/footer';
