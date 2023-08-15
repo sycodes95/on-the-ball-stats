@@ -6,16 +6,13 @@ import FixtureTeam from "../features/homepage/components/fixtures/components/fix
 import FixtureStatus from "../features/homepage/components/fixtures/components/fixtureStatus";
 import FixtureScore from "../features/homepage/components/fixtures/components/fixtureScore";
 import { getFixturesH2H } from "../services/getFixturesH2H";
-import { formatYMD } from "../utils/formatYMD";
 import FixtureHeader from "../features/homepage/components/fixtures/components/fixtureHeader";
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
-import { getFixturesTeamWinPct } from "../features/fixtureStats/utils/getFixturesTeamWinPct";
-import { getFixturesDrawPct } from "../features/fixtureStats/utils/getFixturesDrawPct";
+import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
 
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
-    'H2H',
+    'HEAD TO HEAD',
     'LINE UPS',
     'STATS'
   ]
@@ -23,7 +20,7 @@ function FixtureStats () {
   const { fixtureId } = useParams()
   const [fixture, setFixture] = useState<Fixture | null>(null)
   const [fixtureViewMode, setFixtureViewMode ] = useState(fixtureViewModeOptions[0])
-  const [head2HeadFixtures, setHead2HeadFixtures] = useState<Fixture[] | null>(null)
+  const [headToHeadFixtures, setheadToHeadFixtures] = useState<Fixture[] | null>(null)
   useEffect(()=> {
     getFixturesById(Number(fixtureId)).then(fixture => setFixture(fixture))
   },[])
@@ -31,8 +28,8 @@ function FixtureStats () {
   useEffect(()=> {
     if(fixture){
       getFixturesH2H(fixture.teams.home.id, fixture.teams.away.id).then(fixtures => {
-        // setHead2HeadFixtures(fixtures.sort((a:string, b:string) => new Date(b.fixture.date) - new Date(a.fixture.date)))
-        setHead2HeadFixtures(fixtures)
+        // setheadToHeadFixtures(fixtures.sort((a:string, b:string) => new Date(b.fixture.date) - new Date(a.fixture.date)))
+        setheadToHeadFixtures(fixtures)
       })
     }
     console.log(fixture);
@@ -93,132 +90,13 @@ function FixtureStats () {
       }
       </div>
 
-      <div className="flex flex-col justify-center w-full gap-2 p-2 rounded-sm border-slate-300">
-
-        {
-        head2HeadFixtures && head2HeadFixtures.length > 0 && fixture &&
-        <div className="flex items-center justify-center w-full">
-          <div className="flex gap-2">
-            <img className="object-contain w-12 h-12" src={fixture?.teams.home.logo} alt="" />
-            <CircularProgressbar className="w-12"
-            text={`${getFixturesTeamWinPct(head2HeadFixtures, fixture.teams.home.id)}%`} 
-            value={getFixturesTeamWinPct(head2HeadFixtures, fixture.teams.home.id)}
-            strokeWidth={12}
-            styles={buildStyles({
-              rotation: 0,
-              textSize: '18px',
-              pathTransitionDuration: 1,
-              textColor: '#3e98c7',
-              trailColor: '#d6d6d6',
-              backgroundColor: '#3e98c7',
-              pathColor: '#3e98c7'
-            })}
-            />
-
-            <CircularProgressbar className="w-12"
-            text={`${getFixturesDrawPct(head2HeadFixtures)}%`} 
-            value={getFixturesDrawPct(head2HeadFixtures)}
-            strokeWidth={12}
-            styles={buildStyles({
-              rotation: 0,
-              textSize: '18px',
-              pathTransitionDuration: 1,
-              textColor: '#000000',
-              trailColor: '#d6d6d6',
-              backgroundColor: '#000000',
-              pathColor: '#000000'
-            })}
-            />
-
-            <CircularProgressbar className="w-12"
-            text={`${getFixturesTeamWinPct(head2HeadFixtures, fixture.teams.away.id)}%`} 
-            value={getFixturesTeamWinPct(head2HeadFixtures, fixture.teams.away.id)}
-            strokeWidth={12}
-            styles={buildStyles({
-              rotation: 0,
-              textSize: '18px',
-              pathTransitionDuration: 1,
-              textColor: '#000000',
-              trailColor: '#d6d6d6',
-              backgroundColor: '#000000',
-              pathColor: '#000000'
-            })}
-            />
-            <img className="object-contain w-12 h-12" src={fixture?.teams.away.logo} alt="" />
-          </div>
-        </div>
-        }
-
-        {
-        head2HeadFixtures && head2HeadFixtures.length === 0 &&
-        <div className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300">
-          No previous matches between teams.
-        </div>
-        }
-        {
-        head2HeadFixtures && head2HeadFixtures.length > 0 && fixtureViewMode === 'H2H' &&
-        head2HeadFixtures.map((fixture, index) => {
-          if(new Date(fixture.fixture.date) < new Date()){
-            return (
-              <div className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300" key={index}>
-                <div className="flex items-center gap-2 md:w-32">
-                  <img className="object-contain w-4 h-4" src={fixture.league.logo} />
-                  <span className="hidden md:flex">{fixture.league.name}</span>
-                </div>
-
-                <div className="flex items-center w-24 gap-2 md:w-32">
-                  {/* <span className="">{formatYMD(new Date(fixture.fixture.date)).slice(2)}</span> */}
-                  <span className="">{formatYMD(new Date(fixture.fixture.date))}</span>
-                </div>
-
-                <div className="items-center justify-center hidden gap-2 whitespace-nowrap md:flex">
-                  <span className="flex justify-end min-w-fit w-44">{fixture.teams.home.name}</span>
-                  <div className="flex items-center justify-center w-12 gap-1 pl-2 pr-2 font-semibold text-white rounded-md bg-slate-400">
-                    <span>{fixture.goals.home}</span>  
-                    <span>-</span>
-                    <span>{fixture.goals.away}</span>
-                  </div>
-                  <span className="flex justify-start w-44 min-w-fit">{fixture.teams.away.name}</span>
-                </div>
-
-                <div className="flex items-center justify-center gap-2 whitespace-nowrap md:hidden">
-
-                  <div className="flex flex-col items-center w-4 p-1 rounded-md bg-slate-400">
-                    <span className="justify-center font-semibold text-white rounded-md">{fixture.goals.home}</span>
-                    <span className="justify-center font-semibold text-white rounded-md">{fixture.goals.away}</span>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <span className="flex justify-start min-w-fit md:w-44">{fixture.teams.home.name}</span>
-                    <span className="flex justify-start md:w-44 min-w-fit">{fixture.teams.away.name}</span>
-                  </div>
-                  
-                </div>
-                
-              </div>
-
-            )
-          }
-
-        }
-          
-        )
-        }
-      </div>
+      {
+      fixtureViewMode === 'HEAD TO HEAD' &&
+      <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>
+      }
+      
     </div>
   )
 }
 
 export default FixtureStats;
-
-{/* <div className="flex items-center gap-4 p-2 rounded-sm shadow-lg shadow-slate-300">
-          <div className="flex items-center w-32 gap-2">
-            <img className="object-contain w-4 h-4" src={fixture.league.logo} />
-            <span>{fixture.league.name}</span>
-          </div>
-
-          <div className="flex items-center w-32 gap-2">
-            <span>{formatDMY(new Date(fixture.fixture.date))}</span>
-          </div>
-          
-        </div> */}

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Fixture } from "../../types/types";
-import FixtureLeagueInfo from "./components/fixtureHeader";
 import FixtureScore from "./components/fixtureScore";
 import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
