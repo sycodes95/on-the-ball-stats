@@ -9,7 +9,6 @@ import Overall from './pages/homepage';
 import LeagueStats from './pages/leagueStats';
 import Homepage from './pages/homepage';
 import FixtureStats from './pages/fixtureStats';
-
 function App() {
 
   
@@ -23,6 +22,7 @@ function App() {
           <Route path='/' element={<Homepage/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>
           <Route path='/leagues/:leagueId' element={<LeagueStats/>}/>
+          <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}

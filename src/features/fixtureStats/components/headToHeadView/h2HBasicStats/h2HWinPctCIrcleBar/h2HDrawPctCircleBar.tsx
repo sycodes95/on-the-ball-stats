@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { Fixture } from "../../../../homepage/types/types";
-import { getFixturesDrawPct } from "../../../utils/getFixturesDrawPct";
+import { Fixture } from "../../../../../homepage/types/types";
+import { getFixturesDrawPct } from "../../../../utils/getFixturesDrawPct";
 
 type H2HWinPctCircleBarHomeProps = {
   headToHeadFixtures: Fixture[];
@@ -8,8 +8,8 @@ type H2HWinPctCircleBarHomeProps = {
 
 function H2HDrawPctCircleBar ({headToHeadFixtures} : H2HWinPctCircleBarHomeProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <CircularProgressbar className="w-16 font-semibold"
+    <div className="flex flex-col items-center gap-2">
+      <CircularProgressbar className="w-10 font-semibold md:w-16"
       text={`${getFixturesDrawPct(headToHeadFixtures)}%`} 
       value={getFixturesDrawPct(headToHeadFixtures)}
       strokeWidth={12}
@@ -24,7 +24,7 @@ function H2HDrawPctCircleBar ({headToHeadFixtures} : H2HWinPctCircleBarHomeProps
       })}
       />
 
-      <span className="text-xs font-semibold text-center text-white bg-gray-400 rounded-md">Draw %</span>
+      <span className="p-1 text-xs font-semibold text-center text-white bg-gray-400 rounded-md">Draw %</span>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { Fixture } from "../../../../homepage/types/types";
-import { getFixturesTeamWinPct } from "../../../utils/getFixturesTeamWinPct";
+import { Fixture } from "../../../../../homepage/types/types";
+import { getFixturesTeamWinPct } from "../../../../utils/getFixturesTeamWinPct";
 
 type H2HWinPctCircleBarAwayProps = {
   headToHeadFixtures: Fixture[];
@@ -8,8 +8,8 @@ type H2HWinPctCircleBarAwayProps = {
 
 function H2HWinPctCircleBarAway ({headToHeadFixtures} : H2HWinPctCircleBarAwayProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <CircularProgressbar className="w-16 font-semibold"
+    <div className="flex flex-col items-center gap-2">
+      <CircularProgressbar className="w-10 font-semibold md:w-16"
       text={`${getFixturesTeamWinPct(headToHeadFixtures, headToHeadFixtures[0].teams.away.id)}%`} 
       value={getFixturesTeamWinPct(headToHeadFixtures, headToHeadFixtures[0].teams.away.id)}
       strokeWidth={12}
@@ -24,7 +24,7 @@ function H2HWinPctCircleBarAway ({headToHeadFixtures} : H2HWinPctCircleBarAwayPr
       })}
       />
 
-      <span className="text-xs font-semibold text-center text-white bg-orange-500 rounded-md">Win %</span>
+      <span className="p-1 text-xs font-semibold text-center text-white bg-orange-500 rounded-md">Win %</span>
     </div>
   )
 }
