@@ -2,21 +2,23 @@ import { useState } from "react";
 import { Fixture } from "../../../../homepage/types/types";
 import { FixtureStatistics } from "../../../../../types/types";
 import { translateMatchStatisticTypes } from "../../../constants/constants";
+import { hasFixtureStarted } from "../../../utils/hasFixtureStarted";
 
 type MatchStatisticsProps = {
   homeTeamStatistics: FixtureStatistics;
   awayTeamStatistics: FixtureStatistics;
+  fixture: Fixture;
 }
 
 
-function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatisticsProps) {
+function MatchStatistics ({homeTeamStatistics, awayTeamStatistics, fixture} : MatchStatisticsProps) {
 
  
   return(
-    <div className="flex flex-col items-center justify-center w-full gap-8 p-4 rounded-md text-primary border-slate-300 ">
+    <div className="flex flex-col items-center justify-center w-full h-full gap-8 rounded-md text-primary border-slate-300 ">
       <div className="grid w-full grid-cols-3">
         <div className="flex justify-end">
-          <img className="object-contain w-12 h-12" src={homeTeamStatistics.team.logo} alt="" />
+          <img className="object-contain w-12 h-12" src={fixture.teams.home.logo} alt="" />
         </div>
 
         <div className="flex items-center justify-center">
@@ -25,17 +27,21 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         </div>
 
         <div className="flex items-center justify-start">
-          <img className="object-contain w-12 h-12" src={awayTeamStatistics.team.logo} alt="" />
+          <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
         </div>
       </div>
-      
+
+      {
+      fixture && !hasFixtureStarted(fixture) ?
+      <div className="flex items-center justify-center flex-grow h-full">Match statistics will be updated once match has started.</div>
+      :
       <div className="grid justify-center w-full grid-cols-3">
 
         
         <div className="flex flex-col items-end gap-2">
         {
         homeTeamStatistics.statistics.map((stats, index) => (
-          <div className={` font-semibold 
+          <div className={` font-semibold shadow-md shadow-slate-300 
           ${stats.value < awayTeamStatistics.statistics[index].value &&'text-orange-600'}
           ${stats.value > awayTeamStatistics.statistics[index].value && 'text-blue-600'}
           ${stats.value === awayTeamStatistics.statistics[index].value && 'text-primary'}
@@ -61,7 +67,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         <div className="flex flex-col items-start gap-2">
         {
         awayTeamStatistics.statistics.map((stats, index) => (
-          <div className={` font-semibold
+          <div className={` font-semibold shadow-md shadow-slate-300
           ${stats.value < homeTeamStatistics.statistics[index].value &&'text-orange-600'}
           ${stats.value > homeTeamStatistics.statistics[index].value && 'text-blue-600'}
           ${stats.value === homeTeamStatistics.statistics[index].value && 'text-primary'}
@@ -72,6 +78,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         }
         </div>
       </div>
+      }
     
       
     </div>

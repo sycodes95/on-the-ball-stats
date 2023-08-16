@@ -12,6 +12,7 @@ import StatsView from "../features/fixtureStats/components/statsView/statsView";
 import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
 import '../features/fixtureStats/styles.css'
 import TimeLine from "../features/fixtureStats/components/statsView/timeLine/timeLine";
+import MatchStatistics from "../features/fixtureStats/components/statsView/matchStatistics/matchStatistics";
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
@@ -21,6 +22,8 @@ function FixtureStats () {
     'H2H',
 
   ]
+
+  
 
   const { fixtureId } = useParams()
   const [fixture, setFixture] = useState<Fixture | null>(null)
@@ -40,7 +43,6 @@ function FixtureStats () {
     }
     console.log(fixture);
   },[fixture])
-
   
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-xs text-primary">
@@ -85,30 +87,30 @@ function FixtureStats () {
       </div>
       }
 
-      <div className="flex gap-2 border rounded-sm border-slate-300">
+      <div className="flex rounded-sm border-slate-300 shadow-slate-300">
       {
       fixtureViewModeOptions.map((option, index) => (
-        <button className={`p-2 border-b-2 border-opacity-0 border-slate-300 
-        ${fixtureViewMode === option && 'bg-slate-300 bg-opacity-70 border-opacity-100'}`} 
+        <button className={`p-2 border-b border-opacity-0 border-slate-400  w-20 
+        ${fixtureViewMode === option && ' bg-opacity-70 border-opacity-100 font-bold'}`} 
         key={index}
         onClick={()=>setFixtureViewMode(option)}>{option}</button>
       ))
       }
       </div>
-
+      <div className="w-full h-full pt-8 pb-8 rounded-sm border-slate-300">
       {
       fixtureViewMode === 'H2H' && fixture &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>
       }
       {
-      
-      fixtureViewMode === 'TIMELINE' && fixture && hasFixtureStarted(fixture) &&
+      fixtureViewMode === 'TIMELINE' && fixture  &&
       <TimeLine fixture={fixture}/>
       }
       {
-      fixtureViewMode === 'STATS' && fixture && hasFixtureStarted(fixture) &&
-      <StatsView fixture={fixture}/>
+      fixtureViewMode === 'STATS' && fixture && fixture.statistics &&
+      <MatchStatistics fixture={fixture} homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
       }
+      </div>
       
     </div>
   )
