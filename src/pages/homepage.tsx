@@ -55,7 +55,7 @@ function Homepage () {
     <>
     {
       isLoading ? 
-      <div className="w-full h-full">
+      <div className="absolute left-0 flex items-center justify-center flex-grow w-full h-full -translate-y-1/2 top-1/2">
         <OvalLoadingSpinner />
       </div>
       :
