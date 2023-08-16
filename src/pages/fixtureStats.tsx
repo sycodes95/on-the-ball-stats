@@ -11,12 +11,15 @@ import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/h
 import StatsView from "../features/fixtureStats/components/statsView/statsView";
 import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
 import '../features/fixtureStats/styles.css'
+import TimeLine from "../features/fixtureStats/components/statsView/timeLine/timeLine";
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
-    'HEAD TO HEAD',
-    'LINE UPS',
-    'STATS'
+    'LINEUPS',
+    'TIMELINE',
+    'STATS',
+    'H2H',
+
   ]
 
   const { fixtureId } = useParams()
@@ -82,7 +85,7 @@ function FixtureStats () {
       </div>
       }
 
-      <div className="flex gap-2 border rounded-sm border-slate-300 w-fit">
+      <div className="flex gap-2 border rounded-sm border-slate-300">
       {
       fixtureViewModeOptions.map((option, index) => (
         <button className={`p-2 border-b-2 border-opacity-0 border-slate-300 
@@ -94,11 +97,16 @@ function FixtureStats () {
       </div>
 
       {
-      fixtureViewMode === 'HEAD TO HEAD' &&
+      fixtureViewMode === 'H2H' && fixture &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>
       }
       {
-      fixtureViewMode === 'STATS' && fixture &&
+      
+      fixtureViewMode === 'TIMELINE' && fixture && hasFixtureStarted(fixture) &&
+      <TimeLine fixture={fixture}/>
+      }
+      {
+      fixtureViewMode === 'STATS' && fixture && hasFixtureStarted(fixture) &&
       <StatsView fixture={fixture}/>
       }
       

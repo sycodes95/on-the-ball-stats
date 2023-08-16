@@ -10,7 +10,7 @@ type HeadToHeadViewProps = {
 
 function HeadToHeadView ({headToHeadFixtures} : HeadToHeadViewProps) {
   return (
-    <div className="flex flex-col justify-center w-full gap-8 p-2 rounded-sm border-slate-300">
+    <div className="flex flex-col justify-center w-full gap-8 p-2 pt-8 pb-8 border rounded-sm border-slate-300">
 
     {
     headToHeadFixtures && headToHeadFixtures.length > 0 &&

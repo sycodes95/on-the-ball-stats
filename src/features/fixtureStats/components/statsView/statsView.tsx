@@ -18,10 +18,6 @@ function StatsView ({fixture}: StatsViewProps ) {
       <MatchStatistics homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
       }
       {
-      fixture && hasFixtureStarted(fixture) &&
-      <TimeLine fixture={fixture} />
-      }
-      {
       fixture && !hasFixtureStarted(fixture) &&
       <div className="flex items-center justify-center flex-grow h-full">Match statistics will be updated once match has started.</div>
       }

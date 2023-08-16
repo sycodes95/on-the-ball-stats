@@ -22,7 +22,8 @@ function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
           {/* <span className="">{formatYMD(new Date(fixture.fixture.date)).slice(2)}</span> */}
           <span className="">{formatYMD(new Date(fixture.fixture.date))}</span>
         </div>
-
+        {
+        fixture.fixture.status.short !== 'CANC' ?
         <div className="items-center justify-center hidden gap-2 whitespace-nowrap md:flex">
           <span className="flex justify-end min-w-fit w-44">{fixture.teams.home.name}</span>
           <div className="flex items-center justify-center w-12 gap-1 pl-2 pr-2 font-semibold text-white rounded-md bg-slate-400">
@@ -32,7 +33,14 @@ function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
           </div>
           <span className="flex justify-start w-44 min-w-fit">{fixture.teams.away.name}</span>
         </div>
+        :
+        <div className="items-center justify-center hidden text-orange-600 md:flex">
+          <span>Match Cancelled</span>
+        </div>
+        }
 
+        {
+        fixture.fixture.status.short !== 'CANC' ?
         <div className="flex items-center justify-center gap-2 whitespace-nowrap md:hidden">
 
           <div className="flex flex-col items-center w-4 p-1 rounded-md bg-slate-400">
@@ -46,6 +54,11 @@ function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
           </div>
           
         </div>
+        :
+        <div className="flex items-center justify-center text-orange-600 md:hidden">
+          <span>Match Cancelled</span>
+        </div>
+        }
         
       </div>
       ))
