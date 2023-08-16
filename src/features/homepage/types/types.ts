@@ -60,7 +60,7 @@ export type Fixture = {
   }[];
   players?: { players: Player[], team : Team }[]
   lineups?: Lineups[]
-  statistics?: FixtureStatistics;
+  statistics?: FixtureStatistics[];
 }
 
 //players, lineups, statistics

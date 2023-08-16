@@ -116,7 +116,8 @@ export type Lineups = {
 
 export type FixtureStatistics = {
   statistics: {
-    [key: string] : [value: number | string]
-  }[]
+    type : string,
+    value : string | number
+  }[];
   team: Team;
-}
+};
