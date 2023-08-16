@@ -9,7 +9,7 @@ type H2HFixturesListProps = {
 function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
   return (
     <div className="flex flex-col w-full">
-     <span className="p-2 font-semibold">Last {headToHeadFixtures.length} Matches</span>
+     <span className="p-2 font-semibold">Last {headToHeadFixtures.length} {headToHeadFixtures.length > 1 ? 'Matches' : 'Match'}</span>
       {
       headToHeadFixtures.map((fixture, index) => (
       <div className="flex items-center gap-4 p-2 rounded-md shadow-md md:gap-8 shadow-slate-300" key={index}>

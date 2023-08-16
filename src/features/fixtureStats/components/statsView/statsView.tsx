@@ -12,14 +12,18 @@ function StatsView ({fixture}: StatsViewProps ) {
   console.log(fixture);
   return (
     
-    <div className="flex flex-col items-center justify-center w-full gap-12 text-primary">
+    <div className="flex flex-col items-center justify-center w-full h-full gap-12 text-primary">
       {
-      hasFixtureStarted(fixture) && fixture && fixture.statistics &&
+      fixture && fixture.statistics && hasFixtureStarted(fixture) && 
       <MatchStatistics homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
       }
       {
-      hasFixtureStarted(fixture) && fixture &&
+      fixture && hasFixtureStarted(fixture) &&
       <TimeLine fixture={fixture} />
+      }
+      {
+      fixture && !hasFixtureStarted(fixture) &&
+      <div className="flex items-center justify-center flex-grow h-full">Match statistics will be updated once match has started.</div>
       }
       
     

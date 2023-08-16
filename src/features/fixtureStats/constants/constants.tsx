@@ -7,6 +7,10 @@ type FixtureTimelineEventsImages = {
   [key: string] : string;
 }
 
+type TranslateMatchStatisticTypes = {
+  [key: string] : string;
+}
+
 export const fixtureTimelineEventsImages: FixtureTimelineEventsImages = {
   'Yellow Card' : yellowCard,
   'Red Card' : redCard,
@@ -14,5 +18,12 @@ export const fixtureTimelineEventsImages: FixtureTimelineEventsImages = {
   'Goal' : soccerBallGoalIcon
 }
 
+
+export const translateMatchStatisticTypes : TranslateMatchStatisticTypes = {
+  'expected_goals' : 'Expected Goals',
+  'Shots insidebox' : 'Shots Inside Box',
+  'Shots outsidebox' : 'Shots Outside Box',
+  'Passes accurate' : 'Accurate Passes',
+}
 
 

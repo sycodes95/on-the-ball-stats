@@ -12,7 +12,7 @@ function TimeLine ({fixture} : TimeLineProps) {
     <div className="flex flex-col items-center w-full gap-2">
       <span className="font-semibold">Timeline</span>
       {
-      (hasFixtureStarted(fixture) && fixture.events && fixture.events.length > 0) ?
+      fixture.events && fixture.events.length > 0 &&
       fixture.events?.map((ev, index) => (
         <div className="w-full gap-2 timeline-grid" key={index}>
           {
@@ -63,8 +63,7 @@ function TimeLine ({fixture} : TimeLineProps) {
           
         </div>
       ))
-      :
-      <div>Match statistics will be updated once match has started.</div>
+      
       }
     </div>
   )
