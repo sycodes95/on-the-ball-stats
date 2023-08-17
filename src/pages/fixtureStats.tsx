@@ -12,6 +12,7 @@ import '../features/fixtureStats/styles.css'
 import TimeLine from "../features/fixtureStats/components/timeLine/timeLine";
 import MatchStatistics from "../features/fixtureStats/components/matchStatistics/matchStatistics";
 import { Fixture } from "../types/types";
+import LineUps from "../features/fixtureStats/components/lineUps/lineUps";
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
@@ -108,6 +109,10 @@ function FixtureStats () {
       {
       fixtureViewMode === 'STATS' && fixture && fixture.statistics &&
       <MatchStatistics fixture={fixture} homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
+      }
+      {
+      fixtureViewMode === 'LINEUPS' && fixture  &&
+      <LineUps fixture={fixture}/>
       }
       </div>
       

@@ -152,10 +152,10 @@ export type Fixture = {
     season: number;
   };
   score: {
-    extratime: { home: null | number; away: null | number };
-    fulltime: { home: null | number; away: null | number };
-    halftime: { home: null | number; away: null | number };
-    penalty: { home: null | number; away: null | number };
+    extratime: { home: null | number; away: null | number; };
+    fulltime: { home: null | number; away: null | number; };
+    halftime: { home: null | number; away: null | number; };
+    penalty: { home: null | number; away: null | number; };
   };
   teams: {
     away: {
@@ -172,7 +172,7 @@ export type Fixture = {
     };
   };
   events?: {
-    assist: { id : null | number , name: null | string},
+    assist: { id : null | number; name: null | string;},
     comments: string | null;
     detail : string | null; 
     player : { id: number, name: string };
@@ -181,6 +181,60 @@ export type Fixture = {
     type: string
   }[];
   players?: { players: Player[], team : Team }[]
-  lineups?: Lineups[]
+  lineups?: LineUp[]
   statistics?: FixtureStatistics[];
 };
+
+export type LineUp = {
+  coach: {
+    id: number;
+    name: string;
+    photo: string;
+  };
+  formation: string;
+  startXI: {
+    player : {
+      grid: string | null;
+      id: number;
+      name: string;
+      number : number;
+      pos: string;
+    }
+  }[];
+  substitutes: {
+    player : {
+      grid: string | null;
+      id: number;
+      name: string;
+      number : number;
+      pos: string;
+    }
+  }[];
+  team : {
+    colors: {
+      goalkeeper: {
+        primary: string;
+        number: string;
+        border: string;
+      };
+      player: {
+        primary: string;
+        number: string;
+        border: string;
+      };
+    };
+    id: number;
+    logo: string;
+    name: string;
+  }
+
+
+}
+
+export type LineUpStartXIPlayer = {
+  grid: string | null;
+  id: number;
+  name: string;
+  number : number;
+  pos: string;
+}
