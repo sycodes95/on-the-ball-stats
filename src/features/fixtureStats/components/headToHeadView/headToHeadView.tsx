@@ -1,5 +1,4 @@
-import { Fixture } from "../../../homepage/types/types";
-import { formatYMD } from "../../../../utils/formatYMD";
+import { Fixture } from "../../../../types/types";
 import H2hBasicStats from "./h2HBasicStats/h2HBasicStats";
 import H2HFixturesList from "./h2HLiItems/h2HFixturesList";
 

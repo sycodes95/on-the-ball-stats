@@ -1,12 +1,12 @@
 import Icon from "@mdi/react";
-import { Fixture } from "../../../../homepage/types/types";
-import { fixtureTimelineEventsImages } from "../../../constants/constants";
-import { hasFixtureStarted } from "../../../utils/hasFixtureStarted";
+
 import { mdiArrowUpBoldBoxOutline } from '@mdi/js';
+import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
+import { fixtureTimelineEventsImages } from "../../constants/constants";
+import { Fixture } from "../../../../types/types";
 type TimeLineProps = {
   fixture : Fixture;
 }
-
 
 function TimeLine ({fixture} : TimeLineProps) {
   return (

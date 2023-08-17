@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFixturesById } from "../services/getFixtureById";
-import { Fixture } from "../features/homepage/types/types";
 import FixtureTeam from "../features/homepage/components/fixtures/components/fixtureTeam";
 import FixtureStatus from "../features/homepage/components/fixtures/components/fixtureStatus";
 import FixtureScore from "../features/homepage/components/fixtures/components/fixtureScore";
 import { getFixturesH2H } from "../services/getFixturesH2H";
 import FixtureHeader from "../features/homepage/components/fixtures/components/fixtureHeader";
 import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
-import StatsView from "../features/fixtureStats/components/statsView/statsView";
 import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
 import '../features/fixtureStats/styles.css'
-import TimeLine from "../features/fixtureStats/components/statsView/timeLine/timeLine";
-import MatchStatistics from "../features/fixtureStats/components/statsView/matchStatistics/matchStatistics";
+import TimeLine from "../features/fixtureStats/components/timeLine/timeLine";
+import MatchStatistics from "../features/fixtureStats/components/matchStatistics/matchStatistics";
+import { Fixture } from "../types/types";
 
 function FixtureStats () {
   const fixtureViewModeOptions = [

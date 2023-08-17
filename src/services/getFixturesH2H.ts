@@ -1,4 +1,4 @@
-import { Fixture } from "../features/homepage/types/types";
+import { Fixture } from "../types/types"
 
 export const getFixturesH2H = (teamAId:number, teamBId: number) => {
   // const season = today.getFullYear() - 1;
@@ -11,10 +11,8 @@ export const getFixturesH2H = (teamAId:number, teamBId: number) => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     if(data.response  && data.response.length) {
       const fixtures = data.response.filter((fixture:Fixture) => new Date(fixture.fixture.date) < new Date()).sort((a:string, b:string) => new Date(b.fixture.date) - new Date(a.fixture.date))
-      console.log(fixtures);
       return fixtures
       
     } 

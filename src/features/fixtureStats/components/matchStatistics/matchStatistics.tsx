@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { Fixture } from "../../../../homepage/types/types";
-import { FixtureStatistics } from "../../../../../types/types";
-import { translateMatchStatisticTypes } from "../../../constants/constants";
-import { hasFixtureStarted } from "../../../utils/hasFixtureStarted";
+import { Fixture, FixtureStatistics } from "../../../../types/types";
+import { translateMatchStatisticTypes } from "../../constants/constants";
+import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
 
 type MatchStatisticsProps = {
   homeTeamStatistics: FixtureStatistics;
