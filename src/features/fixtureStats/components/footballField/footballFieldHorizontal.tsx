@@ -1,4 +1,4 @@
-function FootballField () {
+function FootballFieldHorizontal () {
   return(
     <div className='relative flex w-full rounded-md bg-emerald-500' style={{height: '640px'}}>
       <div id="" className="absolute left-0 w-32 -translate-y-1/2 border-t-2 border-b-2 border-r-2 border-white border-opacity-50 rounded-r-md top-1/2 h-1/2"></div>
@@ -11,4 +11,4 @@ function FootballField () {
   )
 }
 
-export default FootballField;
+export default FootballFieldHorizontal;

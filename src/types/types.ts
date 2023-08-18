@@ -96,17 +96,17 @@ export type Team = {
   update?: string;
 }
 
-export type Lineups = {
-  coach: {
-    id: number;
-    name: string;
-    photo?: string;
-  };
-  formation: string;
-  startXI: {
-    player: LineUpStartXIPlayer;
-  }[]
-}
+// export type Lineups = {
+//   coach: {
+//     id: number;
+//     name: string;
+//     photo?: string;
+//   };
+//   formation: string;
+//   startXI: {
+//     player: LineUpStartXIPlayer;
+//   }[]
+// }
 
 export type FixtureStatistics = {
   statistics: {
@@ -214,6 +214,15 @@ export type LineUp = {
 }
 
 export type LineUpStartXIPlayer = {
+  grid: string | null;
+  id: number;
+  name: string;
+  number : number;
+  pos: string;
+  photo?: string;
+}
+
+export type LineUpSubstitutesPlayer = {
   grid: string | null;
   id: number;
   name: string;
