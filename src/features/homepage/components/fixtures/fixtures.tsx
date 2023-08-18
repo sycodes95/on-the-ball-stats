@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
-import { Fixture } from "../../types/types";
 import FixtureScore from "./components/fixtureScore";
 import FixtureStatus from "./components/fixtureStatus";
 import FixtureTeam from "./components/fixtureTeam";
 import { getFixturesByDate } from "../../../../services/getFixturesByDate";
-import { Oval, RotatingSquare } from "react-loader-spinner";
+import { RotatingSquare } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import FixtureHeader from "./components/fixtureHeader";
 import ShowMoreButton from "../../../../components/ui/showMoreButton";
 import ShowLessButton from "../../../../components/ui/showLessButton";
+import { Fixture } from "../../../../types/types";
 
-function Fixtures () {
+type FixturesProps = {
+  fixtures: Fixture[] | undefined;
+  setFixtures : React.Dispatch<React.SetStateAction<Fixture[] | undefined>>;
+  
+}
+
+function Fixtures ({fixtures, setFixtures} : FixturesProps) {
   const defaultfixturesDisplayAmount : number = 6
-  const [fixtures, setFixtures] = useState<Fixture[]>([])
+  // const [fixtures, setFixtures] = useState<Fixture[]>([])
   const [fixturesDisplayAmount, setFixturesDisplayAmount] = useState(defaultfixturesDisplayAmount)
-  const [fixturesDay, setFixturesDay] = useState('today')
+  const [fixturesDay, setFixturesDay] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const fixturesDayOptions = [
@@ -24,12 +30,15 @@ function Fixtures () {
   ]
 
   useEffect(()=> {
-    setIsLoading(true)
-    getFixturesByDate(fixturesDay).then(fixtures => {
-      setFixtures(fixtures)
-      setIsLoading(false)
-      setFixturesDisplayAmount(defaultfixturesDisplayAmount)
-    })
+    if(fixturesDay){
+      setIsLoading(true)
+      getFixturesByDate(fixturesDay).then(fixtures => {
+        setFixtures(fixtures)
+        setIsLoading(false)
+        setFixturesDisplayAmount(defaultfixturesDisplayAmount)
+      })
+    }
+    console.log(fixturesDay);
   },[fixturesDay])
 
   return (
@@ -40,8 +49,11 @@ function Fixtures () {
           {
           fixturesDayOptions.map((day, index) => (
           <button 
-          className={` text-primary rounded-2xl p-2 w-20 ${fixturesDay === day && 'bg-emerald-600 text-white '}`}
-          onClick={()=> setFixturesDay(day)}
+          className={` text-primary rounded-2xl p-2 w-20 
+          ${fixturesDay === day && 'bg-emerald-600 text-white '}
+          ${!fixturesDay && day === 'today' && 'bg-emerald-600 text-white '}
+          `}
+          onClick={()=> fixturesDay !== day && setFixturesDay(day)}
           key={index}
           >{`${day.charAt(0).toUpperCase()}${day.slice(1)}`}</button> 
           ))
@@ -71,6 +83,7 @@ function Fixtures () {
           <div className="z-20 h-fit"></div>
         </div>
       {
+      fixtures &&
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (

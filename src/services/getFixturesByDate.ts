@@ -4,7 +4,7 @@ import { Fixture } from '../features/homepage/types/types';
 import { timeZone } from './getTimeZone';
 import { formatYMD } from '../utils/formatYMD';
 
-export const getFixturesByDate = (fixtureDay: string) => {
+export const getFixturesByDate = (fixtureDay?: string) => {
   
   
   const day = new Date;
