@@ -1,11 +1,14 @@
 import { top5Leagues } from "../../../constants/top5Leagues";
 import { getLeagueTopYellows } from "../../../services/getLeagueTopYellows";
+import { getLatestStartedSeason } from "../../../services/getPremierLeagueStartDate";
 import { Player } from "../../../types/types";
 
 export const getTopYellows = async () => {
+  // const season = await getLatestStartedSeason()
+  const season = 2023
   const allTopYellows = await Promise.all(
     top5Leagues.map(async (league) => {
-      const data = await getLeagueTopYellows(league.id);
+      const data = await getLeagueTopYellows(league.id, season);
       return data.response;
     })
   );
