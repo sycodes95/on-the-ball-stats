@@ -28,6 +28,7 @@ function Fixtures () {
     getFixturesByDate(fixturesDay).then(fixtures => {
       setFixtures(fixtures)
       setIsLoading(false)
+      setFixturesDisplayAmount(defaultfixturesDisplayAmount)
     })
   },[fixturesDay])
 
@@ -39,7 +40,7 @@ function Fixtures () {
           {
           fixturesDayOptions.map((day, index) => (
           <button 
-          className={`border border-slate-300 text-primary rounded-sm p-2 w-20 ${fixturesDay === day && 'bg-slate-300 '}`}
+          className={` text-primary rounded-2xl p-2 w-20 ${fixturesDay === day && 'bg-emerald-600 text-white '}`}
           onClick={()=> setFixturesDay(day)}
           key={index}
           >{`${day.charAt(0).toUpperCase()}${day.slice(1)}`}</button> 
@@ -65,7 +66,7 @@ function Fixtures () {
       <div className={`relative grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 ${isLoading && 'bg-slate-300 bg-opacity-70'}`}>
       
         <div className={`${isLoading ? 'flex' : 'hidden'}
-        bg-slate-300 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full rounded-sm transition-all items-center justify-center
+        bg-gray-300 bg-opacity-70 z-10 absolute top-0 left-0 w-full h-full rounded-lg transition-all items-center justify-center
         `}>
           <div className="z-20 h-fit"></div>
         </div>
@@ -73,7 +74,7 @@ function Fixtures () {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border rounded-sm shadow-md h-28 border-slate-300 shadow-slate-300 text-primary hover:cursor-pointer hover:bg-emerald-100 hover:bg-opacity-70"
+            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border border-gray-300 rounded-xl hover:shadow-md hover:shadow-gray-300 h-28 text-primary hover:cursor-pointer hover:bg-gray-300 hover:bg-opacity-80 "
             to={`/fixture-statistics/${fixture.fixture.id}`}
             >
               <div className="flex items-center justify-between w-full">
@@ -123,7 +124,7 @@ function Fixtures () {
       <ShowMoreButton onClick={()=> setFixturesDisplayAmount(() => fixturesDisplayAmount + defaultfixturesDisplayAmount)}/>
       }
       {
-      (defaultfixturesDisplayAmount * 2) <= fixturesDisplayAmount && 
+      (defaultfixturesDisplayAmount * 2) <= fixturesDisplayAmount && fixtures.length > fixturesDisplayAmount &&
       <ShowLessButton onClick={()=> setFixturesDisplayAmount(() => defaultfixturesDisplayAmount)}/>
       }
     </div>

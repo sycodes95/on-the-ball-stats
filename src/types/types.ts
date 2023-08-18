@@ -237,4 +237,5 @@ export type LineUpStartXIPlayer = {
   name: string;
   number : number;
   pos: string;
+  photo?: string;
 }

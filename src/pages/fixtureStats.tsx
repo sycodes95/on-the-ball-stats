@@ -16,14 +16,11 @@ import LineUps from "../features/fixtureStats/components/lineUps/lineUps";
 
 function FixtureStats () {
   const fixtureViewModeOptions = [
-    'LINEUPS',
-    'TIMELINE',
-    'STATS',
     'H2H',
-
+    'Lineups',
+    'Timeline',
+    'Stats',
   ]
-
-  
 
   const { fixtureId } = useParams()
   const [fixture, setFixture] = useState<Fixture | null>(null)
@@ -49,7 +46,7 @@ function FixtureStats () {
       <div className="text-2xl text-primary font-display">FIXTURE STATS</div>
       {
       fixture &&
-      <div className="flex flex-col w-full gap-2 p-2 border rounded-sm shadow-md border-slate-300 bg-slate-300 bg-opacity-70 shadow-slate-300">
+      <div className="flex flex-col w-full gap-2 p-2 rounded-lg bg-opacity-70">
         <FixtureHeader
         leagueLogo={fixture.league.logo} 
         leagueName={fixture.league.name}
@@ -87,31 +84,31 @@ function FixtureStats () {
       </div>
       }
 
-      <div className="flex rounded-sm border-slate-300 shadow-slate-300">
+      <div className="flex items-center h-24 gap-2 overflow-x-auto rounded-sm border-slate-300 shadow-slate-300">
       {
       fixtureViewModeOptions.map((option, index) => (
-        <button className={`p-2 border-b border-opacity-0 border-slate-400  w-20 
-        ${fixtureViewMode === option && ' bg-opacity-70 border-opacity-100 font-bold'}`} 
+        <button className={`text-primary rounded-2xl p-2 w-20 font-bold 
+        ${fixtureViewMode === option && 'bg-emerald-600 text-white'}`} 
         key={index}
         onClick={()=>setFixtureViewMode(option)}>{option}</button>
       ))
       }
       </div>
-      <div className="w-full h-full pt-8 pb-8 rounded-sm border-slate-300">
+      <div className="w-full h-full pt-8 pb-8 rounded-lg">
       {
       fixtureViewMode === 'H2H' && fixture &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>
       }
       {
-      fixtureViewMode === 'TIMELINE' && fixture  &&
+      fixtureViewMode === 'Timeline' && fixture  &&
       <TimeLine fixture={fixture}/>
       }
       {
-      fixtureViewMode === 'STATS' && fixture && fixture.statistics &&
+      fixtureViewMode === 'Stats' && fixture && fixture.statistics &&
       <MatchStatistics fixture={fixture} homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
       }
       {
-      fixtureViewMode === 'LINEUPS' && fixture  &&
+      fixtureViewMode === 'Lineups' && fixture  && 
       <LineUps fixture={fixture}/>
       }
       </div>

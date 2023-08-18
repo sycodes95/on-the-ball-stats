@@ -11,6 +11,13 @@ type TimeLineProps = {
 function TimeLine ({fixture} : TimeLineProps) {
   return (
     <div className="flex flex-col items-center w-full h-full gap-2">
+      {
+      !hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC' ?
+      <div className="flex items-center justify-center flex-grow h-full">
+        Match timeline will be updated once match has started.
+      </div>
+      : 
+      <>
       <div className="flex justify-center w-full gap-12">
         <div className="flex justify-end">
           <img className="object-contain w-12 h-12" src={fixture.teams.home.logo} alt="" />
@@ -25,12 +32,7 @@ function TimeLine ({fixture} : TimeLineProps) {
         </div>
       </div>
 
-      {
-      !hasFixtureStarted(fixture) ?
-      <div className="flex items-center justify-center flex-grow h-full">
-        Match timeline will be updated once match has started.
-      </div>
-      : 
+      
       <div className="flex flex-col gap-2">
       {
       fixture.events && fixture.events.length > 0 &&
@@ -133,6 +135,7 @@ function TimeLine ({fixture} : TimeLineProps) {
       ))
       }
       </div>
+      </>
       }
     </div>
   )
