@@ -3,3 +3,7 @@
   grid-template-columns: 3fr 2rem 3fr;
   grid-template-rows: 1fr;
 }
+
+.max-w-20{
+  max-width: 5rem;
+}

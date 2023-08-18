@@ -46,7 +46,7 @@ function FixtureStats () {
       <div className="text-2xl text-primary font-display">FIXTURE STATS</div>
       {
       fixture &&
-      <div className="flex flex-col w-full gap-2 p-2 rounded-lg bg-opacity-70">
+      <div className="flex flex-col w-full gap-4 p-2 rounded-lg bg-opacity-70">
         <FixtureHeader
         leagueLogo={fixture.league.logo} 
         leagueName={fixture.league.name}
