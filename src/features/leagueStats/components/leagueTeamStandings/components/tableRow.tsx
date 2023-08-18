@@ -39,7 +39,7 @@ function TableRow ({
         <img className="h-8 p-2" src={teamLogo} alt="team-logo"/>
         <span className="whitespace-nowrap">{teamName}</span>
       </td>
-      <td className="text-center">
+      <td className="text-center ">
         <span>{played}</span>
       </td>
       <td className="text-center">
@@ -51,7 +51,7 @@ function TableRow ({
       <td className="text-center">
         <span>{lose}</span>
       </td>
-      <td className="text-center">
+      <td className="text-center ">
         <span>{goalsFor}</span>
       </td>
       <td className="text-center">

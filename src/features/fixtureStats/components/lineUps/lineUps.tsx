@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import soccerFieldPng from '../../../../assets/images/soccer-field.png'
-import { Fixture, LineUp, LineUpStartXIPlayer } from '../../../../types/types';
+import { Fixture, LineUpStartXIPlayer, } from '../../../../types/types';
 import FootballField from '../footballField/footballField';
 
 type LineUpsProps = {
@@ -22,18 +22,18 @@ function LineUps ({fixture} : LineUpsProps) {
         for(let i = 0; i < team.formation.length; i++) {
           if(team.formation[i] !== '-') teamLineUp.push([])
         }
-  
-        team.startXI.forEach((player) => {
-          if(player.player.grid){
-            const column = Number(player.player.grid[0]) - 1
+        console.log(team.startXI);
+        team.startXI.forEach((data) => {
+          if(data.player.grid){
+            const column = Number(data.player.grid[0]) - 1
             // let row = Number(player.player.grid[player.player.grid.length - 1]) - 1
-            if(teamLineUp[column]) teamLineUp[column].push((player.player))
+            if(teamLineUp[column]) teamLineUp[column].push((data.player))
           }
           if(fixture.players && fixture.players.length > 0){
             const playersFromTeam = fixture.players[index].players
             for(let i = 0; i < playersFromTeam.length ; i++) {
-              if(playersFromTeam[i].player.id === player.player.id){
-                player.player.photo = playersFromTeam[i].player.photo
+              if(playersFromTeam[i].player.id === data.player.id){
+                data.player.photo = playersFromTeam[i].player.photo
               }
             }
           }

@@ -84,16 +84,17 @@ function FixtureStats () {
       </div>
       }
 
-      <div className="flex items-center h-24 gap-2 overflow-x-auto rounded-sm border-slate-300 shadow-slate-300">
+      <div className="flex h-12 gap-2 rounded-sm border-slate-300 shadow-slate-300 ">
       {
       fixtureViewModeOptions.map((option, index) => (
-        <button className={`text-primary rounded-2xl p-2 w-20 font-bold 
+        <button className={`text-primary rounded-2xl p-2 w-20 h-8 font-bold 
         ${fixtureViewMode === option && 'bg-emerald-600 text-white'}`} 
         key={index}
         onClick={()=>setFixtureViewMode(option)}>{option}</button>
       ))
       }
       </div>
+      
       <div className="w-full h-full pt-8 pb-8 rounded-lg">
       {
       fixtureViewMode === 'H2H' && fixture &&

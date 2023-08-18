@@ -11,7 +11,7 @@ import ShowLessButton from "../../../../components/ui/showLessButton";
 import { Fixture } from "../../../../types/types";
 
 type FixturesProps = {
-  fixtures: Fixture[] | undefined;
+  fixtures: Fixture[];
   setFixtures : React.Dispatch<React.SetStateAction<Fixture[] | undefined>>;
   
 }
@@ -83,7 +83,7 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
           <div className="z-20 h-fit"></div>
         </div>
       {
-      fixtures &&
+      
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (

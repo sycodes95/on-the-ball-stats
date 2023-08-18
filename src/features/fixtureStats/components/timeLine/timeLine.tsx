@@ -10,7 +10,7 @@ type TimeLineProps = {
 
 function TimeLine ({fixture} : TimeLineProps) {
   return (
-    <div className="flex flex-col items-center w-full h-full gap-2">
+    <div className="flex flex-col items-center w-full h-full gap-8">
       {
       !hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC' ?
       <div className="flex items-center justify-center flex-grow h-full">

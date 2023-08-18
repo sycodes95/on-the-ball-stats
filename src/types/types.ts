@@ -104,13 +104,7 @@ export type Lineups = {
   };
   formation: string;
   startXI: {
-    player: {
-      grid: string;
-      id: number;
-      name: string;
-      number: number;
-      pos: string;
-    }
+    player: LineUpStartXIPlayer;
   }[]
 }
 
@@ -193,22 +187,10 @@ export type LineUp = {
   };
   formation: string;
   startXI: {
-    player : {
-      grid: string | null;
-      id: number;
-      name: string;
-      number : number;
-      pos: string;
-    }
+    player : LineUpStartXIPlayer;
   }[];
   substitutes: {
-    player : {
-      grid: string | null;
-      id: number;
-      name: string;
-      number : number;
-      pos: string;
-    }
+    player : LineUpStartXIPlayer;
   }[];
   team : {
     colors: {
