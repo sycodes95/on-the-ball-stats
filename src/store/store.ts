@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import fixtureStatsSlice from '../features/fixtureStats/state/fixtureStatsSlice'
 
 export const store = configureStore({
   reducer: {
+    fixtureStatsSlice
   }
 })
 

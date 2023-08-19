@@ -1,8 +1,6 @@
 
-export const getLeagueTeamStandings = ( leagueID: number ) => {
-  const currentSeason = new Date().getFullYear()
-  const previousYear = currentSeason - 1
-  return fetch(`https://api-football-v1.p.rapidapi.com/v3/standings?league=${leagueID}&season=${previousYear}`,{
+export const getLeagueTeamStandings = ( leagueID: number, season:number ) => {
+  return fetch(`https://api-football-v1.p.rapidapi.com/v3/standings?league=${leagueID}&season=${season}`,{
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
@@ -11,9 +9,15 @@ export const getLeagueTeamStandings = ( leagueID: number ) => {
   })
   .then(res => res.json())
   .then(data => {
-    return data
+    console.log(data);
+    if(data.response && data.response.length > 0 && data.response[0].league) {
+      return data.response[0].league.standings[0]
+    }
+    return []
+    
   })
   .catch(error => {
     console.error(error)
+    return []
   })
 }

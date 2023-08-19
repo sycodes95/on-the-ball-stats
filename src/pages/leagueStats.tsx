@@ -13,6 +13,7 @@ import LeagueTeamStandings from "../features/leagueStats/components/leagueTeamSt
 import '../features/leagueStats/styles/styles.css'
 import { Player } from "../types/types";
 import { Oval } from "react-loader-spinner";
+import { season } from "../constants/season";
 
 function LeagueStats () {
   const [loading, setLoading] = useState(true);
@@ -23,18 +24,20 @@ function LeagueStats () {
 
   const { leagueId } = useParams()
 
+  
+
   useEffect(() => {
     Promise.all([
       getLeagueInfo(Number(leagueId)),
-      getLeagueTopScorers(Number(leagueId)),
-      getLeagueTopAssists(Number(leagueId)),
-      getLeagueTeamStandings(Number(leagueId)),
+      getLeagueTopScorers(Number(leagueId), season),
+      getLeagueTopAssists(Number(leagueId), season),
+      getLeagueTeamStandings(Number(leagueId), season),
     ])
     .then(([infoData, topScorersData, topAssistsData, teamStandingsData]) => {
       setLeagueInfo(infoData.response[0]);
       setLeagueTopScorers(topScorersData.response);
       setLeagueTopAssists(topAssistsData.response);
-      setLeagueTeamStandings(teamStandingsData.response[0].league.standings[0]);
+      setLeagueTeamStandings(teamStandingsData);
       setLoading(false); // Set loading to false after all fetches are complete
     })
     .catch((err) => console.error(err));
@@ -42,6 +45,10 @@ function LeagueStats () {
   
   useEffect(()=> {
   },[leagueTeamStandings])
+
+  const hasLeagueTopScorers = !loading && leagueTopScorers.length > 0;
+  const hasLeagueTopAssists = !loading && leagueTopAssists.length > 0;
+  const hasLeagueTeamStadnings = !loading && leagueTeamStandings.length > 0;
   return (
     <div className="flex flex-col w-full pb-16 text-black">
       {
@@ -68,9 +75,18 @@ function LeagueStats () {
       {
       !loading &&
       <>
+      {
+      hasLeagueTeamStadnings && 
       <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueID={Number(leagueId)}/>
+      }
+      {
+      hasLeagueTopScorers && 
       <LeagueTopScorers leagueTopScorers={leagueTopScorers} />
+      }
+      {
+      hasLeagueTopAssists && 
       <LeagueTopAssists leagueTopAssists={leagueTopAssists} />
+      }
       </>
       }
       

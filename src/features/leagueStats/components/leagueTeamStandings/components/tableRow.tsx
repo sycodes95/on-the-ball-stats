@@ -63,11 +63,11 @@ function TableRow ({
       <td className="text-center">
         <span>{points}</span>
       </td>
-      <td className="flex justify-center gap-1 text-center">
+      <td className="grid grid-cols-5 gap-1 text-center ">
         {
         Array.from(form).map((result) => (
           <p className={`
-          w-4 rounded-md text-white text-xs
+          w-5 rounded-md text-white text-xs text-center
           ${result.toLowerCase() === 'w'&& 'bg-emerald-400'}
           ${result.toLowerCase() === 'l' && 'bg-red-400'}
           ${result.toLowerCase() === 'd' && 'bg-gray-400'}

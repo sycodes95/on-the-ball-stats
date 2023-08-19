@@ -4,38 +4,33 @@ import { mdiArrowUpBoldBoxOutline } from '@mdi/js';
 import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
 import { fixtureTimelineEventsImages } from "../../constants/constants";
 import { Fixture } from "../../../../types/types";
-type TimeLineProps = {
-  fixture : Fixture;
-}
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store/store";
+import TimeLineHeader from "./timeLineHeader/timeLineHeader";
 
-function TimeLine ({fixture} : TimeLineProps) {
+
+function TimeLine () {
+  const { fixture } = useSelector((state : RootState) => state.fixtureStatsSlice)
+
+  const fixtureHasNotStarted = fixture && 
+  (
+    !hasFixtureStarted(fixture) 
+    || fixture.fixture.status.short ===  'PST' 
+    || fixture.fixture.status.short ===  'CANC'
+  );
   return (
     <div className="flex flex-col items-center w-full h-full gap-8">
       {
-      !hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC' ?
+      fixtureHasNotStarted ?
       <div className="flex items-center justify-center flex-grow h-full">
         Match timeline will be updated once match has started.
       </div>
       : 
       <>
-      <div className="flex justify-center w-full gap-12">
-        <div className="flex justify-end">
-          <img className="object-contain w-12 h-12" src={fixture.teams.home.logo} alt="" />
-        </div>
-
-        <div className="flex items-center justify-center">
-          <span className="font-bold">Timeline</span>
-        </div>
-
-        <div className="flex items-center justify-start">
-          <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
-        </div>
-      </div>
-
-      
-      <div className="flex flex-col gap-2">
+      <TimeLineHeader />
+      <div className="flex flex-col h-full gap-2">
       {
-      fixture.events && fixture.events.length > 0 &&
+      fixture.events && fixture.events.length > 0 ?
       fixture.events?.map((ev, index) => (
         <div className="w-full gap-2 timeline-grid" key={index}>
           {
@@ -133,6 +128,8 @@ function TimeLine ({fixture} : TimeLineProps) {
           
         </div>
       ))
+      :
+      <span className="flex items-center h-full">No events to report currently.</span>
       }
       </div>
       </>

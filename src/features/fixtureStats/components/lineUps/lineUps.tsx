@@ -1,19 +1,13 @@
 import { useEffect, useState } from 'react';
-import soccerFieldPng from '../../../../assets/images/soccer-field.png'
-import { Fixture, LineUp, LineUpStartXIPlayer, LineUpSubstitutesPlayer, } from '../../../../types/types';
-import FootballFieldHorizontal from './footballField/footballFieldHorizontal';
-import noPhotoPlayerImage from '../../../../assets/images/no-image-player.png'
+import { LineUp, LineUpStartXIPlayer, LineUpSubstitutesPlayer, } from '../../../../types/types';
 import StartingXIHorizontal from './startingXIHorizontal/startingXIHorizontal';
 import StartingXIVertical from './startinXIVertical/startingXIVertical';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../store/store';
 
-type LineUpsProps = {
-  fixture: Fixture;
-}
+function LineUps () {
 
-function LineUps ({fixture} : LineUpsProps) {
-
-  const [homeTeamLineUpData ,setHomeTeamLineUpData ] = useState([])
-  const [awayTeamLineUpData ,setAwayTeamLineUpData ] = useState([])
+  const { fixture } = useSelector((state : RootState) => state.fixtureStatsSlice)
   
   const [homeStartXIHorizontal, setHomeStartXIHorizontal] = useState<LineUpStartXIPlayer[][]>([])
   const [awayStartXIHorizontal, setAwayStartXIHorizontal] = useState<LineUpStartXIPlayer[][]>([])
@@ -21,70 +15,34 @@ function LineUps ({fixture} : LineUpsProps) {
   const [homeSubstitutes, setHomeSubstitutes] = useState<LineUpSubstitutesPlayer[]>([])
   const [awaySubstitutes, setAwaySubstitutes] = useState<LineUpSubstitutesPlayer[]>([])
 
-  // useEffect(()=> {
-  //   if(fixture.lineups && fixture.lineups.length) {
-  //     fixture.lineups?.forEach((team, index) => {
-  //       const teamLineUp: LineUpStartXIPlayer[][] = [[]]
-  
-  //       for(let i = 0; i < team.formation.length; i++) {
-  //         if(team.formation[i] !== '-') teamLineUp.push([])
-  //       }
-  //       console.log(team.startXI);
-  //       team.startXI.forEach((data) => {
-  //         if(data.player.grid){
-  //           const column = Number(data.player.grid[0]) - 1
-  //           // let row = Number(player.player.grid[player.player.grid.length - 1]) - 1
-  //           if(teamLineUp[column]) teamLineUp[column].push((data.player))
-  //         }
-  //         if(fixture.players && fixture.players.length > 0){
-  //           const playersFromTeam = fixture.players[index].players
-  //           for(let i = 0; i < playersFromTeam.length ; i++) {
-  //             if(playersFromTeam[i].player.id === data.player.id){
-  //               data.player.photo = playersFromTeam[i].player.photo
-  //             }
-  //           }
-  //         }
-  //       })
-  //       if(index === 0){
-  //         setHomeStartXIHorizontal(()=> teamLineUp.map((col) => {
-  //           return col.sort((a:LineUpStartXIPlayer , b: LineUpStartXIPlayer) => {
-  //             if(a.grid && b.grid) {
-  //               return Number(a.grid[a.grid.length - 1]) - Number(b.grid[a.grid.length - 1])
-  //             }
-  //             return 0
-  //           })
-            
-  //         }))
-  //       } else if(index === 1) {
-  //         setAwayStartXIHorizontal(teamLineUp)
-  //       }
-  //     })
+  const HOME_TEAM_INDEX = 0;
+  const AWAY_TEAM_INDEX = 1;
 
-  //   }
-    
-  // },[fixture])
+  const fixtureHasLineups = fixture && fixture.lineups && fixture.lineups.length > 0;
 
   useEffect(() => {
-    if(!fixture.lineups || fixture.lineups.length === 0) return;
-
+    if(!fixture || (!fixture.lineups || fixture.lineups.length === 0)) return;
+    
     const generateTeamStartXILineup = (lineup: LineUp, index: number) => {
+      
       const teamLineUp: LineUpStartXIPlayer[][] = [[]];
       
       Array.from(lineup.formation).forEach(f => {
         if(f !== '-') teamLineUp.push([]);
       });
-      console.log(teamLineUp);
-      lineup.startXI.forEach(data => {
-        if(!data.player.grid) return;
 
-        const column = Number(data.player.grid[0]) - 1;
-        console.log(column, data);
-        teamLineUp[column].push(data.player);
+      lineup.startXI.forEach(data => {
+
+        const player = {...data.player};
+
+        if(!player.grid) return;
+
+        const column = Number(player.grid[0]) - 1;
+        teamLineUp[column].push(player);
         
         if(fixture.players && fixture.players.length > 0){
-          const playerWithPhoto = fixture.players[index].players.find(p => p.player.id === data.player.id);
-          // if(playerWithPhoto) data.player.photo = playerWithPhoto.player.photo;
-          if(playerWithPhoto) data.player.photo = playerWithPhoto.player.photo;
+          const playerWithPhoto = fixture.players[index].players.find(p => p.player.id === player.id);
+          if(playerWithPhoto) player.photo = playerWithPhoto.player.photo;
         }
       });
 
@@ -113,18 +71,15 @@ function LineUps ({fixture} : LineUpsProps) {
     fixture.lineups.forEach((lineup, index) => {
       const teamLineUp = generateTeamStartXILineup(lineup, index);
       const substitutes = generateTeamSubstitutes(lineup, index)
-      if(index === 0){
+      if(index === HOME_TEAM_INDEX){
         setHomeStartXIHorizontal(teamLineUp);
         setHomeSubstitutes(substitutes)
-      } else if(index === 1) {
+      } else if(index === AWAY_TEAM_INDEX) {
         setAwayStartXIHorizontal(teamLineUp);
         setAwaySubstitutes(substitutes)
       }
     });
-
-  
-    console.log(fixture.lineups[0]);
-}, [fixture]);
+  }, [fixture]);
 
 
 
@@ -134,7 +89,7 @@ function LineUps ({fixture} : LineUpsProps) {
   return (
     <div className="flex flex-col w-full h-full gap-4">
       {
-      (fixture.lineups && fixture.lineups.length > 0) ?
+      fixtureHasLineups ?
       <div className='flex flex-col gap-4'>
         <StartingXIHorizontal 
         className='hidden md:contents'

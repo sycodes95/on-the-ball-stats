@@ -112,10 +112,10 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
                   fixtureDate={fixture.fixture.date} 
                   fixturePenalties={fixture.score.penalty}/>
                   {
-                    typeof fixture.goals.home === 'number' && typeof fixture.goals.away === 'number' &&
-                    <FixtureScore 
-                    homeGoals={fixture.goals.home} 
-                    awayGoals={fixture.goals.away}/>
+                  typeof fixture.goals.home === 'number' && typeof fixture.goals.away === 'number' &&
+                  <FixtureScore 
+                  homeGoals={fixture.goals.home} 
+                  awayGoals={fixture.goals.away}/>
                   }
                 </div>
                 

@@ -10,7 +10,24 @@ type FixtureTimelineEventsImages = {
 type TranslateMatchStatisticTypes = {
   [key: string] : string;
 }
+// FIXTURE STATS PAGE
+export const fixtureViewModeOptions = [
+  'H2H',
+  'Lineups',
+  'Timeline',
+  'Stats',
+];
 
+// LINEUPS COMPONENT 
+
+export const playerPositionColors = {
+  'F': 'bg-red-600',
+  'M': 'bg-emerald-600',
+  'D': 'bg-blue-600',
+  'G': 'bg-orange-600',
+};
+
+// TIMELINE COMPONENT
 export const fixtureTimelineEventsImages: FixtureTimelineEventsImages = {
   'Yellow Card' : yellowCard,
   'Red Card' : redCard,
@@ -18,12 +35,13 @@ export const fixtureTimelineEventsImages: FixtureTimelineEventsImages = {
   'Goal' : soccerBallGoalIcon
 }
 
-
+// STATS COMPONENT
 export const translateMatchStatisticTypes : TranslateMatchStatisticTypes = {
   'expected_goals' : 'Expected Goals',
   'Shots insidebox' : 'Shots Inside Box',
   'Shots outsidebox' : 'Shots Outside Box',
   'Passes accurate' : 'Accurate Passes',
 }
+
 
 

@@ -1,26 +1,30 @@
-import { Fixture, FixtureStatistics } from "../../../../types/types";
+import { useSelector } from "react-redux";
+import { FixtureStatistics } from "../../../../types/types";
 import { translateMatchStatisticTypes } from "../../constants/constants";
 import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
+import { RootState } from "../../../../store/store";
 
 type MatchStatisticsProps = {
   homeTeamStatistics: FixtureStatistics;
   awayTeamStatistics: FixtureStatistics;
-  fixture: Fixture;
 }
 
 
-function MatchStatistics ({homeTeamStatistics, awayTeamStatistics, fixture} : MatchStatisticsProps) {
+function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatisticsProps) {
 
- 
+  const { fixture } = useSelector((state : RootState) => state.fixtureStatsSlice)
+  const fixtureHasStatistics = fixture && fixture.statistics && fixture.statistics.length > 0;
+  
   return(
     <div className="flex flex-col items-center justify-center w-full h-full gap-8 rounded-md text-primary border-slate-300 ">
       {
-      !hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC'?
+      fixture &&
+      (!hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC') ?
       <div className="flex items-center justify-center flex-grow h-full">Match statistics will be updated once match has started.</div>
       :
       <>
       {
-      fixture.statistics && fixture.statistics.length ?
+      fixtureHasStatistics ?
       <>
       <div className="grid w-full grid-cols-3">
         <div className="flex justify-center">

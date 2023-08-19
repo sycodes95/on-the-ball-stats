@@ -1,22 +1,39 @@
 import { Link } from "react-router-dom";
 import { formatYMD } from "../../../../../utils/formatYMD";
 import { Fixture } from "../../../../homepage/types/types";
+import { useEffect } from "react";
 
 type H2HFixturesListProps = {
   headToHeadFixtures: Fixture[]
 }
 
 function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
+  useEffect(() => {
+    console.log(headToHeadFixtures);
+  },[headToHeadFixtures])
   return (
     <div className="flex flex-col w-full">
      <span className="p-2 font-semibold">Last {headToHeadFixtures.length} {headToHeadFixtures.length > 1 ? 'Matches' : 'Match'}</span>
       {
       headToHeadFixtures.map((fixture, index) => (
       <div className="flex items-center gap-4 p-2 rounded-md shadow-md md:gap-8 shadow-slate-300" key={index}>
+        <div  className="flex items-center gap-2 md:w-32 ">
+          <img className="object-contain w-4 h-4" src={fixture.league.logo} />
+          <span className="hidden md:flex">{fixture.league.name}</span>
+        </div>
+        {/* {
+        fixture.league.country !== 'World' ?
         <Link to={`/leagues/${fixture.league.id}`} className="flex items-center gap-2 md:w-32 hover:underline">
           <img className="object-contain w-4 h-4" src={fixture.league.logo} />
           <span className="hidden md:flex">{fixture.league.name}</span>
         </Link>
+        :
+        <div  className="flex items-center gap-2 md:w-32 ">
+          <img className="object-contain w-4 h-4" src={fixture.league.logo} />
+          <span className="hidden md:flex">{fixture.league.name}</span>
+        </div>
+        } */}
+        
 
         <div className="flex items-center w-24 gap-2 md:w-32">
           {/* <span className="">{formatYMD(new Date(fixture.fixture.date)).slice(2)}</span> */}

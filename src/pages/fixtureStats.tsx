@@ -13,32 +13,31 @@ import TimeLine from "../features/fixtureStats/components/timeLine/timeLine";
 import MatchStatistics from "../features/fixtureStats/components/matchStatistics/matchStatistics";
 import { Fixture } from "../types/types";
 import LineUps from "../features/fixtureStats/components/lineUps/lineUps";
+import { fixtureViewModeOptions } from "../features/fixtureStats/constants/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { setFixture } from "../features/fixtureStats/state/fixtureStatsSlice";
 
 function FixtureStats () {
-  const fixtureViewModeOptions = [
-    'H2H',
-    'Lineups',
-    'Timeline',
-    'Stats',
-  ]
-
+  
+  const dispatch = useDispatch()
   const { fixtureId } = useParams()
-  const [fixture, setFixture] = useState<Fixture | null>(null)
+
+  const { fixture } = useSelector((state : RootState) => state.fixtureStatsSlice)
   const [fixtureViewMode, setFixtureViewMode ] = useState(fixtureViewModeOptions[0])
   const [headToHeadFixtures, setheadToHeadFixtures] = useState<Fixture[] | null>(null)
+
+
   useEffect(()=> {
-    getFixturesById(Number(fixtureId)).then(fixture => setFixture(fixture))
+    getFixturesById(Number(fixtureId)).then(fixture => dispatch(setFixture(fixture)))
   },[])
 
   useEffect(()=> {
     if(fixture){
       getFixturesH2H(fixture.teams.home.id, fixture.teams.away.id).then(fixtures => {
-        // setheadToHeadFixtures(fixtures.sort((a:string, b:string) => new Date(b.fixture.date) - new Date(a.fixture.date)))
         setheadToHeadFixtures(fixtures)
       })
-      hasFixtureStarted(fixture)
     }
-    console.log(fixture);
   },[fixture])
   
   return (
@@ -102,15 +101,15 @@ function FixtureStats () {
       }
       {
       fixtureViewMode === 'Timeline' && fixture  &&
-      <TimeLine fixture={fixture}/>
+      <TimeLine/>
       }
       {
       fixtureViewMode === 'Stats' && fixture && fixture.statistics &&
-      <MatchStatistics fixture={fixture} homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
+      <MatchStatistics homeTeamStatistics={fixture.statistics[0]} awayTeamStatistics={fixture.statistics[1]} />
       }
       {
       fixtureViewMode === 'Lineups' && fixture  && 
-      <LineUps fixture={fixture}/>
+      <LineUps/>
       }
       </div>
       
