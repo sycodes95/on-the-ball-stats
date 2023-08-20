@@ -1,87 +1,96 @@
 export type Player = {
   player: {
     age?: number;
-    birth?: { 
+    birth: { 
       date: string, 
       place: string, 
       country: string
     };
-    firstname?: string;
-    height?: string;
+    firstname: string;
+    height: string;
     id: number;
-    injured?: boolean;
-    lastname?: string;
-    name?: string;
-    nationality?: string;
-    photo?: string;
-    weight?: string;
+    injured: boolean;
+    lastname: string;
+    name: string;
+    nationality: string;
+    photo: string;
+    weight: string;
   },
-  statistics: {
-    cards?: {
-      yellow: number;
-      yellowred: number;
-      red: number;
+  statistics?: {
+    cards: {
+      yellow: number | null;
+      yellowred: number | null;
+      red: number | null;
     };
-    dribbles?: {
-      attempts: number;
-      success: number;
-      past: null; // Update 'any' with the appropriate type if possible
+    dribbles: {
+      attempts: number | null;
+      success: number | null;
+      past: number | null;
     };
-    duels?: {
-      total: number;
-      won: number;
+    duels: {
+      total: number | null;
+      won: number | null;
+      
     };
-    fouls?: {
-      drawn: number;
-      committed: number;
+    fouls: {
+      drawn: number | null;
+      committed: number | null;
     };
-    games?: {
-      appearences: number;
-      lineups: number;
-      minutes: number;
-      number: null | number;
+    games: {
+      appearances: number | null;
+      captain: boolean;
+      lineups: number | null;
+      minutes: number | null;
+      number: number | null;
       position: string;
+      rating: string | null;
     };
-    goals?: {
-      total: number;
-      conceded: number;
-      assists: number;
-      saves: null | number;
+    goals: {
+      assists: number | null;
+      condeded: number | null;
+      saves: number | null;
+      total: number | null;
+  
     };
-    league?: {
-      id: number;
-      name: string;
+    league: {
       country: string;
-      logo: string;
       flag: string;
+      id: number;
+      logo: string;
+      name: string;
+      season: number;
+  
     };
-    passes?: {
-      total: number;
-      key: number;
-      accuracy: number;
+    passes: {
+      accuracy: number | null;
+      key: number | null;
+      total: number | null;
+  
     };
-    penalty?: {
-      won: null | number;
-      commited: null | number;
-      scored: number;
-      missed: number;
-      saved: null | number;
+    penalty: {
+      committed: number | null;
+      missed: number | null;
+      saved: number | null;
+      scored: number | null;
+      won: number | null;
+  
     };
-    shots?: {
-      total: number;
-      on: number;
+    shots: {
+      on: number | null;
+      total: number | null;
     };
-    substitutes?: {
-      in: number;
-      out: number;
-      bench: number;
+    substitutes: {
+      bench: number | null;
+      in: number | null;
+      out: number | null;
+  
     };
-    tackles?: {
-      total: number;
-      blocks: number;
-      interceptions: number;
+    tackles: {
+      blocks: number | null;
+      interceptions: number | null;
+      total: number | null;
     };
-    team?: {
+    team: {
       id: number;
       logo: string;
       name: string;

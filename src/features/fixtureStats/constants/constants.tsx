@@ -10,6 +10,10 @@ type FixtureTimelineEventsImages = {
 type TranslateMatchStatisticTypes = {
   [key: string] : string;
 }
+
+type PlayerPositionColors = {
+  [key: string] : string;
+}
 // FIXTURE STATS PAGE
 export const fixtureViewModeOptions = [
   'H2H',
@@ -20,9 +24,9 @@ export const fixtureViewModeOptions = [
 
 // LINEUPS COMPONENT 
 
-export const playerPositionColors = {
+export const playerPositionColors : PlayerPositionColors = {
   'F': 'bg-red-600',
-  'M': 'bg-emerald-600',
+  'M': 'bg-pink-600',
   'D': 'bg-blue-600',
   'G': 'bg-orange-600',
 };

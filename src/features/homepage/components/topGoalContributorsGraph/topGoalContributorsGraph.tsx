@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ListClubImage from "../../../../components/ui/listClubImage";
 import { Player } from "../../../../types/types";
 import { returnContributionWidthPct } from "../../utils/returnContributionWidthPct";
@@ -17,14 +18,17 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
 
       
       {
-      topGoalContributors.map((player: Player, index) => (
+      topGoalContributors.map((player: Player, index) => {
+        if(player.statistics[0].team && player.statistics[0].goals){
+        return (
         <div className="flex items-center h-6 gap-1 text-xs border">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <ListClubImage src={player.statistics[0].team.logo}/>
-            
-            <img className="h-full rounded-full w-fit" src={player.player.photo} alt="player-photo"/>
-            <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>
+            <Link className="flex items-center gap-2 hover:underline" to={`/player-stats/${player.player.id}`}>
+              <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
+              <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>
+            </Link>
           </div>
           
           <div className="relative w-full h-full overflow-hidden">
@@ -47,7 +51,7 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
             {player.statistics[0].goals.total + player.statistics[0].goals.assists} 
           </div>
         </div>
-      ))
+      )}})
       }
       <div className="flex items-center gap-4 p-2">
         <div className="flex items-center gap-2">

@@ -4,6 +4,8 @@ import StartingXIHorizontal from './startingXIHorizontal/startingXIHorizontal';
 import StartingXIVertical from './startinXIVertical/startingXIVertical';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
+import { Link } from 'react-router-dom';
+import Substitutes from './substitutes/substitutes';
 
 function LineUps () {
 
@@ -63,7 +65,6 @@ function LineUps () {
         }
         return {...sub.player, photo: ''}
       })
-      console.log(subsWithPhoto);
       return subsWithPhoto
       
     }
@@ -105,61 +106,10 @@ function LineUps () {
         awayStartXIHorizontal={awayStartXIHorizontal}
         />
         <span className='w-full font-bold text-center'>Substitutes</span>
-        <div className='grid grid-cols-2 gap-2 p-4 grid-cols-1w-full'>
-          <div className='flex flex-col gap-2'>
-            <div className='flex justify-center w-full p-2'>
-              <img className='object-contain w-8 h-8' src={fixture.teams.home.logo} alt="" />
-            </div>
-            {
-            homeSubstitutes &&
-            homeSubstitutes.map((player, index) => (
-              <div className='flex flex-col items-center gap-2 p-2 overflow-hidden border border-gray-300 rounded-2xl md:flex-row md:p-0 whitespace-nowrap text-ellipsis' key={index}>
-                {
-                player.photo ? 
-                <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src={player.photo} alt="" />
-                :
-                <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
-                }
-                <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
-                ${player.pos === 'F' && 'bg-red-600 '}
-                ${player.pos === 'M' && 'bg-emerald-600'}
-                ${player.pos === 'D' && 'bg-blue-600'}
-                ${player.pos === 'G' && 'bg-orange-600'}
-                `}>{player.pos}</span>
-                <span className='w-8 text-center'>{player.number}</span>
-                <span>{player.name}</span>
-              </div>
-            ))
-            }
-          </div>
-          <div className='flex flex-col gap-2'>
-            <div className='flex justify-center w-full p-2'>
-              <img className='object-contain w-8 h-8' src={fixture.teams.away.logo} alt="" />
-            </div>
-            {
-            awaySubstitutes &&
-            awaySubstitutes.map((player, index) => (
-              <div className='flex flex-col items-center gap-2 p-2 overflow-hidden border border-gray-300 rounded-2xl md:flex-row md:p-0 whitespace-nowrap text-ellipsis' key={index}>
-                {
-                player.photo ? 
-                <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src={player.photo} alt="" />
-                :
-                <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
-                }
-                <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
-                ${player.pos === 'F' && 'bg-red-600 '}
-                ${player.pos === 'M' && 'bg-emerald-600'}
-                ${player.pos === 'D' && 'bg-blue-600'}
-                ${player.pos === 'G' && 'bg-orange-600'}
-                `}>{player.pos}</span>
-                <span className='w-8 text-center'>{player.number}</span>
-                <span>{player.name}</span>
-              </div>
-            ))
-            }
-          </div>
+        <div className='grid w-full grid-cols-2 gap-2 p-4 font-semibold'>
+          <Substitutes teamSubstitutes={homeSubstitutes} />
+          <Substitutes teamSubstitutes={awaySubstitutes} />
         </div>
-
       </div>
       :
       <div className='flex items-center justify-center w-full h-full text-primary'>

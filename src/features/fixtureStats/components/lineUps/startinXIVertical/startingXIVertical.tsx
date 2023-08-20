@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
+import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldVertical from "../footballField/footballFIeldVertical";
 import FootballFieldHorizontal from "../footballField/footballFieldHorizontal";
 
@@ -50,7 +52,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
               <div className='z-10 flex items-center w-full h-full justify-evenly' key={index}>
                 {
                 [...col].reverse().map((player, i) => (
-                  <div className='z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:cursor-pointer'
+                  <Link to={`/player-stats/${player.id}`} className='z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70'
                   key={i}>
                     {
                     player.photo ?
@@ -58,9 +60,14 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
                     :
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
-                    <span className='group-hover:opacity-75 text-opa'># {player.number}</span>
+                    <div className="flex gap-2">
+                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      ${playerPositionColors[player.pos]}
+                      `}>{player.pos}</span>
+                      <span className='group-hover:opacity-75 text-opa'>{player.number}</span>
+                    </div>
                     <span>{player.name.split(' ').pop()}</span>
-                  </div>
+                  </Link>
                 ))
                 }
               </div>
@@ -73,7 +80,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
               <div className='z-10 flex items-center w-full h-full justify-evenly' key={index}>
                 {
                 [...col].reverse().map((player, i) => (
-                  <div className='z-20 flex flex-col items-center justify-center w-full gap-1 text-white min-w-max h-fit group hover:cursor-pointer '
+                  <Link to={`/player-stats/${player.id}`} className='z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70'
                   key={i}>
                     {
                     player.photo ?
@@ -81,9 +88,14 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
                     :
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
-                    <span className='group-hover:opacity-75'># {player.number}</span>
+                    <div className="flex gap-2">
+                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      ${playerPositionColors[player.pos]}
+                      `}>{player.pos}</span>
+                      <span className='group-hover:opacity-75 text-opa'># {player.number}</span>
+                    </div>
                     <span className='group-hover:opacity-75'>{player.name.split(' ').pop()}</span>
-                  </div>
+                  </Link>
                 ))
                 }
               </div>

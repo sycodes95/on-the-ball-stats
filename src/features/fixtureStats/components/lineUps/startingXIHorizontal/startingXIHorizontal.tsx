@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
+import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldHorizontal from "../footballField/footballFieldHorizontal";
 
 type StartingXIHorizontalProps = {
@@ -62,14 +64,14 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
       <div className={`relative h-full w-full`}>
         <FootballFieldHorizontal />
         {/* <img className="object-contain max-w-full max-h-full " src={soccerFieldPng} alt="" /> */}
-        <div className='absolute top-0 flex w-full h-full font-bold' style={{height: '640px'}}>
+        <div className='absolute top-0 flex w-full h-full font-semibold' style={{height: '640px'}}>
           <div className='z-10 flex w-1/2 h-full bg-black bg-opacity-20'>
             {
             homeStartXIHorizontal.map((col, index) => (
               <div className='z-10 flex flex-col items-center w-full h-full justify-evenly' key={index}>
                 {
                 col.map((player, i) => (
-                  <div className='z-20 flex flex-col items-center justify-center gap-1 text-white w-fit h-fit group hover:cursor-pointer'
+                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player-stats/${player.id}`}
                   key={i}>
                     {
                     player.photo ?
@@ -77,9 +79,14 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
                     :
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
-                    <span className='group-hover:opacity-75 text-opa'># {player.number}</span>
+                    <div className="flex gap-2">
+                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      ${playerPositionColors[player.pos]}
+                      `}>{player.pos}</span>
+                      <span className='group-hover:opacity-75 text-opa'># {player.number}</span>
+                    </div>
                     <span>{player.name.split(' ').pop()}</span>
-                  </div>
+                  </Link>
                 ))
                 }
               </div>
@@ -92,7 +99,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
               <div className='z-10 flex flex-col items-center w-full h-full justify-evenly' key={index}>
                 {
                 col.map((player, i) => (
-                  <div className='z-20 flex flex-col items-center justify-center gap-1 text-white w-fit h-fit group hover:cursor-pointer'
+                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player-stats/${player.id}`}
                   key={i}>
                     {
                     player.photo ?
@@ -100,9 +107,14 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
                     :
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
-                    <span className='group-hover:opacity-75'># {player.number}</span>
+                    <div className="flex gap-2">
+                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      ${playerPositionColors[player.pos]}
+                      `}>{player.pos}</span>
+                      <span className='group-hover:opacity-75'>{player.number}</span>
+                    </div>
                     <span className='group-hover:opacity-75'>{player.name.split(' ').pop()}</span>
-                  </div>
+                  </Link>
                 ))
                 }
               </div>

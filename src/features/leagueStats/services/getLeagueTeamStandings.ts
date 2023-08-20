@@ -7,7 +7,6 @@ export const getLeagueTeamStandings = ( leagueID: number, season:number ) => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     if(data.response && data.response.length > 0 && data.response[0].league) {
       return data.response[0].league.standings[0]
     }

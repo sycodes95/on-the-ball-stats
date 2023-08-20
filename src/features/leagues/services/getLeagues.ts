@@ -8,10 +8,8 @@ export const getLeagues = () => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     if(data.response.length) {
       const leagues = data.response.splice(0, 25).sort((a : League, b: League) => a.league.id - b.league.id)
-      console.log(leagues);
       return leagues
     } 
     return []

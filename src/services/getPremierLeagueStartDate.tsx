@@ -6,12 +6,9 @@ export const getLatestStartedSeason = () => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     if(data && data.response && data.response[0].seasons){
-      console.log(new Date(data.response[0].seasons.pop().start).getFullYear());
       return new Date(data.response[0].seasons.pop().start).getFullYear() + 1
     }
-    console.log('not new date');
     return new Date().getFullYear()
   })
   .catch(err => {

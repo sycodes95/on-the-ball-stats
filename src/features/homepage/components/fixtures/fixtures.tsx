@@ -38,7 +38,6 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
         setFixturesDisplayAmount(defaultfixturesDisplayAmount)
       })
     }
-    console.log(fixturesDay);
   },[fixturesDay])
 
   return (

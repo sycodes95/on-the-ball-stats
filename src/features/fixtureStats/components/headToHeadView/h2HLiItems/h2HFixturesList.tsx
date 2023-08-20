@@ -9,7 +9,6 @@ type H2HFixturesListProps = {
 
 function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
   useEffect(() => {
-    console.log(headToHeadFixtures);
   },[headToHeadFixtures])
   return (
     <div className="flex flex-col w-full">
