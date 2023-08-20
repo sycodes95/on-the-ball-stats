@@ -1,13 +1,11 @@
+import { apiFootballGetHeaders } from "../constants/apiFootballGetHeaders"
 import { Fixture } from "../types/types"
 
 export const getFixturesH2H = (teamAId:number, teamBId: number) => {
   // const season = today.getFullYear() - 1;
   const h2h = `${teamAId}-${teamBId}`
   return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures/headtohead?h2h=${h2h}`,{
-    headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
-      'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
-    }
+    headers: apiFootballGetHeaders
   })
   .then(res => res.json())
   .then(data => {

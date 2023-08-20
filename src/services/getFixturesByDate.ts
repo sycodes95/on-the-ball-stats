@@ -3,6 +3,7 @@ import { top20Leagues } from '../constants/top20Leagues';
 import { Fixture } from '../features/homepage/types/types';
 import { timeZone } from './getTimeZone';
 import { formatYMD } from '../utils/formatYMD';
+import { apiFootballGetHeaders } from '../constants/apiFootballGetHeaders';
 
 export const getFixturesByDate = (fixtureDay?: string) => {
   
@@ -18,10 +19,7 @@ export const getFixturesByDate = (fixtureDay?: string) => {
   // const season = today.getFullYear() - 1;
   
   return fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?&date=${formatYMD(day)}&timezone=${timeZone}`,{
-    headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
-      'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
-    }
+    headers: apiFootballGetHeaders
   })
   .then(res => res.json())
   .then(data => {

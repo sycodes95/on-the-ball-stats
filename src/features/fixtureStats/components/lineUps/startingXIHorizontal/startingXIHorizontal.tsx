@@ -17,7 +17,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
       <div className='flex justify-between w-full'>
         <div className='flex gap-4'>
           <div className='flex items-center gap-4'>
-            <img className='w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
+            <img className='object-contain w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
             <span className='text-sm font-bold'>{fixture.lineups[0].formation}</span>
           </div>
 
@@ -46,7 +46,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
             </div>
             {
             fixture.lineups[1].coach.photo ? 
-            <img className='w-12 h-12 rounded-full' src={fixture.lineups[1].coach.photo} alt="" />
+            <img className='object-contain w-12 h-12 rounded-full' src={fixture.lineups[1].coach.photo} alt="" />
             :
             <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
             }
@@ -54,7 +54,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
 
           <div className='flex items-center gap-4'>
             <span className='text-sm font-bold'>{fixture.lineups[1].formation}</span>
-            <img className='w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
+            <img className='object-contain w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
           </div>
           
         </div>

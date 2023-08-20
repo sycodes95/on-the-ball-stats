@@ -106,7 +106,7 @@ function LineUps () {
         />
         <span className='w-full font-bold text-center'>Substitutes</span>
         <div className='grid grid-cols-2 gap-2 p-4 grid-cols-1w-full'>
-        <div className='flex flex-col gap-2'>
+          <div className='flex flex-col gap-2'>
             <div className='flex justify-center w-full p-2'>
               <img className='object-contain w-8 h-8' src={fixture.teams.home.logo} alt="" />
             </div>

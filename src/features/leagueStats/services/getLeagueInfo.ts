@@ -1,10 +1,9 @@
+import { apiFootballGetHeaders } from "../../../constants/apiFootballGetHeaders"
+
 export const getLeagueInfo = (leagueID: number) => {
   
   return fetch(`https://api-football-v1.p.rapidapi.com/v3/leagues?id=${leagueID}`,{
-    headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
-      'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
-    }
+    headers: apiFootballGetHeaders
   })
   .then(res => res.json())
   .then(data => {

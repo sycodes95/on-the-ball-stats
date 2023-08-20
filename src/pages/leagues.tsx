@@ -20,18 +20,19 @@ function Leagues () {
     getLeagues()
     .then(data => {
       setIsLoading(false)
-      if (data === "N/A") {
-        setLeagues([]);
-      } else {
-        // const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
-        const topLeagues = []
+      setLeagues(data)
+      // if (data === "N/A") {
+      //   setLeagues([]);
+      // } else {
+      //   // const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
+      //   const topLeagues = []
 
-        for (let i = 0; i < 24; i++){
-          topLeagues.push(data[i])
-        }
-       
-        setLeagues(topLeagues);
-      }
+      //   for (let i = 0; i < 24; i++){
+      //     topLeagues.push(data[i])
+      //   }
+      //   topLeagues.sort((a: League,b: League) => a.league.id - b.league.id)
+      //   setLeagues(topLeagues);
+      // }
     })
     .catch(error => {
       console.error(error);

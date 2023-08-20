@@ -6,7 +6,7 @@ function FootballFieldVertical () {
       </div>
       <div className="absolute -translate-x-1/2 -translate-y-1/2 border-2 border-white border-opacity-50 rounded-full w-44 left-1/2 h-44 top-1/2 ">
       </div>
-      <div id="" className="absolute right-0 w-32 -translate-y-1/2 border-t-2 border-b-2 border-l-2 border-white border-opacity-50 rounded-l-md top-1/2 h-1/2 "></div>
+      <div id="" className="absolute bottom-0 w-1/2 h-32 -translate-x-1/2 border-t-2 border-l-2 border-r-2 border-white border-opacity-50 rounded-t-md left-1/2"></div>
     </div>
   )
 }

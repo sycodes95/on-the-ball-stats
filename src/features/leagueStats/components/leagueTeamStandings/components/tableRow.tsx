@@ -65,6 +65,7 @@ function TableRow ({
       </td>
       <td className="grid grid-cols-5 gap-1 text-center ">
         {
+        form && form.length > 0 &&
         Array.from(form).map((result) => (
           <p className={`
           w-5 rounded-md text-white text-xs text-center
