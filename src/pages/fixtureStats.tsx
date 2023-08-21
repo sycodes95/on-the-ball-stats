@@ -29,7 +29,10 @@ function FixtureStats () {
 
 
   useEffect(()=> {
-    getFixturesById(Number(fixtureId)).then(fixture => dispatch(setFixture(fixture)))
+    getFixturesById(Number(fixtureId)).then(fixture => dispatch(setFixture(fixture)));
+    return () => {
+      dispatch(setFixture(null));
+    };
   },[])
 
   useEffect(()=> {
@@ -94,7 +97,7 @@ function FixtureStats () {
       }
       </div>
       
-      <div className="w-full h-full pt-8 pb-8 rounded-lg">
+      <div className="flex justify-center w-full h-full pt-8 pb-8 rounded-lg">
       {
       fixtureViewMode === 'H2H' && fixture &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>

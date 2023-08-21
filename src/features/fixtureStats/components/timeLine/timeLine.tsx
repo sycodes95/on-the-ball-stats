@@ -28,9 +28,10 @@ function TimeLine () {
       : 
       <>
       <TimeLineHeader />
-      <div className="flex flex-col h-full gap-2">
+      <div className="flex flex-col h-full gap-4 ">
       {
-      fixture.events && fixture.events.length > 0 ?
+      
+      fixture && fixture.events && fixture.events.length > 0 ?
       fixture.events?.map((ev, index) => (
         <div className="w-full gap-2 timeline-grid" key={index}>
           {
@@ -77,8 +78,8 @@ function TimeLine () {
           </div>
           }
 
-          <div className="flex justify-center w-full h-full col-start-2 text-white">
-            <span className="w-8 h-6 p-1 font-bold text-center border rounded-md shadow-md text-slate-400 border-slate-300 shadow-slate-300">{ev.time.elapsed}'</span>
+          <div className="flex justify-center w-full h-full col-start-2 ">
+            <span className="w-8 h-6 p-1 font-bold text-center text-white rounded-full shadow-md bg-slate-400 ">{ev.time.elapsed}'</span>
           </div>
 
           {

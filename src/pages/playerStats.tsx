@@ -31,8 +31,8 @@ function PlayerStats () {
           <img className="object-contain w-20 h-20 rounded-full" src={playerDetails.player.photo} alt="" />
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-1">
-              <span className="font-bold ">{playerDetails.player.firstname}</span>
-              <span className="font-bold">{playerDetails.player.lastname}</span>
+              <span className="font-semibold ">{playerDetails.player.firstname}</span>
+              <span className="font-semibold">{playerDetails.player.lastname}</span>
             </div>
             
             <div className="flex items-center gap-2">
@@ -47,32 +47,32 @@ function PlayerStats () {
         <div className="flex gap-4 p-2 font-semibold rounded-lg">
           <div className="grid w-1/2 grid-cols-3 gap-4 md:grid-cols-6">
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Age</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Age</span>
               <span>{playerDetails.player.age}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Height</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Height</span>
               <span>{playerDetails.player.height}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Weight</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Weight</span>
               <span>{playerDetails.player.weight}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Nationality</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Nationality</span>
               <span>{playerDetails.player.nationality}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Position</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Position</span>
               <span>{playerDetails.statistics[0].games.position}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Overall Rating</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Overall Rating</span>
               <span>{Number(playerDetails.statistics[0].games.rating).toFixed(1)}</span>
             </div>
 
@@ -80,17 +80,17 @@ function PlayerStats () {
 
           {/* <div className="grid grid-cols-3 gap-4">
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Nationality</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Nationality</span>
               <span>{playerDetails.player.nationality}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Position</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Position</span>
               <span>{playerDetails.statistics[0].games.position}</span>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="font-bold text-md text-primary text-opacity-60">Overall Rating</span>
+              <span className="font-semibold text-md text-primary text-opacity-60">Overall Rating</span>
               <span>{Number(playerDetails.statistics[0].games.rating).toFixed(1)}</span>
             </div>
 

@@ -15,7 +15,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
   const { fixture } = useSelector((state : RootState) => state.fixtureStatsSlice)
   const fixtureHasStatistics = fixture && fixture.statistics && fixture.statistics.length > 0;
   return(
-    <div className="flex flex-col items-center justify-center w-full h-full gap-8 rounded-md text-primary border-slate-300 ">
+    <div className="flex flex-col items-center justify-center w-full h-full max-w-3xl gap-8 rounded-md text-primary border-slate-300 ">
       {
       fixture &&
       (!hasFixtureStarted(fixture) || fixture.fixture.status.short ===  'PST' || fixture.fixture.status.short ===  'CANC') ?
@@ -32,7 +32,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
 
         <div className="flex items-center justify-center">
 
-          <span className="font-bold">Match Statistics</span>
+          <span className="font-semibold">Match Statistics</span>
         </div>
 
         <div className="flex items-center justify-center">
@@ -46,10 +46,10 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         <div className="flex flex-col items-center gap-4">
         {
         homeTeamStatistics.statistics.map((stats, index) => (
-          <div className={` font-semibold shadow-md shadow-slate-300 
-          ${stats.value > awayTeamStatistics.statistics[index].value && 'text-emerald-600'}
+          <div className={` font-semibold  
+          ${stats.value > awayTeamStatistics.statistics[index].value && 'text-white bg-slate-400'}
           ${stats.value === awayTeamStatistics.statistics[index].value && 'text-primary'}
-          flex items-center justify-center w-12 h-6 border rounded-lg border-gray-300`} key={index}>
+          flex items-center justify-center w-12 h-6  rounded-full border-gray-300`} key={index}>
             {stats.value ? stats.value : 0}
           </div>
         ))
@@ -58,10 +58,10 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         <div className="flex flex-col items-center gap-4 ">
         {
         homeTeamStatistics.statistics.map((stats, index) => (
-          <div className="flex items-center justify-center w-full h-6" key={index}>
-            <div className="flex items-center w-full h-0 border-b border-slate-300"></div>
+          <div className="flex items-center justify-center w-full h-6 rounded-full" key={index}>
+            {/* <div className="flex items-center w-full h-0 border-b border-slate-300"></div> */}
             <span className="p-2 min-w-max">{translateMatchStatisticTypes[stats.type] ? translateMatchStatisticTypes[stats.type] : stats.type}</span>
-            <div className="flex items-center w-full h-0 border-b border-slate-300"></div>
+            {/* <div className="flex items-center w-full h-0 border-b border-slate-300"></div> */}
 
           </div>
         ))
@@ -71,10 +71,10 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         <div className="flex flex-col items-center gap-4">
         {
         awayTeamStatistics.statistics.map((stats, index) => (
-          <div className={` font-semibold shadow-md shadow-slate-300
-          ${stats.value > homeTeamStatistics.statistics[index].value && 'text-emerald-600'}
+          <div className={` font-semibold  
+          ${stats.value > homeTeamStatistics.statistics[index].value && 'text-white bg-slate-400'}
           ${stats.value === homeTeamStatistics.statistics[index].value && 'text-primary'}
-          flex items-center justify-center w-12 h-6 border rounded-lg border-gray-300`} key={index}>
+          flex items-center justify-center w-12 h-6 rounded-full`} key={index}>
             {stats.value ? stats.value : 0}
           </div>
         ))
