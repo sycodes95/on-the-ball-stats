@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
 import { Link } from 'react-router-dom';
 import Substitutes from './substitutes/substitutes';
+import StartingXINoFormation from './startingXINoFormation/startingXINoFormation';
 
 function LineUps () {
 
@@ -17,16 +18,20 @@ function LineUps () {
   const [homeSubstitutes, setHomeSubstitutes] = useState<LineUpSubstitutesPlayer[]>([])
   const [awaySubstitutes, setAwaySubstitutes] = useState<LineUpSubstitutesPlayer[]>([])
 
+  const [homeStartXINoFormation, setHomeStartXINoFormation] = useState<LineUpStartXIPlayer[]>([])
+  const [awayStartXINoFormation, setAwayStartXINoFormation] = useState<LineUpStartXIPlayer[]>([])
+
   const HOME_TEAM_INDEX = 0;
   const AWAY_TEAM_INDEX = 1;
 
   const fixtureHasLineups = fixture && fixture.lineups && fixture.lineups.length > 0;
 
   useEffect(() => {
+    console.log(fixture);
     if(!fixture || (!fixture.lineups || fixture.lineups.length === 0)) return;
     
     const generateTeamStartXILineup = (lineup: LineUp, index: number) => {
-      
+      if(!lineup.formation) return []
       const teamLineUp: LineUpStartXIPlayer[][] = [[]];
       
       Array.from(lineup.formation).forEach(f => {
@@ -66,20 +71,34 @@ function LineUps () {
         return {...sub.player, photo: ''}
       })
       return subsWithPhoto
-      
+    }
+
+    const generateTeamStartXINoFormation = (lineup: LineUp, index: number) => {
+      const playerWithPhoto: LineUpStartXIPlayer[] = lineup.startXI.map(player => {
+        if(fixture.players && fixture.players.length > 0){
+          const photo = fixture.players[index].players.find(p => p.player.id === player.player.id)?.player.photo;
+          return {...player.player, photo}
+        }
+        return {...player.player, photo: ''}
+      })
+      return playerWithPhoto
     }
 
     fixture.lineups.forEach((lineup, index) => {
-      const teamLineUp = generateTeamStartXILineup(lineup, index);
+      const startXI = generateTeamStartXILineup(lineup, index);
+      const startXINoFormation = generateTeamStartXINoFormation(lineup, index)
       const substitutes = generateTeamSubstitutes(lineup, index)
       if(index === HOME_TEAM_INDEX){
-        setHomeStartXIHorizontal(teamLineUp);
+        setHomeStartXIHorizontal(startXI);
         setHomeSubstitutes(substitutes)
+        setHomeStartXINoFormation(startXINoFormation)
       } else if(index === AWAY_TEAM_INDEX) {
-        setAwayStartXIHorizontal(teamLineUp);
+        setAwayStartXIHorizontal(startXI);
         setAwaySubstitutes(substitutes)
+        setAwayStartXINoFormation(startXINoFormation)
       }
     });
+
   }, [fixture]);
 
 
@@ -92,6 +111,9 @@ function LineUps () {
       {
       fixtureHasLineups ?
       <div className='flex flex-col gap-4'>
+        {
+        (homeStartXIHorizontal.length > 0 && awayStartXIHorizontal.length > 0) ?
+        <>
         <StartingXIHorizontal 
         className='hidden md:contents'
         fixture={fixture} 
@@ -105,7 +127,24 @@ function LineUps () {
         homeStartXIHorizontal={homeStartXIHorizontal}
         awayStartXIHorizontal={awayStartXIHorizontal}
         />
-        <span className='w-full font-bold text-center'>Substitutes</span>
+        </>
+        :
+        <>
+        {
+        fixture.lineups &&
+        <div className='flex flex-col gap-4'>
+          <span className='w-full font-semibold text-center'>Start XI</span>
+          <div className='flex w-full gap-2 p-4'>
+            <StartingXINoFormation teamStartingXI={homeStartXINoFormation}/>
+            <StartingXINoFormation teamStartingXI={awayStartXINoFormation}/>
+          </div>
+        </div>
+
+        }
+        </>
+        }
+       
+        <span className='w-full font-semibold text-center'>Substitutes</span>
         <div className='grid w-full grid-cols-2 gap-2 p-4 font-semibold'>
           <Substitutes teamSubstitutes={homeSubstitutes} />
           <Substitutes teamSubstitutes={awaySubstitutes} />

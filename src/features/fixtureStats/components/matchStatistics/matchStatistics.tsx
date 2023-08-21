@@ -85,7 +85,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
       </div>
       </>
       :
-      <div></div>
+      <div>No statistics available for this fixure.</div>
       }
       </>
       
