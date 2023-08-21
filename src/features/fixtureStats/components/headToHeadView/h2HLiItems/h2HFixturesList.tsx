@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { formatYMD } from "../../../../../utils/formatYMD";
-import { Fixture } from "../../../../homepage/types/types";
 import { useEffect } from "react";
+import { Fixture } from "../../../../../types/types";
 
 type H2HFixturesListProps = {
   headToHeadFixtures: Fixture[]
@@ -40,7 +40,9 @@ function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
         </div>
         {
         fixture.fixture.status.short !== 'CANC' ?
-        <div className="items-center justify-center hidden gap-2 whitespace-nowrap md:flex">
+        <div 
+        onClick={()=> window.location.href = `/fixture-statistics/${fixture.fixture.id}`} 
+        className="items-center justify-center hidden gap-2 whitespace-nowrap md:flex hover:opacity-70 hover:cursor-pointer">
           <span className="flex justify-end min-w-fit w-44">{fixture.teams.home.name}</span>
           <div className="flex items-center justify-center w-12 gap-1 pl-2 pr-2 font-semibold text-white rounded-md bg-slate-400">
             <span>{fixture.goals.home}</span>  
