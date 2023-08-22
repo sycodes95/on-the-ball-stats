@@ -21,7 +21,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
         <div className='flex gap-4'>
           <div className='flex items-center gap-4'>
             <img className='w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
-            <span className='text-sm font-bold'>{fixture.lineups[0].formation}</span>
+            <span className='font-bold text-xs'>{fixture.lineups[0].formation}</span>
           </div>
 
           <div className='flex items-center gap-4'>
@@ -44,7 +44,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
       <div className={`relative h-full w-full`}>
         <FootballFieldVertical />
         {/* <img className="object-contain max-w-full max-h-full " src={soccerFieldPng} alt="" /> */}
-        <div className='absolute top-0 flex flex-col w-full h-full font-bold' style={{height: '1024px'}}>
+        <div className='absolute top-0 flex flex-col w-full h-full font-semibold' style={{height: '1024px'}}>
           <div className='z-10 flex flex-col w-full h-full bg-black bg-opacity-20'>
             {
             homeStartXIHorizontal&&
@@ -61,10 +61,10 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
                     <div className="flex gap-2">
-                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      <span className={`w-6 text-center rounded-full text-white font-semibold bg-opacity-50
                       ${playerPositionColors[player.pos]}
                       `}>{player.pos}</span>
-                      <span className='group-hover:opacity-75 text-opa'>{player.number}</span>
+                      <span className='group-hover:opacity-75'>{player.number}</span>
                     </div>
                     <span>{player.name.split(' ').pop()}</span>
                   </Link>
@@ -89,7 +89,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
                     <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
                     }
                     <div className="flex gap-2">
-                      <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
+                      <span className={`w-6 text-center rounded-full text-white font-semibold bg-opacity-50
                       ${playerPositionColors[player.pos]}
                       `}>{player.pos}</span>
                       <span className='group-hover:opacity-75 text-opa'># {player.number}</span>
@@ -108,7 +108,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
       <div className='flex gap-4'>
         <div className='flex items-center gap-4'>
           <img className='w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
-          <span className='text-sm font-bold'>{fixture.lineups[1].formation}</span>
+          <span className='font-bold text-xs'>{fixture.lineups[1].formation}</span>
         </div>
 
         <div className='flex items-center gap-4'>

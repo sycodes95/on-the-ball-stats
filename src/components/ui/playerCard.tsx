@@ -34,7 +34,7 @@ function PlayerCard ({
       </div>
       
       <div className="flex items-center ">
-        <p className={`${topValueColor} flex items-center text-white h-6 p-1 w-6 justify-center text-md font-semibold rounded-md whitespace-nowrap`}>
+        <p className={`${topValueColor} flex items-center text-white h-6 p-1 w-6 justify-center text-xs font-semibold rounded-md whitespace-nowrap`}>
           {topValue}
         </p>
       </div>

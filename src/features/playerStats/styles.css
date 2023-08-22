@@ -1,0 +1,4 @@
+.grid-latest-matches{
+  display: grid;
+  grid-template-columns: 2fr 6fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+}

@@ -89,7 +89,7 @@ function FixtureStats () {
       <div className="flex h-12 gap-2 rounded-sm border-slate-300 shadow-slate-300 ">
       {
       fixtureViewModeOptions.map((option, index) => (
-        <button className={`text-primary rounded-2xl p-2 w-20 h-8 font-bold 
+        <button className={`text-primary flex items-center justify-center rounded-2xl p-2 w-20 h-8 font-semibold 
         ${fixtureViewMode === option && 'bg-emerald-600 text-white'}`} 
         key={index}
         onClick={()=>setFixtureViewMode(option)}>{option}</button>

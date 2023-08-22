@@ -20,7 +20,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
         <div className='flex gap-4'>
           <div className='flex items-center gap-4'>
             <img className='object-contain w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
-            <span className='text-sm font-bold'>{fixture.lineups[0].formation}</span>
+            <span className='text-xs font-bold'>{fixture.lineups[0].formation}</span>
           </div>
 
           <div className='flex items-center gap-4'>
@@ -55,7 +55,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
           </div>
 
           <div className='flex items-center gap-4'>
-            <span className='text-sm font-bold'>{fixture.lineups[1].formation}</span>
+            <span className='text-xs font-bold'>{fixture.lineups[1].formation}</span>
             <img className='object-contain w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
           </div>
           
