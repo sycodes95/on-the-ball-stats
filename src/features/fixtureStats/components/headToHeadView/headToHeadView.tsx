@@ -17,7 +17,7 @@ function HeadToHeadView ({headToHeadFixtures} : HeadToHeadViewProps) {
     }
     {
     headToHeadFixtures && headToHeadFixtures.length === 0 &&
-    <span className="flex items-center gap-4 p-2 rounded-md shadow-lg md:gap-8 shadow-slate-300">
+    <span className="flex items-center justify-center gap-4 p-2 rounded-md shadow-lg md:gap-8 ">
       No previous matches between teams.
     </span>
     }

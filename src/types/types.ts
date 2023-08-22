@@ -1,6 +1,6 @@
 export type Player = {
   player: PlayerDetails;
-  statistics?: PlayerStatistics[];
+  statistics: PlayerStatistics[];
 }
 
 export type Team = {

@@ -29,6 +29,10 @@
   -webkit-text-stroke: 2px rgb(79, 79, 79);
 }
 
+.font-outline-gray{
+  -webkit-text-stroke: 2px rgb(69, 72, 81);
+}
+
 .font-outline-slate{
   -webkit-text-stroke: 2px rgb(50, 63, 79);
 }

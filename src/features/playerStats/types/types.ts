@@ -51,10 +51,10 @@ export type PlayerStatisticsForAllFixtures = {
       rating: string | null;
     };
     goals: {
-      assists: number | null,
-      conceded: number | null,
-      saves: number | null,
-      total: number | null,
+      assists: number | null;
+      conceded: number | null;
+      saves: number | null;
+      total: number | null;
   
     };
     passes: {

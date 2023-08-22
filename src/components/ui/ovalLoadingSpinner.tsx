@@ -3,7 +3,7 @@ import { Oval } from "react-loader-spinner";
 function OvalLoadingSpinner () {
   return (
     <Oval
-    color="#A5B2BE"
+    color="#000000"
     wrapperStyle={{}}
     wrapperClass=""
     visible={true}

@@ -11,15 +11,17 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className="flex flex-col w-full gap-2 text-xs rounded-md">
-      <p className="text-2xl text-slate-600 font-display">TOP PLAYERS</p>
+    <div className="flex flex-col w-full text-xs rounded-md">
+      <div className="relative w-full text-2xl text-black rounded-sm font-display">
+        <span>TOP PLAYERS</span>
+      </div>
 
       <div className="flex flex-col gap-2 pt-4 rounded-md ">
 
       
       {
       topGoalContributors.map((player: Player, index) => {
-        if(player.statistics[0].team && player.statistics[0].goals){
+        if(player.statistics && player.statistics[0].team && player.statistics[0].goals){
         return (
         <div className="flex items-center h-6 gap-1 text-xs border">
           <div className="flex items-center h-6 gap-2">

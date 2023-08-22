@@ -8,6 +8,7 @@ import { getPlayerStatisticsForAllFixtures} from "../features/playerStats/servic
 import { PlayerStatisticsForAllFixtures } from "../features/playerStats/types/types";
 import { formatYMD } from "../utils/formatYMD";
 import '../features/playerStats/styles.css'
+import { RotatingSquare } from "react-loader-spinner";
 
 
 
@@ -17,6 +18,7 @@ function PlayerStats () {
   const [playerDetails, setPlayerDetails] = useState<Player | null>(null)
   const [playerStatisticsForAllFixtures, setPlayerStatisticsForAllFixtures] = useState<PlayerStatisticsForAllFixtures[] | []>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [playerStatisticsForAllFixturesIsLoading, setPlayerStatisticsForAllFixturesIsLoading] = useState(false)
 
   useEffect(()=> {
     
@@ -31,7 +33,12 @@ function PlayerStats () {
   useEffect(()=> {
     
     if(playerDetails && playerDetails.statistics) {
-      getPlayerStatisticsForAllFixtures(Number(playerId), playerDetails.statistics[0].team.id).then(playerStatistics => setPlayerStatisticsForAllFixtures(playerStatistics))
+      setPlayerStatisticsForAllFixturesIsLoading(true)
+      getPlayerStatisticsForAllFixtures(Number(playerId), playerDetails.statistics[0].team.id).then(playerStatistics => {
+        setPlayerStatisticsForAllFixtures(playerStatistics)
+        setPlayerStatisticsForAllFixturesIsLoading(false)
+
+      })
     }
     console.log(playerDetails);
   },[playerDetails])
@@ -40,7 +47,14 @@ function PlayerStats () {
     console.log(playerStatisticsForAllFixtures);
   },[playerStatisticsForAllFixtures])
 
-
+  const playerDetailsMap = [
+    {title: 'Age', value: playerDetails?.player.age},
+    {title: 'Height', value: playerDetails?.player.height},
+    {title: 'Weight', value: playerDetails?.player.weight},
+    {title: 'Nationality', value: playerDetails?.player.nationality},
+    {title: 'Birthplace', value: playerDetails?.player.birth.country},
+    {title: 'Position', value: playerDetails?.statistics[0].games.position},
+  ]
   
   return (
     <div className="flex flex-col w-full gap-4 text-primary">
@@ -57,10 +71,10 @@ function PlayerStats () {
         <div className="flex flex-col w-full gap-8 p-2">
           <div className="flex w-full gap-4 text-xs">
             <img className="object-contain w-20 h-20 rounded-full" src={playerDetails.player.photo} alt="" />
-            <div className="flex flex-col justify-center">
-              <div className="flex flex-col text-sm">
-                <span className=" whitespace-nowrap">{playerDetails.player.firstname}</span>
-                <span className="text-lg font-semibold">{playerDetails.player.lastname}</span>
+            <div className="flex flex-col justify-center gap-2">
+              <div className="flex flex-col gap-1 text-sm font-semibold text-black md:flex-row">
+                <span className="flex items-center whitespace-nowrap">{playerDetails.player.firstname}</span>
+                <span className="flex items-center">{playerDetails.player.lastname}</span>
               </div>
               
               <div className="flex items-center gap-2">
@@ -73,45 +87,36 @@ function PlayerStats () {
 
 
           <div className="grid grid-cols-3 gap-4 p-2 md:grid-cols-6 ">
-            <div className="col-span-3 font-semibold rounded-lg md:col-span-6">Player Details</div>
-            <div className="flex flex-col items-center w-full gap-2 ">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Age</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.player.age}</span>
-            </div>
-
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Height</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.player.height}</span>
-            </div>
-
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Weight</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.player.weight}</span>
-            </div>
-
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Nationality</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.player.nationality}</span>
-            </div>
-
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Birth</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.player.birth.country}</span>
-            </div>
-
-            <div className="flex flex-col items-center w-full gap-2">
-              <span className="text-xs font-semibold text-primary text-opacity-60">Position</span>
-              <span className="flex items-center justify-center w-full h-12 font-semibold bg-gray-300 rounded-lg text-primary">{playerDetails.statistics[0].games.position}</span>
-            </div>
-
+            {
+            playerDetailsMap.map((details, index) => (
+              <div className="flex flex-col items-center w-full gap-2" key={index}>
+                <span className="text-xs font-semibold text-primary ">{details.title}</span>
+                <span className="flex items-center justify-center w-full h-12 text-lg font-semibold text-white bg-black rounded-sm font-display">{details.value}</span>
+              </div>
+            ))
+            }
           </div>
 
 
           <div className="flex flex-col w-full gap-2 p-2 overflow-x-scroll">
-            <div className="font-semibold">
-              Latest Matches
+            <div className="flex items-center h-8 gap-2 font-semibold">
+              <span>Latest Matches</span>
+              {
+              playerStatisticsForAllFixturesIsLoading && playerStatisticsForAllFixtures.length === 0 &&
+              <RotatingSquare
+              height="32"
+              width="32"
+              color="#999999"
+              ariaLabel="rotating-square-loading"
+              strokeWidth="4"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              />
+              }
             </div>
-
+            {
+            playerStatisticsForAllFixtures.length > 0 &&
             <table className="overflow-x-scroll">
               <thead>
                 <tr className="h-12 font-semibold text-left">
@@ -128,7 +133,6 @@ function PlayerStats () {
 
               <tbody>
                 {
-                playerStatisticsForAllFixtures.length > 0 ? 
                 playerStatisticsForAllFixtures.map((data, index) => (
                   <tr className="w-full h-12 font-semibold " key={index}>
                     <td className="text-gray-400 whitespace-nowrap">{formatYMD(new Date(data.fixture.date))}</td>
@@ -143,18 +147,27 @@ function PlayerStats () {
                     <td className="text-center">{data.statistics[0].goals.assists ? data.statistics[0].goals.assists : 0}</td>
                     <td className="text-center">{data.statistics[0].cards.yellow ? data.statistics[0].cards.yellow : 0}</td>
                     <td className="text-center">{data.statistics[0].cards.red ? data.statistics[0].cards.red : 0}</td>
-                    <td className="text-center ">
-                      <span className="w-6 p-1 bg-gray-500 rounded-lg text-primary ">{data.statistics[0].games.rating ? data.statistics[0].games.rating : 0}</span>
+                    <td className="">
+                      <div className="flex justify-center ">
+                      <span className="w-8 text-center text-white bg-gray-500 rounded-lg text-primary">{data.statistics[0].games.rating ? data.statistics[0].games.rating : 0}</span>
+                      </div>
                       
                     </td>
 
                   </tr>
                 ))
-                :
-                <div>No available matches</div>
                 }
               </tbody>
             </table>
+            }
+
+            {
+            !playerStatisticsForAllFixturesIsLoading && playerStatisticsForAllFixtures.length === 0 &&
+            <div className="flex items-center justify-center w-full h-full text-center">No available matches</div>
+            }
+
+            
+            
             
             
           </div>

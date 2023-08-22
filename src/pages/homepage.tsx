@@ -54,7 +54,7 @@ function Homepage () {
         <OvalLoadingSpinner />
       </div>
       :
-      <div className="flex flex-col w-full gap-4 p-2 text-primary">
+      <div className="flex flex-col w-full gap-12 p-2 text-primary">
         {
         fixtures && 
         <Fixtures fixtures={fixtures} setFixtures={setFixtures}/>
