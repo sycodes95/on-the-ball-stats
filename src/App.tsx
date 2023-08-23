@@ -8,6 +8,7 @@ import LeagueStats from './pages/leagueStats';
 import Homepage from './pages/homepage';
 import FixtureStats from './pages/fixtureStats';
 import Player from './pages/player';
+import Team from './pages/team';
 function App() {
 
   
@@ -24,6 +25,8 @@ function App() {
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           <Route path='/player/:playerId' element={<Player/>}/>
+          <Route path='/team/:teamId/:leagueId' element={<Team/>}/>
+
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}
         </Routes>

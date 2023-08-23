@@ -56,7 +56,8 @@ function LatestMatchesStatistics ({
                   {formatYMD(new Date(data.fixture.date))}
                   </td>
                 <td className="text-center">
-                  <Link to={`/fixture-statistics/${data.fixture.id}`} className="flex items-center w-32 gap-2 p-2 hover:opacity-70">
+                  <Link to={`/fixture-statistics/${data.fixture.id}`} 
+                  className="flex items-center gap-2 p-2 min-w-100 hover:opacity-70">
                     <img className="object-contain w-6 h-6" src={data.opposingTeam.logo} alt="opposing team logo" />
                     <span className="overflow-hidden text-ellipsis whitespace-nowrap">{data.opposingTeam.name}</span>
                   </Link>

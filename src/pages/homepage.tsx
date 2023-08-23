@@ -57,7 +57,7 @@ function Homepage () {
       <div className="flex flex-col w-full gap-12 p-2 text-primary">
         {
         fixtures && 
-        <Fixtures fixtures={fixtures} setFixtures={setFixtures}/>
+        <Fixtures fixtures={fixtures} setFixtures={setFixtures} />
         }
         <YoutubeFootball />
         <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>

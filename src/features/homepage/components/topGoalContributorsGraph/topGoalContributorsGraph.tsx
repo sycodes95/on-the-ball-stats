@@ -26,7 +26,9 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
         <div className="flex items-center h-6 gap-1 text-xs border">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
-            <ListClubImage src={player.statistics[0].team.logo}/>
+            <Link to={`team/${player.statistics[0].team.id}/${player.statistics[0].league.id}`}>
+              <ListClubImage src={player.statistics[0].team.logo}/>
+            </Link>
             <Link className="flex items-center gap-2 hover:underline" to={`/player/${player.player.id}`}>
               <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
               <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>

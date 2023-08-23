@@ -15,18 +15,18 @@ function FixtureHeader ({leagueLogo, leagueName, countryFlag, fixtureDate} : Fix
         <div className="relative flex w-full gap-1 overflow-hidden">
           <img className="object-contain w-4 h-4" src={leagueLogo} alt="team-icon"/>
           <span className="flex items-center pl-2 pr-2 text-xs font-semibold rounded-md ">{leagueName.toUpperCase()}</span>
-          {
-          fixtureDate &&
-          <span className="font-semibold">{formatYMD(new Date(fixtureDate))}</span>
-          }
+          
         </div>
       </div>
-      {
-      countryFlag &&
-      <div>
-        <img className="object-contain w-4 h-4 rounded-md" src={countryFlag} alt="" />
+      
+      <div className="flex items-center gap-2">
+        {
+        fixtureDate &&
+        <span className="font-semibold">{formatYMD(new Date(fixtureDate))}</span>
+        }
+        
       </div>
-      }
+      
       
     </div>
   )

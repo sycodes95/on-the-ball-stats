@@ -38,7 +38,7 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
                   </div>
                 </td>
                 <td className="text-center">
-                  <div className="flex items-center w-32 gap-1 p-2">
+                  <div className="flex items-center gap-1 p-2 min-w-100">
                     <img className="object-contain w-6 h-6" src={stats.team.logo} alt="" />
                     <span className="overflow-hidden whitespace-nowrap text-ellipsis">{stats.team.name}</span>
                   </div>

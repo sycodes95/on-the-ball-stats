@@ -9,6 +9,7 @@ import FixtureHeader from "./components/fixtureHeader";
 import ShowMoreButton from "../../../../components/ui/showMoreButton";
 import ShowLessButton from "../../../../components/ui/showLessButton";
 import { Fixture } from "../../../../types/types";
+import { formatYMD } from "../../../../utils/formatYMD";
 
 type FixturesProps = {
   fixtures: Fixture[];
@@ -94,6 +95,7 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
               leagueLogo={fixture.league.logo} 
               leagueName={fixture.league.name}
               countryFlag={fixture.league.flag}
+              fixtureDate={formatYMD(new Date(fixture.fixture.date))}
               />
 
               </div>
