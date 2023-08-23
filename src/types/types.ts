@@ -50,7 +50,7 @@ export type PlayerStatistics = {
     committed: number | null;
   };
   games: {
-    appearances: number | null;
+    appearences: number | null;
     captain: boolean;
     lineups: number | null;
     minutes: number | null;

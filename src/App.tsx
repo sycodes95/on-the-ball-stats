@@ -2,14 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import 'react-circular-progressbar/dist/styles.css';
 import Header from './components/header/header';
-import Leagues from './pages/leagues';
 import Footer from './components/footer/footer';
-import LeagueDetails from './pages/leagueStats';
-import Overall from './pages/homepage';
+import Leagues from './pages/leagues';
 import LeagueStats from './pages/leagueStats';
 import Homepage from './pages/homepage';
 import FixtureStats from './pages/fixtureStats';
-import PlayerStats from './pages/playerStats';
+import Player from './pages/player';
 function App() {
 
   
@@ -25,7 +23,7 @@ function App() {
           <Route path='/leagues/:leagueId' element={<LeagueStats/>}/>
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
-          <Route path='/player-stats/:playerId' element={<PlayerStats/>}/>
+          <Route path='/player/:playerId' element={<Player/>}/>
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}
         </Routes>

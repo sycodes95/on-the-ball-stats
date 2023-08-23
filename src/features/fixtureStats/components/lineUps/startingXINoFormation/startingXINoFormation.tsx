@@ -12,7 +12,7 @@ function StartingXINoFormation ({teamStartingXI}: StartingXINoFormationProps ) {
       {
       teamStartingXI &&
       teamStartingXI.map((player, index) => (
-        <Link to={`/player-stats/${player.id}`} className='flex flex-col items-center gap-2 p-2 overflow-hidden rounded-lg md:flex-row md:p-0 whitespace-nowrap text-ellipsis group' key={index}>
+        <Link to={`/player/${player.id}`} className='flex flex-col items-center gap-2 p-2 overflow-hidden rounded-lg md:flex-row md:p-0 whitespace-nowrap text-ellipsis group' key={index}>
           {
           player.photo ? 
           <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src={player.photo} alt="" />

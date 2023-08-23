@@ -23,7 +23,7 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <ListClubImage src={player.statistics[0].team.logo}/>
-            <Link className="flex items-center gap-1 hover:underline" to={`/player-stats/${player.player.id}`} >
+            <Link className="flex items-center gap-1 hover:underline" to={`/player/${player.player.id}`} >
               <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
               <div className="flex items-center w-40 h-full whitespace-nowrap min-w-max">{player.player.name}</div>
             </Link>

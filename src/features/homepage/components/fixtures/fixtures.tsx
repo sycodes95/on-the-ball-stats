@@ -40,10 +40,6 @@ function Fixtures ({fixtures, setFixtures} : FixturesProps) {
     }
   },[fixturesDay])
 
-  useEffect(()=>{
-    console.log(fixtures);
-  },[fixtures])
-
   return (
     <div className="flex flex-col gap-4">
       <p className="w-full text-2xl rounded-sm font-display">FIXTURES</p>

@@ -71,7 +71,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
               <div className='z-10 flex flex-col items-center w-full h-full justify-evenly' key={index}>
                 {
                 col.map((player, i) => (
-                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player-stats/${player.id}`}
+                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player/${player.id}`}
                   key={i}>
                     {
                     player.photo ?
@@ -99,7 +99,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
               <div className='z-10 flex flex-col items-center w-full h-full justify-evenly' key={index}>
                 {
                 col.map((player, i) => (
-                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player-stats/${player.id}`}
+                  <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player/${player.id}`}
                   key={i}>
                     {
                     player.photo ?

@@ -27,7 +27,6 @@ function LineUps () {
   const fixtureHasLineups = fixture && fixture.lineups && fixture.lineups.length > 0;
 
   useEffect(() => {
-    console.log(fixture);
     if(!fixture || (!fixture.lineups || fixture.lineups.length === 0)) return;
     
     const generateTeamStartXILineup = (lineup: LineUp, index: number) => {
