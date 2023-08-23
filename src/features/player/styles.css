@@ -2,3 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 6fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
 }
+
+.min-w-69{
+  min-width: 69px;
+}
