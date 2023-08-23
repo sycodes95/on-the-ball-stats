@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: Display2;
+  src: url(/src/assets/fonts/Exoplane.ttf);
+}
+
+@font-face {
   font-family: Main;
   src: url(/src/assets/fonts/Montserrat-VariableFont_wght.ttf);
 }
@@ -17,6 +22,10 @@
   font-family: Display, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+.font-display-2{
+  font-family: Display2, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .font-main{
   font-family: Main, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -26,7 +35,7 @@
 }
 
 .font-outline-black{
-  -webkit-text-stroke: 2px rgb(79, 79, 79);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 .font-outline-gray{

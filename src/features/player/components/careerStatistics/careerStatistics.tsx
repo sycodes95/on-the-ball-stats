@@ -11,7 +11,7 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
   return (
     <div className="flex flex-col w-full gap-4">
       <div className="flex items-center h-8 ">
-        <span className="text-xl font-semibold font-display">CAREER STATISTICS</span>
+        <span className="text-xl font-semibold font-display">LEAGUE STATISTICS</span>
       </div>
       <div className="flex flex-col w-full overflow-x-scroll">
         <table>
@@ -34,12 +34,12 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
                 <td className="w-36">
                   <div className="flex items-center gap-1">
                     <img className="object-contain w-6 h-6" src={stats.league.logo} alt="" />
-                    <span className="hidden md:contents">{stats.league.name}</span>
+                    <span className="hidden overflow-hidden md:contents ">{stats.league.name}</span>
                   </div>
                 </td>
                 <td className="text-center">
                   <div className="flex items-center w-32 gap-1 p-2">
-                    <img className="w-6 h-6" src={stats.team.logo} alt="" />
+                    <img className="object-contain w-6 h-6" src={stats.team.logo} alt="" />
                     <span className="overflow-hidden whitespace-nowrap text-ellipsis">{stats.team.name}</span>
                   </div>
                 </td>

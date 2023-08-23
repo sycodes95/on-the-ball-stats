@@ -36,7 +36,7 @@ function LatestMatchesStatistics ({
       <div className="flex flex-col w-full overflow-x-scroll">
         <table className="overflow-x-scroll">
           <thead>
-            <tr className="h-12 font-semibold text-left">
+            <tr className="h-12 font-semibold text-left text-stone-500">
               <th className="min-w-69">Date</th>
               <th className="p-2">VS</th>
               <th className="w-12 text-center">M</th>
