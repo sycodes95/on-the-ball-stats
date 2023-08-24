@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { getTeamStatistics } from "../features/team/services/getTeamStatistics";
 import { TeamStatistics } from "../features/team/types";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
-import LeagueHeader from "../features/leagueStats/components/leagueHeader/leagueHeader";
+import LeagueHeader from "../features/league/components/leagueHeader/leagueHeader";
 import TeamHeader from "../features/team/components/teamHeader/teamHeader";
 
 
 
-function Team () {
+function TeamPage () {
   const { teamId, leagueId, teamName } = useParams()
   const [isLoading, setIsLoading] = useState(false)
   const [teamStatistics, setTeamStatistics] = useState<TeamStatistics | null>(null)
@@ -41,4 +41,4 @@ function Team () {
   )
 }
 
-export default Team;
+export default TeamPage;

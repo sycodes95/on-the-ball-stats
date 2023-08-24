@@ -22,13 +22,13 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
 
   
   return (
-    <div className="w-full p-4 md:min-w-max">
+    <div className="w-full p-2 md:min-w-max">
 
-      <div className="w-full p-2 overflow-auto text-xl rounded-md">
+      <div className="w-full overflow-auto rounded-md">
         <table className="w-full">
           <thead>
-            <tr className="shadow-md text-primary font-display shadow-gray-300">
-              <th className="min-w-full p-1 font-bold text-left">Team</th>
+            <tr className="font-semibold shadow-md text-stone-600 shadow-gray-300">
+              <th className="min-w-full p-1 text-left">Team</th>
               <th className="w-12">P</th>
               <th className="w-12">W</th>
               <th className="w-12">D</th>
@@ -58,6 +58,8 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
               goalsDiff={data.goalsDiff}
               points={data.points}
               form={data.form}
+              teamId={data.team.id}
+              leagueId={leagueID}
               />
               
             ))

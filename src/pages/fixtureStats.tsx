@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFixturesById } from "../services/getFixtureById";
-import FixtureTeam from "../features/homepage/components/fixtures/components/fixtureTeam";
-import FixtureStatus from "../features/homepage/components/fixtures/components/fixtureStatus";
-import FixtureScore from "../features/homepage/components/fixtures/components/fixtureScore";
 import { getFixturesH2H } from "../services/getFixturesH2H";
-import FixtureHeader from "../features/homepage/components/fixtures/components/fixtureHeader";
 import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
 import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
 import '../features/fixtureStats/styles.css'
@@ -17,6 +13,10 @@ import { fixtureViewModeOptions } from "../features/fixtureStats/constants/const
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { setFixture } from "../features/fixtureStats/state/fixtureStatsSlice";
+import FixtureHeader from "../components/fixtures/fixtureHeader";
+import FixtureTeam from "../components/fixtures/fixtureTeam";
+import FixtureStatus from "../components/fixtures/fixtureStatus";
+import FixtureScore from "../components/fixtures/fixtureScore";
 
 function FixtureStats () {
   

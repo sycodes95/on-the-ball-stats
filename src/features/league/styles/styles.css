@@ -4,3 +4,7 @@
 th, td {
   min-width: 1.50rem;
 }
+
+.w-32px{
+  width: 32px;
+}

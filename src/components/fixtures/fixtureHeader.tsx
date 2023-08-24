@@ -1,4 +1,4 @@
-import { formatYMD } from "../../../../../utils/formatYMD";
+import { formatYMD } from "../../utils/formatYMD";
 
 type FixtureHeaderProps = {
   leagueLogo: string;

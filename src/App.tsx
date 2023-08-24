@@ -4,11 +4,12 @@ import 'react-circular-progressbar/dist/styles.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Leagues from './pages/leagues';
-import LeagueStats from './pages/leagueStats';
+import LeagueStats from './pages/league';
 import Homepage from './pages/homepage';
 import FixtureStats from './pages/fixtureStats';
 import Player from './pages/player';
 import Team from './pages/team';
+import League from './pages/league';
 function App() {
 
   
@@ -21,7 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>
-          <Route path='/leagues/:leagueId' element={<LeagueStats/>}/>
+          <Route path='/leagues/:leagueId' element={<League/>}/>
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           <Route path='/player/:playerId' element={<Player/>}/>

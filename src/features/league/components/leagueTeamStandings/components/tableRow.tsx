@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
+
 type TableRowProps = { 
   description: string;
   rank : number;
@@ -12,7 +15,8 @@ type TableRowProps = {
   goalsDiff: number;
   points: number;
   form: string;
-
+  teamId: number;
+  leagueId: number;
   
 }
 
@@ -29,15 +33,21 @@ function TableRow ({
   goalsAgainst,
   goalsDiff,
   points,
-  form
+  form,
+  teamId,
+  leagueId
 }: TableRowProps) {
   return (
-    <tr className={`hover:bg-slate-300 hover:bg-opacity-70 
+    <tr className={`hover:bg-stone-300 hover:bg-opacity-80 
     ${description ? 'bg-yellow-300 bg-opacity-30 border-l-2 border-stone-300  border-opacity-100' : 'border-l-2 border-white  border-opacity-100'}`}>
       <td className="flex items-center h-8">
-        <span className="flex items-center justify-center w-6 h-full rounded-l-sm">{rank}</span>
-        <img className="h-8 p-2" src={teamLogo} alt="team-logo"/>
-        <span className="whitespace-nowrap">{teamName}</span>
+        <span className="text-center rounded-l-sm w-32px">{rank}</span>
+        <Link to={`/team/${leagueId}/${teamId}/${getURLFriendlyString(teamName)}`} 
+        className="flex items-center hover:underline">
+          <img className="object-contain w-8 h-8 p-2" src={teamLogo} alt="team-logo"/>
+          <span className="overflow-hidden whitespace-nowrap text-ellipsis">{teamName}</span>
+        </Link>
+        
       </td>
       <td className="text-center ">
         <span>{played}</span>

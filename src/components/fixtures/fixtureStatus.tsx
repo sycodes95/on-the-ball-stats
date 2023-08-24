@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getTimeDifference } from "../../../../../utils/getTImeDIfference";
+import { getTimeDifference } from "../../utils/getTImeDIfference";
+
 
 type FixtureStatusProps = {
   fixtureStatus: {

@@ -6,14 +6,13 @@ import TopGoalContributorsGraph from "../features/homepage/components/topGoalCon
 import { getTopReds } from "../features/homepage/services/getTopReds";
 import TopCardsGraph from "../features/homepage/components/topCards/topCards";
 import { getFixturesByDate } from "../services/getFixturesByDate";
-import Fixtures from "../features/homepage/components/fixtures/fixtures";
 import '../features/homepage/styles.css'
 import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
+import TopFixtures from "../features/homepage/components/fixtures/topFixtures";
 
 function Homepage () {
 
-  // const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([])
   const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([]);
   const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
@@ -36,15 +35,8 @@ function Homepage () {
       setTopReds(topReds);
       setFixtures(fixtures)
       setIsLoading(false)
-
     })
-    
-    
   },[])
-
-  useEffect(()=> {
-   
-  },[topGoalContributors, topYellows])
 
   return (
     <>
@@ -57,7 +49,7 @@ function Homepage () {
       <div className="flex flex-col w-full gap-12 p-2 text-primary">
         {
         fixtures && 
-        <Fixtures fixtures={fixtures} setFixtures={setFixtures} />
+        <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />
         }
         <YoutubeFootball />
         <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
