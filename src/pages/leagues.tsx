@@ -4,6 +4,7 @@ import { topLeagueIds } from "../features/leagues/constants";
 
 import { Oval } from "react-loader-spinner";
 import LeagueLink from "../features/leagues/components/leagueLink";
+import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 
 export type League = {
   country: {name : string, code: string, flag: string},
@@ -21,18 +22,6 @@ function Leagues () {
     .then(data => {
       setIsLoading(false)
       setLeagues(data)
-      // if (data === "N/A") {
-      //   setLeagues([]);
-      // } else {
-      //   // const topLeagues = data.filter((data: League) => topLeagueIds.some(league => league.id === data.league.id))
-      //   const topLeagues = []
-
-      //   for (let i = 0; i < 24; i++){
-      //     topLeagues.push(data[i])
-      //   }
-      //   topLeagues.sort((a: League,b: League) => a.league.id - b.league.id)
-      //   setLeagues(topLeagues);
-      // }
     })
     .catch(error => {
       console.error(error);
@@ -61,17 +50,7 @@ function Leagues () {
       {
       isLoading &&
       <div className="flex items-center justify-center w-full h-full">
-      <Oval
-      height={80}
-      width={80}
-      color="#A5B2BE"
-      wrapperStyle={{}}
-      wrapperClass=""
-      visible={true}
-      ariaLabel='oval-loading'
-      secondaryColor="#A9A9A9"
-      strokeWidth={4}
-      strokeWidthSecondary={4}
+      <OvalLoadingSpinner
       />
       </div>
       }

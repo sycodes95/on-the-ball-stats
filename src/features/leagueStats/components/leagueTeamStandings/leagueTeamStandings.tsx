@@ -23,7 +23,6 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
   
   return (
     <div className="w-full p-4 md:min-w-max">
-      <p className="text-xl font-display text-primary"> LEAGUE STANDINGS</p>
 
       <div className="w-full p-2 overflow-auto text-xl rounded-md">
         <table className="w-full">

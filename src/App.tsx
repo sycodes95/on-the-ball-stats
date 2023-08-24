@@ -25,7 +25,7 @@ function App() {
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           <Route path='/player/:playerId' element={<Player/>}/>
-          <Route path='/team/:teamId/:leagueId' element={<Team/>}/>
+          <Route path='/team/:leagueId/:teamId/:teamName' element={<Team/>}/>
 
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}

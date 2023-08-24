@@ -1,7 +1,7 @@
 import { apiFootballGetHeaders } from "../../../constants/apiFootballGetHeaders"
 import { season } from "../../../constants/season"
 
-export const getTeamStatistics = (leagueId: number, teamId: number) => {
+export const getTeamStatistics = (teamId: number, leagueId: number) => {
   return fetch(`https://api-football-v1.p.rapidapi.com/v3/teams/statistics?season=${season}&team=${teamId}&league=${leagueId}`,{
     headers: apiFootballGetHeaders
   })

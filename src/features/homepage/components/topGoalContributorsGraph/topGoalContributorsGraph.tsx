@@ -3,6 +3,7 @@ import ListClubImage from "../../../../components/ui/listClubImage";
 import { Player } from "../../../../types/types";
 import { returnContributionWidthPct } from "../../utils/returnContributionWidthPct";
 import { returnSubContributionWidthPct } from "../../utils/returnSubContributionWidthPct";
+import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 
 type TopGoalContributorsGraphProps = {
   topGoalContributors: Player[]
@@ -26,7 +27,9 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
         <div className="flex items-center h-6 gap-1 text-xs border">
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
-            <Link to={`team/${player.statistics[0].team.id}/${player.statistics[0].league.id}`}>
+            <Link 
+            className="hover:opacity-70" 
+            to={`team/${player.statistics[0].league.id}/${player.statistics[0].team.id}/${getURLFriendlyString(player.statistics[0].team.name)}`}>
               <ListClubImage src={player.statistics[0].team.logo}/>
             </Link>
             <Link className="flex items-center gap-2 hover:underline" to={`/player/${player.player.id}`}>
