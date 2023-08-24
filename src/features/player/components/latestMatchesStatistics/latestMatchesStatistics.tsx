@@ -2,6 +2,7 @@ import { RotatingSquare } from "react-loader-spinner";
 import { PlayerStatisticsForAllFixtures } from "../../types/types";
 import { Link } from "react-router-dom";
 import { formatYMD } from "../../../../utils/formatYMD";
+import { bgMain } from "../../../../constants/colors";
 
 type LatestMatchesStatisticsProps = {
   playerStatisticsForAllFixtures: PlayerStatisticsForAllFixtures[] | [];
@@ -14,9 +15,9 @@ function LatestMatchesStatistics ({
 } : LatestMatchesStatisticsProps) {
   
   return (
-    <div className="flex flex-col w-full gap-2">
+    <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
       <div className="flex items-center h-8 gap-2 font-semibold">
-        <span className="text-xl font-semibold font-display">Latest Matches</span>
+        <span className="text-xl font-semibold font-display text-stone-600">LATEST MATCHES</span>
         {
         playerStatisticsForAllFixturesIsLoading && playerStatisticsForAllFixtures.length === 0 &&
         <RotatingSquare

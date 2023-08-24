@@ -57,3 +57,7 @@
 .letter-spacing{
   letter-spacing: 2px;
 }
+
+.logo-font-size{
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}

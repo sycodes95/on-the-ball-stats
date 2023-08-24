@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TeamStanding } from "../../types/types";
 import { extractRankDescriptions } from "../../utils/extractRankDescriptions";
 import TableRow from "./components/tableRow";
+import { bgMain } from "../../../../constants/colors";
 
 
 type LeagueTeamStandingsProps = {
@@ -22,13 +23,13 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
 
   
   return (
-    <div className="w-full p-2 md:min-w-max">
+    <div className={`w-full p-2 md:min-w-max ${bgMain}`}>
 
-      <div className="w-full overflow-auto rounded-md">
+      <div className="w-full overflow-auto rounded-2xl">
         <table className="w-full">
           <thead>
-            <tr className="font-semibold shadow-md text-stone-600 shadow-gray-300">
-              <th className="min-w-full p-1 text-left">Team</th>
+            <tr className="h-12 font-semibold shadow-md text-stone-400 shadow-gray-300">
+              <th className="min-w-full p-1 text-left">TEAM</th>
               <th className="w-12">P</th>
               <th className="w-12">W</th>
               <th className="w-12">D</th>
@@ -40,7 +41,7 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
               <th className="w-32">FORM</th>
             </tr>
           </thead>
-          <tbody className="text-xs text-primary">
+          <tbody className="text-xs text-primary ">
             {
             teams.map(data => (
               <TableRow 

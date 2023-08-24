@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { top20Leagues } from '../constants/top20Leagues';
+import { topLeaguesAndCups } from '../constants/topLeaguesAndCups';
 import { Fixture } from '../features/homepage/types/types';
 import { timeZone } from './getTimeZone';
 import { formatYMD } from '../utils/formatYMD';
@@ -24,7 +24,7 @@ export const getFixturesByDate = (fixtureDay?: string) => {
   .then(res => res.json())
   .then(data => {
     const topLeaguesAndCupsFixures = data.response.filter((fixture: Fixture) => {
-      return top20Leagues.some(league => league.id === fixture.league.id)
+      return topLeaguesAndCups.some(league => league.id === fixture.league.id)
     })
     .sort((a : Fixture, b : Fixture) => a.league.id - b.league.id)
     return topLeaguesAndCupsFixures

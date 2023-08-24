@@ -1,6 +1,7 @@
 import { useActionData } from "react-router-dom";
 import { Player } from "../../../../types/types";
 import { useEffect } from "react";
+import { bgMain } from "../../../../constants/colors";
 
 type CareerStatisticsProps = {
   playerDetails: Player;
@@ -9,9 +10,9 @@ type CareerStatisticsProps = {
 function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
   
   return (
-    <div className="flex flex-col w-full gap-4">
+    <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
       <div className="flex items-center h-8 ">
-        <span className="text-xl font-semibold font-display">LEAGUE STATISTICS</span>
+        <span className="text-xl font-semibold font-display text-stone-600">LEAGUE STATISTICS</span>
       </div>
       <div className="flex flex-col w-full overflow-x-scroll">
         <table>

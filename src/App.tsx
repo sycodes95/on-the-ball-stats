@@ -16,9 +16,9 @@ function App() {
   return (
     
     <BrowserRouter>
-      <div id='app' className='flex flex-col items-center min-h-screen text-xs bg-white font-main'>
+      <div id='app' className='flex flex-col items-center min-h-screen text-xs bg-white font-main text-stone-700'>
         <Header/>
-        <div className='relative flex flex-grow w-full h-full max-w-5xl mt-4 mb-4'>
+        <div className='relative flex flex-grow w-full h-full max-w-5xl '>
         <Routes>
           <Route path='/' element={<Homepage/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>

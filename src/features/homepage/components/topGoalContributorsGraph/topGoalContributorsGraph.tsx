@@ -4,6 +4,7 @@ import { Player } from "../../../../types/types";
 import { returnContributionWidthPct } from "../../utils/returnContributionWidthPct";
 import { returnSubContributionWidthPct } from "../../utils/returnSubContributionWidthPct";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
+import { bgMain } from "../../../../constants/colors";
 
 type TopGoalContributorsGraphProps = {
   topGoalContributors: Player[]
@@ -12,8 +13,8 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className="flex flex-col w-full text-xs rounded-md">
-      <div className="relative w-full text-2xl text-black rounded-sm font-display">
+    <div className={`flex flex-col w-full text-xs ${bgMain} p-4`}>
+      <div className="relative w-full text-2xl rounded-sm text-stone-700 font-display">
         <span>TOP PLAYERS</span>
       </div>
 
@@ -24,8 +25,8 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
       topGoalContributors.map((player: Player, index) => {
         if(player.statistics && player.statistics[0].team && player.statistics[0].goals){
         return (
-        <div className="flex items-center h-6 gap-1 text-xs border">
-          <div className="flex items-center h-6 gap-2">
+        <div className="flex items-center h-6 gap-1 text-xs">
+          <div className="flex items-center h-6 gap-2 ">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <Link 
             className="hover:opacity-70" 
@@ -34,7 +35,7 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
             </Link>
             <Link className="flex items-center gap-2 hover:underline" to={`/player/${player.player.id}`}>
               <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
-              <div className="flex items-center w-40 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</div>
+              <span className="flex items-center w-32 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</span>
             </Link>
           </div>
           

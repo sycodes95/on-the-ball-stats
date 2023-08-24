@@ -10,6 +10,7 @@ import '../features/homepage/styles.css'
 import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import TopFixtures from "../features/homepage/components/fixtures/topFixtures";
+import Top20Leagues from "../features/homepage/components/top20Leagues/top20Leagues";
 
 function Homepage () {
 
@@ -46,7 +47,8 @@ function Homepage () {
         <OvalLoadingSpinner />
       </div>
       :
-      <div className="flex flex-col w-full gap-12 p-2 text-primary">
+      <div className="flex flex-col w-full gap-8 p-2 text-primary">
+        <Top20Leagues />
         {
         fixtures && 
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />

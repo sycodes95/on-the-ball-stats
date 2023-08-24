@@ -2,6 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Player } from "../../../../types/types";
 import { useEffect, useState } from "react";
 import ListClubImage from "../../../../components/ui/listClubImage";
+import { bgMain } from "../../../../constants/colors";
 
 type TopCardsProps = {
   topCards: Player[];
@@ -14,7 +15,7 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
 
   },[])
   return (
-    <div className="flex flex-col w-full text-xs border rounded-md ">
+    <div className={`flex flex-col w-full text-xs border  p-4 ${bgMain}`}>
       <p className="w-full pl-2 mb-4 text-2xl text-black rounded-sm font-display">TOP {cardType} CARDS</p>
       <div className="flex flex-col gap-1">
       {

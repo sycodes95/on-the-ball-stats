@@ -12,7 +12,7 @@ export const getLeagueFixtures = (leagueId: number, season: number) => {
   .then(data => {
     console.log(data);
     if(data.response && data.response.length > 0){
-
+      
       return data.response.sort((a: Fixture, b: Fixture) => new Date(a.fixture.date).getTime() - new Date(b.fixture.date).getTime())
     }
     return []

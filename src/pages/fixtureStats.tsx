@@ -17,6 +17,7 @@ import FixtureHeader from "../components/fixtures/fixtureHeader";
 import FixtureTeam from "../components/fixtures/fixtureTeam";
 import FixtureStatus from "../components/fixtures/fixtureStatus";
 import FixtureScore from "../components/fixtures/fixtureScore";
+import { bgMain } from "../constants/colors";
 
 function FixtureStats () {
   
@@ -45,10 +46,9 @@ function FixtureStats () {
   
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-xs text-primary">
-      <div className="text-2xl text-primary font-display">FIXTURE STATS</div>
       {
       fixture &&
-      <div className="flex flex-col w-full gap-4 p-2 rounded-lg bg-opacity-70">
+      <div className={`flex flex-col w-full gap-4 p-4 rounded-2xl bg-opacity-70 ${bgMain} `}>
         <FixtureHeader
         leagueLogo={fixture.league.logo} 
         leagueName={fixture.league.name}
@@ -97,7 +97,7 @@ function FixtureStats () {
       }
       </div>
       
-      <div className="flex justify-center w-full h-full pt-8 pb-8 rounded-lg">
+      <div className={`flex justify-center w-full h-full pt-8 pb-8 rounded-2xl ${bgMain} `}>
       {
       fixtureViewMode === 'H2H' && fixture &&
       <HeadToHeadView headToHeadFixtures={headToHeadFixtures}/>

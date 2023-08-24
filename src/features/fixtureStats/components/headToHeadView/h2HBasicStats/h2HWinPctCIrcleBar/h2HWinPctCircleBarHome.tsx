@@ -18,7 +18,7 @@ function H2HWinPctCircleBarHome ({headToHeadFixtures} : H2HWinPctCircleBarHomePr
         textSize: '18px',
         pathTransitionDuration: 1,
         textColor: '#10b981',
-        trailColor: '#d6d6d6',
+        trailColor: '#C4BCA7',
         backgroundColor: '#10b981',
         pathColor: '#10b981'
       })}

@@ -17,7 +17,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
     fixture.lineups && fixture.lineups.length > 0 &&  
     <div className={`flex flex-col gap-4 ${className}`}>
       <div className='flex justify-between w-full'>
-        <div className='flex gap-4'>
+        <div className='flex gap-4 p-2'>
           <div className='flex items-center gap-4'>
             <img className='object-contain w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
             <span className='text-xs font-bold'>{fixture.lineups[0].formation}</span>
@@ -32,19 +32,19 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
             }
             <div className='flex flex-col'>
               <span>Coach</span>
-              <span>{fixture.lineups[0].coach.name}</span>
+              <span className="font-semibold">{fixture.lineups[0].coach.name}</span>
             </div>
           </div>
           
         </div>
 
-        <div className='flex gap-4'>
+        <div className='flex gap-4 p-2'>
           
 
           <div className='flex items-center gap-4'>
             <div className='flex flex-col items-end'>
               <span>Coach</span>
-              <span>{fixture.lineups[1].coach.name}</span>
+              <span className="font-semibold">{fixture.lineups[1].coach.name}</span>
             </div>
             {
             fixture.lineups[1].coach.photo ? 

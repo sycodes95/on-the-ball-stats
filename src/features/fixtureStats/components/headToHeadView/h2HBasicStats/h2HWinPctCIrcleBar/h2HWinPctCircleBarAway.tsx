@@ -18,7 +18,7 @@ function H2HWinPctCircleBarAway ({headToHeadFixtures} : H2HWinPctCircleBarAwayPr
         textSize: '18px',
         pathTransitionDuration: 1,
         textColor: '#f97316',
-        trailColor: '#d6d6d6',
+        trailColor: '#C4BCA7',
         backgroundColor: '#f97316',
         pathColor: '#f97316'
       })}

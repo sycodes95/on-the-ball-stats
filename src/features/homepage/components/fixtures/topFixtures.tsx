@@ -35,7 +35,7 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
 
   return (
   <div className="flex flex-col gap-4">
-    <p className="w-full text-2xl rounded-sm font-display">FIXTURES</p>
+    
 
     <div className="flex items-center gap-2">
       <div className="flex gap-2 text-xs font-semibold w-fit">
@@ -67,7 +67,7 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
       }
     </div>
 
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full ">
       <div className={`${isLoading ? 'flex' : 'hidden'}
       bg-stone-300 bg-opacity-70 z-10 absolute top-0 left-0 w-full h-full rounded-lg transition-all items-center justify-center
       `}>

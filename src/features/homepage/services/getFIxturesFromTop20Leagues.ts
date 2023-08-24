@@ -1,9 +1,9 @@
-// import { top20Leagues } from "../../../constants/top20Leagues";
+// import { topLeaguesAndCups } from "../../../constants/topLeaguesAndCups";
 // import { getLeagueFixtures } from "../../../services/getFixturesByDate";
 
-// export const getFixturesFromTop20Leagues = async () => {
+// export const getFixturesFromtopLeaguesAndCups = async () => {
 //   const fixtures = await Promise.all(
-//     top20Leagues.map(async (league) => {
+//     topLeaguesAndCups.map(async (league) => {
 //       const data = await getLeagueFixtures(league.id);
 //       return data.response;
 //     })

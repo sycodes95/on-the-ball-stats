@@ -1,0 +1,1 @@
+export const bgMain = 'bg-stone-300 bg-opacity-80  rounded-2xl';

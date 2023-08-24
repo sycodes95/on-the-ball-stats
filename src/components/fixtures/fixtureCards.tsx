@@ -24,7 +24,7 @@ function FixtureCards ({fixtures} : FixturesProps) {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all border border-stone-300 rounded-xl hover:shadow-md hover:shadow-stone-300 h-28 text-primary hover:cursor-pointer hover:bg-stone-300 hover:bg-opacity-80 "
+            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all bg-opacity-80 bg-stone-300 rounded-xl hover:shadow-md hover:shadow-stone-300 h-28 text-primary hover:cursor-pointer hover:bg-opacity-100 "
             to={`/fixture-statistics/${fixture.fixture.id}`}
             >
               <div className="flex items-center justify-between w-full">

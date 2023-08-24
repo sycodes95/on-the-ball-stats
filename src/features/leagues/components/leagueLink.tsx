@@ -10,7 +10,7 @@ type LeagueLinkProps = {
 function LeagueLink ({ leagueId, leagueName, leagueLogo, countryFlag }: LeagueLinkProps) {
   
   return (
-    <Link className="flex items-center justify-between gap-2 p-2 rounded-md shadow-md shadow-slate-300 hover:cursor-pointer hover:bg-gray-300 hover:bg-opacity-80" to={`/leagues/${leagueId}`}>
+    <Link className="flex items-center justify-between gap-2 p-2 hover:cursor-pointer hover:bg-stone-300 hover:bg-opacity-90 rounded-2xl" to={`/leagues/${leagueId}`}>
       <div className="flex items-center gap-2">
         
         <div className="flex justify-center w-16 h-10">

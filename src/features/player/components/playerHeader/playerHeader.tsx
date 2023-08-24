@@ -1,3 +1,4 @@
+import { bgMain } from "../../../../constants/colors";
 import { Player } from "../../../../types/types";
 
 type PlayerHeaderProps = {
@@ -6,9 +7,9 @@ type PlayerHeaderProps = {
 
 function PlayerHeader ({playerDetails} : PlayerHeaderProps) {
   return(
-    <div className="flex w-full gap-4 text-xs">
+    <div className={`flex w-full gap-4 text-xs `}>
       <img className="object-contain w-20 h-20 rounded-full" src={playerDetails.player.photo} alt="" />
-      <div className="flex flex-col justify-center ">
+      <div className={`flex flex-col justify-center w-full p-4 `}>
         <div className="flex flex-col gap-1 text-xl font-semibold text-black text-opacity-0font-outline-black md:flex-row">
           <span className="flex items-center whitespace-nowrap">{playerDetails.player.firstname}</span>
           <span className="flex items-center">{playerDetails.player.lastname}</span>

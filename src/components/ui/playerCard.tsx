@@ -29,10 +29,10 @@ function PlayerCard ({
 
   return (
     
-    <div className="flex items-center justify-between w-full h-8 gap-2 transition-all border-black border-opacity-25 rounded-sm ">
+    <div className="flex items-center justify-between w-full h-8 gap-2 transition-all border-b rounded-sm border-stone-400 border-opacity-20">
       
       <div className="flex items-center h-full gap-2 text-xs text-gray-700 whitespace-nowrap">
-        <p className="w-4 text-center whitespace-nowrap">{number}</p>
+        <p className="flex items-center justify-center w-5 h-5 whitespace-nowrap">{number}</p>
         
         <Link 
         className="flex items-center justify-center w-6 h-6 hover:opacity-70"

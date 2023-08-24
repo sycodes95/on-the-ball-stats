@@ -79,7 +79,7 @@ function TimeLine () {
           }
 
           <div className="flex justify-center w-full h-full col-start-2 ">
-            <span className="w-8 h-6 p-1 font-bold text-center text-white rounded-full shadow-md bg-slate-400 ">{ev.time.elapsed}'</span>
+            <span className="w-8 h-6 p-1 font-bold text-center text-white rounded-full shadow-md bg-stone-400 ">{ev.time.elapsed}'</span>
           </div>
 
           {
