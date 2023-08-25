@@ -1,4 +1,4 @@
-// export const getLeaguePlayersAll = async (leagueID: number) => {
+// export const getLeaguePlayersAll = async (leagueId: number) => {
 //   const currentSeason = new Date().getFullYear()
 //   const previousYear = currentSeason - 1
 //   const players = []
@@ -6,7 +6,7 @@
 //   let pageTotal: number = 0
 
 //   while(pageTotal === 0 || page < pageTotal){
-//     const fetchedPlayers = await fetch(`https://api-football-v1.p.rapidapi.com/v3/players?league=${leagueID}&season=${previousYear}&page=${page}`,{
+//     const fetchedPlayers = await fetch(`https://api-football-v1.p.rapidapi.com/v3/players?league=${leagueId}&season=${previousYear}&page=${page}`,{
 //       headers: {
 //         'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,
 //         'X-RapidAPI-Host': import.meta.env.VITE_X_RAPID_API_HOST
@@ -33,7 +33,7 @@
   
 // }
 
-// export const getLeaguePlayersAll = async (leagueID: number) => {
+// export const getLeaguePlayersAll = async (leagueId: number) => {
 //   const currentSeason = new Date().getFullYear()
 //   const previousYear = currentSeason - 1
 //   const players = []
@@ -44,7 +44,7 @@
 //   while (pageTotal === 0 || page < pageTotal) {
 //     promises.push(
 //       fetch(
-//         `https://api-football-v1.p.rapidapi.com/v3/players?league=${leagueID}&season=${previousYear}&page=${page}`,
+//         `https://api-football-v1.p.rapidapi.com/v3/players?league=${leagueId}&season=${previousYear}&page=${page}`,
 //         {
 //           headers: {
 //             'X-RapidAPI-Key': import.meta.env.VITE_X_RAPID_API_KEY,

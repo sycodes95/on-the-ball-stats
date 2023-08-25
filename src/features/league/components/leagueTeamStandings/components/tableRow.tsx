@@ -17,6 +17,7 @@ type TableRowProps = {
   form: string;
   teamId: number;
   leagueId: number;
+  highlightRow: boolean;
   
 }
 
@@ -35,11 +36,17 @@ function TableRow ({
   points,
   form,
   teamId,
-  leagueId
+  leagueId,
+  highlightRow
 }: TableRowProps) {
   return (
     <tr className={`hover:bg-stone-300 hover:bg-opacity-80 
-    ${description ? 'bg-yellow-300 bg-opacity-30 border-l-2 border-stone-400  border-opacity-100' : 'border-l-2 border-white  border-opacity-0'}`}>
+    ${highlightRow && 'bg-emerald-200'}
+
+    ${description && !highlightRow ? 'bg-yellow-300 bg-opacity-30 border-l-2 border-stone-400  border-opacity-100' : 'border-l-2 border-white  border-opacity-0'}
+
+    
+    `}>
       <td className="flex items-center h-8">
         <span className="text-center rounded-l-sm w-32px">{rank}</span>
         <Link to={`/team/${leagueId}/${teamId}/${getURLFriendlyString(teamName)}`} 

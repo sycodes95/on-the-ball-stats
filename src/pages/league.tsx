@@ -7,7 +7,7 @@ import LeagueTopScorers from "../features/league/components/leagueTopScorers/lea
 import { TeamStanding } from "../features/league/types/types";
 import { getLeagueTopAssists } from "../features/league/services/getLeagueTopAssists";
 import LeagueTopAssists from "../features/league/components/leagueTopAssists/leagueTopAssists";
-import { getLeagueTeamStandings } from "../features/league/services/getLeagueTeamStandings";
+import { getLeagueTeamStandings } from "../services/getLeagueTeamStandings";
 import LeagueTeamStandings from "../features/league/components/leagueTeamStandings/leagueTeamStandings";
 import '../features/league/styles/styles.css'
 import { Fixture, Player } from "../types/types";
@@ -76,7 +76,7 @@ function LeaguePage () {
       }
       {
       hasLeagueTeamStandings && 
-      <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueID={Number(leagueId)}/>
+      <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueId={Number(leagueId)}/>
       }
       {
       hasLeagueTopScorers && 

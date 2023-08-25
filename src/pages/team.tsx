@@ -6,6 +6,12 @@ import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import LeagueHeader from "../features/league/components/leagueHeader/leagueHeader";
 import TeamHeader from "../features/team/components/teamHeader/teamHeader";
 import { getTeamInfo } from "../features/team/services/getTeamInfo";
+import { season } from "../constants/season";
+import { getTeamFixtures } from "../features/team/services/getTeamFixtures";
+import { Fixture } from "../types/types";
+import { TeamStanding } from "../features/league/types/types";
+import { getLeagueTeamStandings } from "../services/getLeagueTeamStandings";
+import LeagueTeamStandings from "../features/league/components/leagueTeamStandings/leagueTeamStandings";
 
 
 
@@ -14,18 +20,23 @@ function TeamPage () {
   const [isLoading, setIsLoading] = useState(false)
   const [teamStatistics, setTeamStatistics] = useState<TeamStatistics | null>(null)
   const [teamInfo, setTeamInfo] = useState<TeamInfo | null>(null)
-
+  const [teamFixtures, setTeamFixtures] = useState<Fixture[] | []>([])
+  const [teamStandings, setTeamStandings] = useState(null)
   
   useEffect(()=>{
     if(teamId && leagueId){
       setIsLoading(true)
       Promise.all([
         getTeamStatistics(Number(teamId), Number(leagueId)),
-        getTeamInfo(Number(teamId))
+        getTeamInfo(Number(teamId)),
+        getTeamFixtures(Number(teamId), season),
+        getLeagueTeamStandings(Number(leagueId), season)
       ])
-      .then(([teamStatisticsData, teamInfoData]) => {
+      .then(([teamStatisticsData, teamInfoData, teamFixturesData, leagueTeamStandingsData]) => {
         setTeamStatistics(teamStatisticsData)
         setTeamInfo(teamInfoData)
+        setTeamFixtures(teamFixturesData)
+        setTeamStandings(leagueTeamStandingsData)
         setIsLoading(false)
       })
     }
@@ -34,6 +45,8 @@ function TeamPage () {
   useEffect(()=> {
     console.log(teamStatistics);
     console.log(teamInfo);
+    console.log(teamFixtures);
+    console.log(teamStandings);
 
   },[teamStatistics, teamInfo])
   return (
@@ -48,6 +61,10 @@ function TeamPage () {
       {
       teamStatistics &&
         <TeamHeader teamStatistics={teamStatistics}/>
+      }
+      {
+      teamStandings &&
+        <LeagueTeamStandings leagueId={Number(leagueId)} leagueTeamStandings={teamStandings} teamId={Number(teamId)}/>
       }
       </div>
       

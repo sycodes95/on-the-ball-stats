@@ -7,9 +7,10 @@ import { bgMain } from "../../../../constants/colors";
 
 type LeagueTeamStandingsProps = {
   leagueTeamStandings: TeamStanding[]
-  leagueID: number;
+  leagueId: number;
+  teamId?: number;
 }
-function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandingsProps) {
+function LeagueTeamStandings ({leagueTeamStandings, leagueId, teamId}: LeagueTeamStandingsProps) {
   const [teams, setTeams] = useState<TeamStanding[]>([])
   const [rankDescriptions, setRankDescriptions] = useState<string[]>([])
 
@@ -60,7 +61,8 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
               points={data.points}
               form={data.form}
               teamId={data.team.id}
-              leagueId={leagueID}
+              leagueId={leagueId}
+              highlightRow={teamId && teamId === data.team.id ? true : false}
               />
               
             ))
