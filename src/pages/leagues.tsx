@@ -1,17 +1,9 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getLeagues } from "../features/leagues/services/getLeagues";
-import { topLeagueIds } from "../features/leagues/constants";
-
-import { Oval } from "react-loader-spinner";
-import LeagueLink from "../features/leagues/components/leagueLink";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
-import { Link } from "react-router-dom";
-
-import * as React from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Masonry from '@mui/lab/Masonry';
-import { styled } from '@mui/material/styles';
 
 export type League = {
   [key: string] : {
@@ -88,14 +80,10 @@ function Leagues () {
       </Box>
       }
       
-      
-
-      
       {
       isLoading &&
       <div className="flex items-center justify-center w-full h-full">
-      <OvalLoadingSpinner
-      />
+       <OvalLoadingSpinner/>
       </div>
       }
       

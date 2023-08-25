@@ -1,6 +1,6 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Player } from "../../../../types/types";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ListClubImage from "../../../../components/ui/listClubImage";
 import { bgMain } from "../../../../constants/colors";
 
@@ -11,12 +11,12 @@ type TopCardsProps = {
 
 function TopCards ({topCards, cardType}: TopCardsProps) {
 
-  useEffect(()=> {
-
-  },[])
+  
   return (
-    <div className={`flex flex-col w-full text-xs border  p-4 ${bgMain}`}>
-      <p className="w-full pl-2 mb-4 text-2xl text-black rounded-sm font-display">TOP {cardType} CARDS</p>
+    <div className={`flex flex-col w-full text-xs border gap-2   p-4 ${bgMain}`}>
+      <div className="h-8 border-b-2 shadow-lg shadow-stone-300">
+        <p className="w-full pl-2 mb-4 text-xl rounded-sm text-stone-700 font-display">TOP {cardType} CARDS</p>
+      </div>
       <div className="flex flex-col gap-1">
       {
         topCards.map((player: Player, index) => (

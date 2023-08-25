@@ -13,12 +13,12 @@ type TopGoalContributorsGraphProps = {
 function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGraphProps) {
 
   return (
-    <div className={`flex flex-col w-full text-xs ${bgMain} p-4`}>
-      <div className="relative w-full text-2xl rounded-sm text-stone-700 font-display">
+    <div className={`flex flex-col w-full text-xs gap-4 ${bgMain} p-4`}>
+      <div className="relative w-full text-xl border-b-2 rounded-sm shadow-lg text-stone-700 font-display shadow-stone-300">
         <span>TOP PLAYERS</span>
       </div>
 
-      <div className="flex flex-col gap-2 pt-4 rounded-md ">
+      <div className="flex flex-col gap-2 rounded-md ">
 
       
       {
