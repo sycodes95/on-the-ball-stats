@@ -12,6 +12,27 @@ export type TeamStatistics = {
 
 } 
 
+export type TeamInfo = {
+  team: { 
+    code: string;
+    country: string;
+    founded: 1901;
+    id: number;
+    logo: string;
+    name: string;
+    national: string;
+  };
+  venue: {
+    address: string;
+    capacity: number;
+    city: string;
+    id: number;
+    image: string;
+    name: string;
+    surface: string;
+  };
+};
+
 type Biggest = {
   goals : {
     against: {
@@ -83,8 +104,6 @@ type Fixtures = {
     total: number | null;
   };
 };
-
-type Form = string | null;
 
 type Goals = {
   against: {
