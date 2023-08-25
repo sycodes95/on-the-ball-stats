@@ -58,13 +58,13 @@ function Leagues () {
       {
       !isLoading && leagues &&
       <Box sx={{ width: '100%', minHeight: 829 }}>
-        <Masonry columns={4} spacing={2}>
+        <Masonry className="" columns={4} spacing={2}>
         {
         
         Object.keys(leagues).map((key, index) => (
           <div className="flex flex-col gap-2 p-4 rounded-2xl bg-stone-300 bg-opacity-80 h-fit" key={index}>
-            <div className="flex items-center gap-2 pb-2 border-b-2">
-              <img className="object-contain w-6 h-6 rounded-md" src={leagues[key].flag} alt="league country flag"/>
+            <div className="flex items-center gap-4 pb-2 border-b-2">
+              <img className="object-contain w-6 rounded-2xl " src={leagues[key].flag} alt="league country flag"/>
               <span className="font-semibold">{key}</span>
             </div>
             <div className="flex flex-col gap-2">

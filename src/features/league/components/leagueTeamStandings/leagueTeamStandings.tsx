@@ -28,7 +28,7 @@ function LeagueTeamStandings ({leagueTeamStandings, leagueID}: LeagueTeamStandin
       <div className="w-full overflow-auto rounded-2xl">
         <table className="w-full">
           <thead>
-            <tr className="h-12 font-semibold shadow-md text-stone-400 shadow-gray-300">
+            <tr className="h-12 font-semibold border-b-2 shadow-md text-stone-400 shadow-stone-300">
               <th className="min-w-full p-1 text-left">TEAM</th>
               <th className="w-12">P</th>
               <th className="w-12">W</th>
