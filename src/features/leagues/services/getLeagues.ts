@@ -2,7 +2,7 @@ import { apiFootballGetHeaders } from "../../../constants/apiFootballGetHeaders"
 import { League } from "../../../pages/leagues";
 
 export const getLeagues = () => {
-  return fetch(`${import.meta.env.VITE_API_FOOTBALL_URL}/v3/leagues?type=league`, {
+  return fetch(`${import.meta.env.VITE_API_FOOTBALL_URL}/v3/leagues?type=${'league'}`, {
     method: 'GET',
     headers: apiFootballGetHeaders
   })
@@ -10,15 +10,25 @@ export const getLeagues = () => {
   .then(data => {
     console.log(data.response);
     if(data.response.length) {
-      const leagues = data.response.sort((a : League, b: League) => a.league.id - b.league.id).splice(0, 200)
-      console.log(leagues);
-      return leagues
+      const leaguesObj = {}
+      data.response
+      .filter(data => data.country.flag)
+      .sort((a, b) => a.country.name.charCodeAt(0) - b.country.name.charCodeAt(0))
+      .forEach(league => {
+        if(!leaguesObj[league.country.name]){
+          leaguesObj[league.country.name] = { flag : league.country.flag, leagues: [league.league], topLeagueId: league.league.id}
+        } else {
+          leaguesObj[league.country.name].leagues.push(league.league)
+        }
+      })
+      console.log(leaguesObj);
+      return leaguesObj
     } 
-    return []
+    return null
   
   })
   .catch(error => {
     console.error(error)
-    return []
+    return null
   })
 }

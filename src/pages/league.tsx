@@ -54,7 +54,7 @@ function LeaguePage () {
   const hasLeagueTeamStandings = leagueTeamStandings.length > 0;
   const hasLeagueFixtures = leagueFixtures.length > 0;
   return (
-    <div className="flex flex-col w-full gap-8 pb-16 text-black">
+    <div className="flex flex-col w-full gap-8 pt-8 pb-16 text-black">
       {
       isLoading &&
       <div className="flex items-center justify-center w-full h-full text-black">
