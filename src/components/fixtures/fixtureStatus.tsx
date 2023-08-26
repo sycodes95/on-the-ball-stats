@@ -23,6 +23,7 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
   },[])
   
   useEffect(()=> {
+    console.log(fixtureStatus);
     if(fixtureStatus.short === 'NS') {
       const fixtureStartDate = new Date(fixtureDate)
       const userCurrentDate = new Date()

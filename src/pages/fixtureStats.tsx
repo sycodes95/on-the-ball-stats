@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getFixturesById } from "../services/getFixtureById";
 import { getFixturesH2H } from "../services/getFixturesH2H";
 import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
@@ -18,6 +18,7 @@ import FixtureTeam from "../components/fixtures/fixtureTeam";
 import FixtureStatus from "../components/fixtures/fixtureStatus";
 import FixtureScore from "../components/fixtures/fixtureScore";
 import { bgMain } from "../constants/colors";
+import { getURLFriendlyString } from "../utils/getURLFriendlyString";
 
 function FixtureStats () {
   
@@ -61,10 +62,13 @@ function FixtureStats () {
         
         
         <div className="justify-center w-full h-full gap-2 fixture-grid"> 
-          <FixtureTeam 
-          teamLogo={fixture.teams.home.logo} 
-          teamName={fixture.teams.home.name} 
-          side={`home`}/>
+          <Link
+          className="flex items-center justify-end gap-4 hover:opacity-70 hover:underline" 
+          to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
+            <span className="text-lg">{fixture.teams.home.name}</span>
+            <img className="object-contain w-10 h-10" src={fixture.teams.home.logo} alt="" />
+            
+          </Link>
           
           <div className="flex flex-col items-center justify-center w-full gap-2">
             <FixtureStatus  
@@ -78,11 +82,13 @@ function FixtureStats () {
             awayGoals={fixture.goals.away}/>
             }
           </div>
-          
-          <FixtureTeam 
-          teamLogo={fixture.teams.away.logo} 
-          teamName={fixture.teams.away.name} 
-          side={`away`}/>
+          <Link
+          className="flex items-center gap-4 hover:opacity-70 hover:underline" 
+          to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
+            <img className="object-contain w-10 h-10" src={fixture.teams.away.logo} alt="" />
+            <span className="text-lg">{fixture.teams.away.name}</span>
+            
+          </Link>
         </div>
 
 

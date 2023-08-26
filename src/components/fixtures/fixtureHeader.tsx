@@ -22,7 +22,7 @@ function FixtureHeader ({leagueLogo, leagueName, countryFlag, fixtureDate} : Fix
       <div className="flex items-center gap-2">
         {
         fixtureDate &&
-        <span className="text-stone-600">{formatYMD(new Date(fixtureDate))}</span>
+        <span className="text-stone-600">{fixtureDate}</span>
         }
         
       </div>

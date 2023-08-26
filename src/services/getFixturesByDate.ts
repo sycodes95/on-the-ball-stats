@@ -27,6 +27,7 @@ export const getFixturesByDate = (fixtureDay?: string) => {
       return topLeaguesAndCups.some(league => league.id === fixture.league.id)
     })
     .sort((a : Fixture, b : Fixture) => a.league.id - b.league.id)
+    console.log(topLeaguesAndCupsFixures);
     return topLeaguesAndCupsFixures
   })
   .catch(error => {
