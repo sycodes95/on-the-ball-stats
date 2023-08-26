@@ -45,10 +45,6 @@ function LeaguePage () {
     })
     .catch((err) => console.error(err));
   }, [leagueId]);
-  
-  useEffect(()=> {
-    console.log(leagueInfo);
-  },[leagueTeamStandings])
 
   const hasLeagueTopScorers = leagueTopScorers.length > 0;
   const hasLeagueTopAssists = leagueTopAssists.length > 0;
