@@ -23,13 +23,11 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
   },[])
   
   useEffect(()=> {
-    console.log(fixtureStatus);
     if(fixtureStatus.short === 'NS') {
       const fixtureStartDate = new Date(fixtureDate)
       const userCurrentDate = new Date()
       setTimeUntilFixtureStart(getTimeDifference(fixtureStartDate, userCurrentDate))
     }
-    console.log(fixtureStatus);
   },[fixtureStatus])
 
  

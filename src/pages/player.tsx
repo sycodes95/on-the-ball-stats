@@ -48,7 +48,6 @@ function PlayerPage () {
 
       });
     }
-    console.log(playerDetails);
   },[playerDetails]);
 
   return (

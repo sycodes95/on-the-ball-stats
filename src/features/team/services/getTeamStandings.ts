@@ -6,7 +6,6 @@ export const getTeamStandings = (teamId:number, season:number) => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     if(data.response){
       return data.response[0]
     }

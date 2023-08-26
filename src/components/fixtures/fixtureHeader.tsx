@@ -1,4 +1,3 @@
-import { formatYMD } from "../../utils/formatYMD";
 
 type FixtureHeaderProps = {
   leagueLogo: string;
@@ -7,8 +6,7 @@ type FixtureHeaderProps = {
   fixtureDate?: string;
 }
 
-function FixtureHeader ({leagueLogo, leagueName, countryFlag, fixtureDate} : FixtureHeaderProps) {
-  console.log(fixtureDate);
+function FixtureHeader ({leagueLogo, leagueName, fixtureDate} : FixtureHeaderProps) {
   return (
     <div className="flex justify-between w-full gap-2">
 
@@ -27,7 +25,6 @@ function FixtureHeader ({leagueLogo, leagueName, countryFlag, fixtureDate} : Fix
         }
         
       </div>
-      
       
     </div>
   )

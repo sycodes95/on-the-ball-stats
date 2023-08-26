@@ -70,22 +70,24 @@ function LeaguePage () {
       {
       !isLoading &&
       <div className="flex flex-col gap-8 p-2">
-      {
-      hasLeagueFixtures &&
-      <LeagueFixtures leagueFixtures={leagueFixtures}/>
-      }
-      {
-      hasLeagueTeamStandings && 
-      <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueId={Number(leagueId)}/>
-      }
-      {
-      hasLeagueTopScorers && 
-      <LeagueTopScorers leagueTopScorers={leagueTopScorers} />
-      }
-      {
-      hasLeagueTopAssists && 
-      <LeagueTopAssists leagueTopAssists={leagueTopAssists} />
-      }
+        
+        {
+        hasLeagueFixtures &&
+        <LeagueFixtures leagueFixtures={leagueFixtures}/>
+        }
+        {
+        hasLeagueTeamStandings && 
+        <LeagueTeamStandings leagueTeamStandings={leagueTeamStandings} leagueId={Number(leagueId)}/>
+        }
+        
+        {
+        hasLeagueTopScorers && 
+        <LeagueTopScorers leagueTopScorers={leagueTopScorers} />
+        }
+        {
+        hasLeagueTopAssists && 
+        <LeagueTopAssists leagueTopAssists={leagueTopAssists} />
+        }
       </div>
       }
       

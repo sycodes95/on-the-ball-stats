@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Fixture } from "../../../../types/types";
-import { getLeagueFixtures } from "../../services/getLeagueFixtures";
 import FixtureCards from "../../../../components/fixtures/fixtureCards";
 
 type LeagueFixturesProps = {
@@ -33,10 +32,6 @@ function LeagueFixtures ({leagueFixtures} : LeagueFixturesProps) {
       setUpcomingFixtures(upcoming)
     }
   },[leagueFixtures])
-
-  useEffect(()=> {
-    console.log(pastFixtures, upcomingFixtures);
-  },[pastFixtures, upcomingFixtures])
 
   return (
     <div className="flex flex-col gap-4">

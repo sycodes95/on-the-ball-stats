@@ -1,7 +1,6 @@
 import { getFixturesByTeamId } from "../../../services/getFixturesByTeamId"
 import { Fixture, Player, Team } from "../../../types/types";
-import { PlayerStatisticsForAllFixtures } from "../types/types";
-import { getPlayerStatisticsByFixtureId, getPlayersStatisticsByFixtureId } from "./getPlayersStatisticsByFixtureId";
+import { getPlayersStatisticsByFixtureId } from "./getPlayersStatisticsByFixtureId";
 
 export const getPlayerStatisticsForAllFixtures = async (playerId: number, teamId: number) => {
   //Get all fixtures of player's team and filter it by fixtures that have ended.
@@ -32,8 +31,7 @@ export const getPlayerStatisticsForAllFixtures = async (playerId: number, teamId
         
       })
     );
-    console.log(fixturesPlayersStatistics.filter((fixture) => fixture).reverse());
-    return fixturesPlayersStatistics.filter((fixture) => fixture).sort((a: PlayerStatisticsForAllFixtures, b: PlayerStatisticsForAllFixtures) => new Date(b.fixture.date) - new Date(a.fixture.date))
+    return fixturesPlayersStatistics.filter((fixture) => fixture).sort((a, b) => new Date(b.fixture.date).getTime() - new Date(a.fixture.date).getTime());
 
   }
   return []

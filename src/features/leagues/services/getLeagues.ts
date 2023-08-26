@@ -1,5 +1,4 @@
 import { apiFootballGetHeaders } from "../../../constants/apiFootballGetHeaders";
-import { League } from "../../../pages/leagues";
 
 export const getLeagues = () => {
   return fetch(`${import.meta.env.VITE_API_FOOTBALL_URL}/v3/leagues?type=${'league'}`, {
@@ -8,11 +7,10 @@ export const getLeagues = () => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data.response);
     if(data.response.length) {
       const leaguesObj = {}
       data.response
-      .filter(data => data.country.flag)
+      .filter((data) => data.country.flag)
       .sort((a, b) => a.country.name.charCodeAt(0) - b.country.name.charCodeAt(0))
       .forEach(league => {
         if(!leaguesObj[league.country.name]){
@@ -21,7 +19,6 @@ export const getLeagues = () => {
           leaguesObj[league.country.name].leagues.push(league.league)
         }
       })
-      console.log(leaguesObj);
       return leaguesObj
     } 
     return null

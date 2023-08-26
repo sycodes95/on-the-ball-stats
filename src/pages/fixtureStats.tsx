@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { getFixturesById } from "../services/getFixtureById";
 import { getFixturesH2H } from "../services/getFixturesH2H";
 import HeadToHeadView from "../features/fixtureStats/components/headToHeadView/headToHeadView";
-import { hasFixtureStarted } from "../features/fixtureStats/utils/hasFixtureStarted";
 import '../features/fixtureStats/styles.css'
 import TimeLine from "../features/fixtureStats/components/timeLine/timeLine";
 import MatchStatistics from "../features/fixtureStats/components/matchStatistics/matchStatistics";
@@ -14,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { setFixture } from "../features/fixtureStats/state/fixtureStatsSlice";
 import FixtureHeader from "../components/fixtures/fixtureHeader";
-import FixtureTeam from "../components/fixtures/fixtureTeam";
 import FixtureStatus from "../components/fixtures/fixtureStatus";
 import FixtureScore from "../components/fixtures/fixtureScore";
 import { bgMain } from "../constants/colors";
@@ -45,10 +43,7 @@ function FixtureStats () {
       })
     }
   },[fixture])
-  
-  useEffect(()=> {
-    console.log(headToHeadFixtures);
-  },[headToHeadFixtures])
+
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-xs text-primary">
       {

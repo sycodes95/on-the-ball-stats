@@ -7,7 +7,6 @@ type LeagueTopScorersProps = {
 }
 
 function LeagueTopScorers ({ leagueTopScorers }: LeagueTopScorersProps) {
-  console.log(leagueTopScorers);
   return (
     <div className={`flex flex-col w-full gap-2 p-4 ${bgMain}`}>
       <p className="text-xl text-primary font-display"> TOP SCORERS</p>

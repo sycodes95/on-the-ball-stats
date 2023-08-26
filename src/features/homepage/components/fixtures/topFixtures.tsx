@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { getFixturesByDate } from "../../../../services/getFixturesByDate";
 import { RotatingSquare } from "react-loader-spinner";
-import { Link } from "react-router-dom";
 import { Fixture } from "../../../../types/types";
 import FixtureCards from "../../../../components/fixtures/fixtureCards";
 
@@ -31,7 +30,7 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
         setIsLoading(false)
       })
     }
-  },[fixturesDay])
+  },[fixturesDay, setFixtures])
 
   return (
   <div className="flex flex-col gap-4">
