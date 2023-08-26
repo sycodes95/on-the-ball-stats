@@ -12,7 +12,7 @@ import LatestMatchesStatistics from "../features/player/components/latestMatches
 import PlayerHeader from "../features/player/components/playerHeader/playerHeader";
 
 // Services
-import { getPlayerStatisticsForAllFixtures } from "../features/player/services/getPlayerStatstisticsForAllFixtures";
+import { getPlayerStatisticsForAllFixtures } from "../features/player/services/getPlayerStatisticsForAllFixtures";
 import { getPlayerStatisticsById } from "../features/player/services/getPlayerStatisticsById";
 
 // Styles
@@ -48,7 +48,7 @@ function PlayerPage () {
 
       });
     }
-  },[playerDetails]);
+  },[playerDetails, playerId]);
 
   return (
     <div className="flex flex-col w-full gap-4 text-primary">

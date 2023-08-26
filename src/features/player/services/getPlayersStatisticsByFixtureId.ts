@@ -6,6 +6,7 @@ export const getPlayersStatisticsByFixtureId = (fixtureId: number, teamId:number
   })
   .then(res => res.json())
   .then(data => {
+    console.log(data.response[0]);
     if(data.response && data.response[0]){
       return data.response[0]
     }

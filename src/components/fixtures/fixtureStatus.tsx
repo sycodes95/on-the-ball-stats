@@ -28,7 +28,7 @@ function FixtureStatus ({ fixtureStatus, fixtureDate, fixturePenalties }: Fixtur
       const userCurrentDate = new Date()
       setTimeUntilFixtureStart(getTimeDifference(fixtureStartDate, userCurrentDate))
     }
-  },[fixtureStatus])
+  },[fixtureStatus, fixtureDate])
 
  
   return (

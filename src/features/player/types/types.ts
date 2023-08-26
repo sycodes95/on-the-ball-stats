@@ -1,12 +1,11 @@
-import { PlayerDetails, PlayerStatistics } from "../../../types/types"
 
 export type PlayerStatisticsForAllFixtures = {
   fixture: {
     date: string;
     id: number;
     periods: {
-      first: number | null;
-      second: number | null;
+      first: number | null | string;
+      second: number | null | string;
     };
     referee: string | null;
     status: {
@@ -16,6 +15,11 @@ export type PlayerStatisticsForAllFixtures = {
     };
     timestamp: number;
     timezone: string;
+    venue: {
+      city: string;
+      id: number;
+      name: string;
+    }
   };
   player: {
     id: number;
@@ -55,13 +59,11 @@ export type PlayerStatisticsForAllFixtures = {
       conceded: number | null;
       saves: number | null;
       total: number | null;
-  
     };
     passes: {
-      accuracy: number | null;
+      accuracy: number | null | string;
       key: number | null;
       total: number | null;
-  
     };
     penalty: {
       committed: number | null;
@@ -69,7 +71,6 @@ export type PlayerStatisticsForAllFixtures = {
       saved: number | null;
       scored: number | null;
       won: number | null;
-  
     };
     shots: {
       on: number | null;
@@ -80,13 +81,13 @@ export type PlayerStatisticsForAllFixtures = {
       interceptions: number | null;
       total: number | null;
     };
-    offsides: number | null
+    offsides: number | null;
   }[];
   opposingTeam: {
     id: number;
     logo: string;
     name: string;
-    winner: boolean
+    winner: boolean | null;
   };
   league: {
     country: string;
