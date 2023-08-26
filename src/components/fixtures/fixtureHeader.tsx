@@ -8,6 +8,7 @@ type FixtureHeaderProps = {
 }
 
 function FixtureHeader ({leagueLogo, leagueName, countryFlag, fixtureDate} : FixtureHeaderProps) {
+  console.log(fixtureDate);
   return (
     <div className="flex justify-between w-full gap-2">
 

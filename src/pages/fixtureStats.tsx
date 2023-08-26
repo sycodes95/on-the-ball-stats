@@ -19,6 +19,7 @@ import FixtureStatus from "../components/fixtures/fixtureStatus";
 import FixtureScore from "../components/fixtures/fixtureScore";
 import { bgMain } from "../constants/colors";
 import { getURLFriendlyString } from "../utils/getURLFriendlyString";
+import { formatYMD } from "../utils/formatYMD";
 
 function FixtureStats () {
   
@@ -57,7 +58,7 @@ function FixtureStats () {
         leagueLogo={fixture.league.logo} 
         leagueName={fixture.league.name}
         countryFlag={fixture.league.flag}
-        fixtureDate={fixture.fixture.date}
+        fixtureDate={formatYMD(new Date(fixture.fixture.date))}
         />
         
         
