@@ -44,6 +44,9 @@ function FixtureStats () {
     }
   },[fixture])
   
+  useEffect(()=> {
+    console.log(headToHeadFixtures);
+  },[headToHeadFixtures])
   return (
     <div className="flex flex-col w-full gap-4 p-2 text-xs text-primary">
       {

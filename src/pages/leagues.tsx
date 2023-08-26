@@ -14,6 +14,7 @@ export type League = {
 function Leagues () {
   const [isLoading, setIsLoading] = useState(false)
   const [leagues, setLeagues] = useState<League | null>(null)
+  const [windowWidth, setWindowWidth] = useState<number | null>(null)
 
   useEffect(()=> {  
 
@@ -29,9 +30,15 @@ function Leagues () {
     
   },[])
 
-  useEffect(()=> {
-    console.log(leagues);
-  },[leagues])
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className="flex flex-wrap w-full mt-8 mb-8 text-black">
       {/* {
@@ -49,10 +56,9 @@ function Leagues () {
       } */}
       {
       !isLoading && leagues &&
-      <Box sx={{ width: '100%', minHeight: 829 }}>
-        <Masonry className="" columns={4} spacing={2}>
+      <Box  sx={{ width: '100%', minHeight: 829 }}>
+        <Masonry className="m-0" sx={{ margin: '0'}} columns={windowWidth && windowWidth > 768 ? 4 : 2} spacing={2}>
         {
-        
         Object.keys(leagues).map((key, index) => (
           <div className="flex flex-col gap-2 p-4 rounded-2xl bg-stone-300 bg-opacity-80 h-fit" key={index}>
             <div className="flex items-center gap-4 pb-2 border-b-2">

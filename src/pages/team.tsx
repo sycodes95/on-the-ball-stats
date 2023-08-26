@@ -12,6 +12,8 @@ import { Fixture } from "../types/types";
 import { TeamStanding } from "../features/league/types/types";
 import { getLeagueTeamStandings } from "../services/getLeagueTeamStandings";
 import LeagueTeamStandings from "../features/league/components/leagueTeamStandings/leagueTeamStandings";
+import TeamVenue from "../features/team/components/teamVenue/teamVenue";
+import TeamSeasonStats from "../features/team/components/teamSeasonStats/teamSeasonStats";
 
 
 
@@ -57,17 +59,34 @@ function TeamPage () {
         <OvalLoadingSpinner/>
       </div>
       :
+      <>
+      
       <div className="flex flex-col w-full gap-8 p-2 text-black">
+      
       {
       teamStatistics &&
         <TeamHeader teamStatistics={teamStatistics}/>
       }
+      
+      <div className="grid grid-cols-2 gap-4">
+        {
+        teamStatistics && 
+        <TeamSeasonStats teamStatistics={teamStatistics}/>
+        }
+        {
+        teamInfo && 
+        <TeamVenue teamInfo={teamInfo}/>
+        }
+        
+
+      </div>
+      
       {
       teamStandings &&
         <LeagueTeamStandings leagueId={Number(leagueId)} leagueTeamStandings={teamStandings} teamId={Number(teamId)}/>
       }
       </div>
-      
+      </>
       }
     </div>
   )
