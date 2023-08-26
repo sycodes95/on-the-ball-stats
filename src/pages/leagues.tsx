@@ -39,6 +39,7 @@ function Leagues () {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
     <div className="flex flex-wrap w-full mt-8 mb-8 text-black">
       {/* {

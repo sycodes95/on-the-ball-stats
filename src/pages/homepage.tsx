@@ -7,7 +7,6 @@ import { getTopReds } from "../features/homepage/services/getTopReds";
 import TopCardsGraph from "../features/homepage/components/topCards/topCards";
 import { getFixturesByDate } from "../services/getFixturesByDate";
 import '../features/homepage/styles.css'
-import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import TopFixtures from "../features/homepage/components/fixtures/topFixtures";
 import Top20Leagues from "../features/homepage/components/top20Leagues/top20Leagues";
@@ -15,7 +14,7 @@ import Top20Leagues from "../features/homepage/components/top20Leagues/top20Leag
 function Homepage () {
 
   const [topGoalContributors, setTopGoalContributors] = useState<Player[]>([]);
-  const [topDefenders, setTopDefenders] = useState<Player[]>([]);
+  // const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -53,7 +52,7 @@ function Homepage () {
         fixtures && 
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />
         }
-        <YoutubeFootball />
+        {/* <YoutubeFootball /> */}
         <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
         <div className="flex flex-col gap-4 md:flex-row">
         <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>

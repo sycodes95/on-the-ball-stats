@@ -3,7 +3,6 @@ import Icon from "@mdi/react";
 import { mdiArrowUpBoldBoxOutline } from '@mdi/js';
 import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
 import { fixtureTimelineEventsImages } from "../../constants/constants";
-import { Fixture } from "../../../../types/types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 import TimeLineHeader from "./timeLineHeader/timeLineHeader";

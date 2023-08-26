@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
 import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldVertical from "../footballField/footballFIeldVertical";
-import FootballFieldHorizontal from "../footballField/footballFieldHorizontal";
 
 type StartingXIVerticalProps = {
   fixture: Fixture;
@@ -21,7 +20,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
         <div className='flex gap-4'>
           <div className='flex items-center gap-4'>
             <img className='w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
-            <span className='font-bold text-xs'>{fixture.lineups[0].formation}</span>
+            <span className='text-xs font-bold'>{fixture.lineups[0].formation}</span>
           </div>
 
           <div className='flex items-center gap-4'>
@@ -108,7 +107,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
       <div className='flex gap-4'>
         <div className='flex items-center gap-4'>
           <img className='w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
-          <span className='font-bold text-xs'>{fixture.lineups[1].formation}</span>
+          <span className='text-xs font-bold'>{fixture.lineups[1].formation}</span>
         </div>
 
         <div className='flex items-center gap-4'>

@@ -1,6 +1,5 @@
 import { top5Leagues } from "../../../constants/top5Leagues";
 import { getLeagueTopReds } from "../../../services/getLeagueTopReds";
-import { getLatestStartedSeason } from "../../../services/getPremierLeagueStartDate";
 import { Player } from "../../../types/types";
 
 export const getTopReds = async () => {
@@ -16,7 +15,7 @@ export const getTopReds = async () => {
   const sortedPlayers = allTopReds
   .flat()
   .sort((a: Player, b: Player) => 
-    (b.statistics[0].cards.red) - (a.statistics[0].cards.red)
+    (b.statistics[0].cards.red ?? 0) - (a.statistics[0].cards.red ?? 0)
   );
   const top10Players = sortedPlayers.splice(0, 10);
 

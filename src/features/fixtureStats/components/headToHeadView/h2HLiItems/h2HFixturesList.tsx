@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { formatYMD } from "../../../../../utils/formatYMD";
 import { useEffect } from "react";
 import { Fixture } from "../../../../../types/types";

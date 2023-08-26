@@ -1,5 +1,4 @@
-import { getTimeDifference } from "../../../utils/getTImeDIfference";
-import { Fixture } from "../../homepage/types/types";
+import { Fixture } from "../../../types/types"
 
 
 export const hasFixtureStarted = (fixture: Fixture) => {

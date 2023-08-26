@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Player } from "../../../../types/types";
-import { useEffect } from "react";
 import ListClubImage from "../../../../components/ui/listClubImage";
 import { bgMain } from "../../../../constants/colors";
 

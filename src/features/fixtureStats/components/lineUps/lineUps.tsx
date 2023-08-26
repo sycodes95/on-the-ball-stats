@@ -4,7 +4,6 @@ import StartingXIHorizontal from './startingXIHorizontal/startingXIHorizontal';
 import StartingXIVertical from './startinXIVertical/startingXIVertical';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
-import { Link } from 'react-router-dom';
 import Substitutes from './substitutes/substitutes';
 import StartingXINoFormation from './startingXINoFormation/startingXINoFormation';
 

@@ -1,6 +1,5 @@
 import { top5Leagues } from "../../../constants/top5Leagues";
 import { getLeagueTopScorers } from "../../../services/getLeagueTopScorers";
-import { getLatestStartedSeason } from "../../../services/getPremierLeagueStartDate";
 import { Player } from "../../../types/types";
 
 export const getTopGoalContributors = async () => {
@@ -16,9 +15,9 @@ export const getTopGoalContributors = async () => {
   const sortedPlayers = allTopScorers
   .flat()
   .sort((a: Player, b: Player) => 
-    (b.statistics[0].goals.total + b.statistics[0].goals.assists) 
+    ((b.statistics[0].goals.total ?? 0) + (b.statistics[0].goals.assists ?? 0)) 
     - 
-    (a.statistics[0].goals.total + a.statistics[0].goals.assists)
+    ((a.statistics[0].goals.total ?? 0) + (a.statistics[0].goals.assists ?? 0))
   );
   
   const top10Players = sortedPlayers.splice(0, 10);

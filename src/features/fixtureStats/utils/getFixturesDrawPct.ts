@@ -1,4 +1,4 @@
-import { Fixture } from "../../homepage/types/types"
+import { Fixture } from "../../../types/types"
 
 export const getFixturesDrawPct = (fixtures: Fixture[]) => {
   const totalGames = fixtures.length

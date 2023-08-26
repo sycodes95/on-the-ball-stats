@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import soccerBall from '../../../assets/images/soccer-ball.png'
 function Logo () {
   return(

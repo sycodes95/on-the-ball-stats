@@ -19,7 +19,6 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
       </div>
 
       <div className="flex flex-col gap-2 rounded-md ">
-
       
       {
       topGoalContributors.map((player: Player, index) => {
@@ -45,18 +44,32 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
             ${index === 0 ? '100%' : returnContributionWidthPct(player, topGoalContributors)}
             `}}>
               <div className="flex items-center justify-center h-full font-semibold bg-blue-300"
-              style={{width: returnSubContributionWidthPct(player.statistics[0].goals.total + player.statistics[0].goals.assists, player.statistics[0].goals.total)}}> 
+              style={{width: returnSubContributionWidthPct(
+                (player.statistics[0].goals.total ? player.statistics[0].goals.total : 0)
+                + 
+                (player.statistics[0].goals.assists ? player.statistics[0].goals.assists : 0), 
+                player.statistics[0].goals.total ? player.statistics[0].goals.total : 0
+                )}}> 
               {player.statistics[0].goals.total}
               </div>
               <div className="flex items-center justify-center h-full font-semibold bg-green-300"
-              style={{width: returnSubContributionWidthPct(player.statistics[0].goals.total + player.statistics[0].goals.assists, player.statistics[0].goals.assists)}}> 
+              style={{width: returnSubContributionWidthPct(
+                (player.statistics[0].goals.total ? player.statistics[0].goals.total : 0)
+                + 
+                (player.statistics[0].goals.assists ? player.statistics[0].goals.assists : 0), 
+                player.statistics[0].goals.assists ? player.statistics[0].goals.assists : 0
+                )}}> 
               {player.statistics[0].goals.assists}
               </div>
 
             </div>
           </div>
           <div className="items-center justify-center hidden w-8 h-full p-1 font-semibold text-white bg-orange-400 rounded-sm md:flex">
-            {player.statistics[0].goals.total + player.statistics[0].goals.assists} 
+            {
+            (player.statistics[0].goals.total ? player.statistics[0].goals.total : 0 )
+            + 
+            (player.statistics[0].goals.assists ? player.statistics[0].goals.assists : 0)
+            } 
           </div>
         </div>
       )}})

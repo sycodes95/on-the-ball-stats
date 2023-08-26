@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { Fixture } from "../../../../../homepage/types/types";
 import { getFixturesTeamWinPct } from "../../../../utils/getFixturesTeamWinPct";
+import { Fixture } from "../../../../../../types/types";
 
 type H2HWinPctCircleBarHomeProps = {
   headToHeadFixtures: Fixture[];

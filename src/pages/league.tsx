@@ -47,6 +47,7 @@ function LeaguePage () {
   }, [leagueId]);
   
   useEffect(()=> {
+    console.log(leagueInfo);
   },[leagueTeamStandings])
 
   const hasLeagueTopScorers = leagueTopScorers.length > 0;
