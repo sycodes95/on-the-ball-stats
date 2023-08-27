@@ -10,7 +10,13 @@ type StartingXIVerticalProps = {
   className?: string;
 }
 
-function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizontal, className} : StartingXIVerticalProps) {
+function StartingXIVertical ({
+  fixture, 
+  homeStartXIHorizontal, 
+  awayStartXIHorizontal, 
+  className
+} : StartingXIVerticalProps) {
+
   return (
     <>
     {
@@ -78,7 +84,7 @@ function StartingXIVertical ({fixture, homeStartXIHorizontal, awayStartXIHorizon
             awayStartXIHorizontal.reverse().map((col, index) => (
               <div className='z-10 flex items-center w-full h-full justify-evenly' key={index}>
                 {
-                [...col].reverse().map((player, i) => (
+                col.map((player, i) => (
                   <Link to={`/player/${player.id}`} className='z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70'
                   key={i}>
                     {
