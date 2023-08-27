@@ -63,10 +63,6 @@ function TeamPage () {
     }
   },[teamId, leagueId])  
 
-  useEffect(()=> {
-    console.log(teamPlayersStats);
-    console.log(teamSquad);
-  },[teamStatistics, teamPlayersStats])
 
   return (
     <div className="flex flex-col w-full gap-4 text-primary">

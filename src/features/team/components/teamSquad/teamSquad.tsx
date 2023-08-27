@@ -17,7 +17,6 @@ function TeamSquad ({teamSquad} : TeamSquadProps){
         'Midfielder': [],
         'Defender': [],
         'Goalkeeper': []
-
       }
 
 
@@ -29,18 +28,15 @@ function TeamSquad ({teamSquad} : TeamSquadProps){
       
       setSquad(squad)
     }
-    console.log(squad);
   },[teamSquad])
 
-  useEffect(()=> {
-    console.log(squad);
-  },[squad])
+  
   return (
     <div className="flex flex-col w-full">
       {
        squad && 
        Object.keys(squad).map((key, index) => (
-        <div className="flex flex-col w-full ">
+        <div className="flex flex-col w-full " key={index}>
           <div className="flex items-center h-12 border-b border-stone-300">
             <span className="text-sm">{key}s</span>
           </div>
@@ -49,7 +45,8 @@ function TeamSquad ({teamSquad} : TeamSquadProps){
             squad[key].map((player, index) => (
               <Link 
               className="relative flex flex-col items-center w-32 gap-2 p-2 hover:opacity-70"
-              to={`/player/${player.id}`}>
+              to={`/player/${player.id}`}
+              key={index}>
                 <img className="object-contain w-20 h-20 rounded-full" src={player.photo} alt="" />
                 <span className="text-xs font-semibold whitespace-nowrap">{player.name}</span>
                 <span className="absolute top-0 left-0 w-8 p-2 text-xs font-semibold text-center text-white bg-black rounded-full">{player.number}</span>
