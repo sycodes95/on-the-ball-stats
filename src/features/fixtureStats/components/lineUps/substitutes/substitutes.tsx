@@ -15,9 +15,9 @@ function Substitutes ({teamSubstitutes}: SubstitutesProps ) {
         <Link to={`/player/${player.id}`} className='flex flex-col items-center gap-2 p-2 overflow-hidden rounded-lg md:flex-row md:p-0 whitespace-nowrap text-ellipsis group' key={index}>
           {
           player.photo ? 
-          <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src={player.photo} alt="" />
+          <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src={player.photo} alt="" />
           :
-          <img className='object-contain w-8 h-8 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
+          <img className='object-contain w-12 h-12 rounded-full group-hover:opacity-75' src="https://media-1.api-sports.io/football/players/65361.png" alt="player-photo" />
           }
           <span className={`w-6 text-center rounded-full text-white font-bold bg-opacity-50
           ${playerPositionColors[player.pos]}
