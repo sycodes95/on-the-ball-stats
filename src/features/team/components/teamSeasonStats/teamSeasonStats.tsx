@@ -12,7 +12,7 @@ function TeamSeasonStats ({teamStatistics} : TeamSeasonStatsProps) {
       <div className="flex items-center h-8 border-b border-stone-300">
         <span className="font-semibold text-black ">Season Stats</span>
       </div>
-      <div className="grid grid-cols-3 gap-2 p-2 border-b-2">
+      <div className="grid grid-cols-3 gap-2 p-2">
         <div className="flex flex-col items-center gap-2 font-semibold text-blue-500">
           <span className="">Wins</span>
           <span className="w-1/2 p-2 text-lg text-center text-white bg-blue-400 rounded-2xl">{teamStatistics.fixtures.wins.total}</span>
