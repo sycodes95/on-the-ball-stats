@@ -21,7 +21,7 @@ function FixtureHeader ({leagueLogo, leagueName, fixtureDate} : FixtureHeaderPro
       <div className="flex items-center gap-2">
         {
         fixtureDate &&
-        <span className="text-stone-600">{fixtureDate}</span>
+        <span className="text-black">{fixtureDate}</span>
         }
         
       </div>

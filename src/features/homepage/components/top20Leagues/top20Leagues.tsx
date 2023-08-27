@@ -5,8 +5,8 @@ import { top20Leagues } from "../../../../constants/top20Leagues";
 function Top20Leagues () {
   return (
     <div className={` flex flex-col  ${bgMain} p-2`}>
-      <div className="flex items-center justify-between p-1 border-b-2 border-stone-300">
-        <span className="text-xl font-semibold font-display text-stone-700">TOP LEAGUES</span>
+      <div className="flex items-center justify-between p-1 border-b border-stone-300">
+        <span className="text-xl font-semibold text-black font-display">TOP LEAGUES</span>
         <Link 
         to={`/leagues`}
         className="hover:underline">
@@ -21,7 +21,7 @@ function Top20Leagues () {
           className={`flex items-center gap-2 hover:underline `}
           key={index}>
             <img className="object-contain w-6 h-6" src={league.logo} alt="" />
-            <span className="text-stone-700">{league.name}</span>
+            <span className="text-black">{league.name}</span>
           </Link>
         ))
         }

@@ -61,7 +61,7 @@ function FixtureStats () {
           <Link
           className="flex items-center justify-end gap-4 hover:opacity-70 hover:underline" 
           to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
-            <span className="text-lg">{fixture.teams.home.name}</span>
+            <span className="md:text-lg">{fixture.teams.home.name}</span>
             <img className="object-contain w-10 h-10" src={fixture.teams.home.logo} alt="" />
             
           </Link>
@@ -81,8 +81,8 @@ function FixtureStats () {
           <Link
           className="flex items-center gap-4 hover:opacity-70 hover:underline" 
           to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
-            <img className="object-contain w-10 h-10" src={fixture.teams.away.logo} alt="" />
-            <span className="text-lg">{fixture.teams.away.name}</span>
+            <img className="object-contain w-6 h-6 md:w-10 md:h-10" src={fixture.teams.away.logo} alt="" />
+            <span className="md:text-lg">{fixture.teams.away.name}</span>
             
           </Link>
         </div>

@@ -21,7 +21,7 @@ function PlayerInfo ({playerDetails} : PlayerDetailsProps) {
         playerDetailsMap.filter(details => details.value).map((details, index) => (
           <div className="flex flex-col items-center w-full gap-2" key={index}>
             <span className="text-xs font-semibold text-primary ">{details.title}</span>
-            <span className="flex items-center justify-center w-full h-12 text-lg font-semibold rounded-2xl text-stone-500 bg-stone-300 font-display">{details.value}</span>
+            <span className="flex items-center justify-center w-full h-12 text-lg font-semibold rounded-2xl text-black bg-stone-300 font-display">{details.value}</span>
           </div>
         ))
       }

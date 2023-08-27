@@ -12,12 +12,12 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
   return (
     <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
       <div className="flex items-center h-8 ">
-        <span className="text-xl font-semibold font-display text-stone-600">LEAGUE STATISTICS</span>
+        <span className="text-xl font-semibold font-display text-black">LEAGUE STATISTICS</span>
       </div>
       <div className="flex flex-col w-full overflow-x-scroll">
         <table>
           <thead>
-            <tr className="h-12 text-left text-stone-500">
+            <tr className="h-12 text-left text-black">
               <th className="min-w-69">League</th>
               <th className="p-2">Team</th>
               <th className="w-12 text-center ">A</th>

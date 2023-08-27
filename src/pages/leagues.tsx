@@ -14,7 +14,7 @@ export type League = {
 function Leagues () {
   const [isLoading, setIsLoading] = useState(false)
   const [leagues, setLeagues] = useState<League | null>(null)
-  const [windowWidth, setWindowWidth] = useState<number>(10000)
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
   useEffect(()=> {  
 

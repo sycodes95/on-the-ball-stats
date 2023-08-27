@@ -12,9 +12,9 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
 
   
   return (
-    <div className={`flex flex-col w-full text-xs border gap-2   p-4 ${bgMain}`}>
-      <div className="h-8 border-b-2 shadow-lg shadow-stone-300">
-        <p className="w-full pl-2 mb-4 text-xl rounded-sm text-stone-700 font-display">TOP {cardType} CARDS</p>
+    <div className={`flex flex-col w-full text-xs gap-2 p-4 ${bgMain}`}>
+      <div className="h-8 border-b border-stone-300">
+        <p className="w-full pl-2 mb-4 text-xl text-black rounded-sm font-display">TOP {cardType} CARDS</p>
       </div>
       <div className="flex flex-col gap-1">
       {
