@@ -10,7 +10,7 @@ function FixtureTeam ({teamLogo, teamName, side} : FixtureTeamProps) {
     <>
     {
     side === 'home' ?
-    <div className={`flex flex-col md:justify-end w-full items-center h-full gap-2 md:flex-row`}>
+    <div className={`flex flex-col md:justify-end w-full items-center justify-center h-full gap-2 md:flex-row`}>
 
       <div className="flex items-center w-8 h-8 md:hidden ">
         <img className="object-contain" src={teamLogo} alt="Away team logo"/>
@@ -29,7 +29,7 @@ function FixtureTeam ({teamLogo, teamName, side} : FixtureTeamProps) {
 
     :
     
-    <div className={`flex flex-col items-center h-full gap-2 md:flex-row w-full overflow-hidden`}>
+    <div className={`flex flex-col items-center h-full justify-center gap-2 md:flex-row w-full overflow-hidden`}>
     
       <div className="flex items-center w-8 h-8">
         <img className="object-contain" src={teamLogo} alt="Away team logo"/>
