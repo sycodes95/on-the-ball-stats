@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
 import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldVertical from "../footballField/footballFIeldVertical";
+import { useEffect, useState } from "react";
 
 type StartingXIVerticalProps = {
   fixture: Fixture;
@@ -16,6 +17,8 @@ function StartingXIVertical ({
   awayStartXIHorizontal, 
   className
 } : StartingXIVerticalProps) {
+  awayStartXIHorizontal = awayStartXIHorizontal.reverse()
+  // const [awayLineup, setAwayLineup] = useState<LineUpStartXIPlayer[][]>(awayStartXIHorizontal.reverse())
 
   return (
     <>
@@ -81,7 +84,7 @@ function StartingXIVertical ({
           </div>
           <div className='z-10 flex flex-col-reverse w-full h-full bg-black bg-opacity-20'>
             {
-            awayStartXIHorizontal.reverse().map((col, index) => (
+            awayStartXIHorizontal.map((col, index) => (
               <div className='z-10 flex items-center w-full h-full justify-evenly' key={index}>
                 {
                 col.map((player, i) => (
