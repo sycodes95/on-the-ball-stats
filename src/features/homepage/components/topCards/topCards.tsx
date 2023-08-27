@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Player } from "../../../../types/types";
 import ListClubImage from "../../../../components/ui/listClubImage";
 import { bgMain } from "../../../../constants/colors";
+import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 
 type TopCardsProps = {
   topCards: Player[];
@@ -23,7 +24,10 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
         key={player.player.id}>
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
-            <ListClubImage src={player.statistics[0].team.logo}/>
+            <Link className="hover:opacity-70"
+            to={`/team/${player.statistics[0].league.id}/${player.statistics[0].team.id}/${getURLFriendlyString(player.statistics[0].team.name)}`}>
+              <ListClubImage src={player.statistics[0].team.logo}/>
+            </Link>
             <Link className="flex items-center gap-1 hover:underline" to={`/player/${player.player.id}`} >
               <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
               <div className="flex items-center w-40 h-full whitespace-nowrap min-w-max">{player.player.name}</div>
