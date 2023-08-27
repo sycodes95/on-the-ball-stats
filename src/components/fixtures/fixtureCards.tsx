@@ -11,29 +11,30 @@ import { formatYMD } from "../../utils/formatYMD";
 
 type FixturesProps = {
   fixtures: Fixture[];
+  displayAmount? : number;
 }
 
-function FixtureCards ({fixtures} : FixturesProps) {
-  const defaultfixturesDisplayAmount : number = 6
+function FixtureCards ({fixtures, displayAmount} : FixturesProps) {
+  const defaultfixturesDisplayAmount : number = displayAmount ? displayAmount : 6
   const [fixturesDisplayAmount, setFixturesDisplayAmount] = useState(defaultfixturesDisplayAmount)
 
   return (
     <div className="flex flex-col gap-2">
-      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-4 lg:grid-cols-2 `}>
+      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 `}>
       {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <Link className="relative flex flex-col items-center justify-center w-full h-32 gap-2 p-2 text-xs transition-all rounded-2xl hover:bg-stone-300 hover:opacity-70 text-primary hover:cursor-pointer "
+            <Link className="relative flex flex-col items-center justify-center w-full p-2 text-xs transition-all h-36 rounded-2xl hover:bg-stone-300 hover:opacity-70 text-primary hover:cursor-pointer "
             to={`/fixture-statistics/${fixture.fixture.id}`}
             key={fixture.fixture.id}>
-              <div className="flex items-center justify-between w-full">
-              <FixtureHeader
-              leagueLogo={fixture.league.logo} 
-              leagueName={fixture.league.name}
-              countryFlag={fixture.league.flag}
-              fixtureDate={formatYMD(new Date(fixture.fixture.date))}
-              />
+              <div className="flex items-center justify-between w-full p-2 border-b border-dashed border-stone-300">
+                <FixtureHeader
+                leagueLogo={fixture.league.logo} 
+                leagueName={fixture.league.name}
+                countryFlag={fixture.league.flag}
+                fixtureDate={formatYMD(new Date(fixture.fixture.date))}
+                />
 
               </div>
               

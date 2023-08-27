@@ -47,7 +47,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         {
         homeTeamStatistics.statistics.map((stats, index) => (
           <div className={` font-semibold  
-          ${stats.value > awayTeamStatistics.statistics[index].value && 'text-white bg-stone-400 shadow-md shadow-stone-400'}
+          ${stats.value > awayTeamStatistics.statistics[index].value && 'text-white bg-slate-400'}
           ${stats.value === awayTeamStatistics.statistics[index].value && 'text-primary'}
           flex items-center justify-center w-12 h-6  rounded-full border-gray-300`} key={index}>
             {stats.value ? stats.value : 0}
@@ -72,7 +72,7 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         {
         awayTeamStatistics.statistics.map((stats, index) => (
           <div className={` font-semibold  
-          ${stats.value > homeTeamStatistics.statistics[index].value && 'text-white bg-stone-400 shadow-md shadow-stone-400'}
+          ${stats.value > homeTeamStatistics.statistics[index].value && 'text-white bg-slate-400'}
           ${stats.value === homeTeamStatistics.statistics[index].value && 'text-primary'}
           flex items-center justify-center w-12 h-6 rounded-full`} key={index}>
             {stats.value ? stats.value : 0}

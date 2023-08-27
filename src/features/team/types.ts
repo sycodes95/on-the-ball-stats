@@ -33,6 +33,24 @@ export type TeamInfo = {
   };
 };
 
+export type TeamSquadType = {
+  team: {
+    id: number,
+    name: string,
+    logo: string,
+  },
+  players: TeamSquadTypePlayer[];
+};
+
+export type TeamSquadTypePlayer = {
+  id: number,
+  name: string,
+  age: number,
+  number: number,
+  position: string,
+  photo: string
+}
+
 type Biggest = {
   goals : {
     against: {
