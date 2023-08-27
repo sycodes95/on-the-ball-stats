@@ -17,7 +17,6 @@ function StartingXIVertical ({
   awayStartXIHorizontal, 
   className
 } : StartingXIVerticalProps) {
-  awayStartXIHorizontal = awayStartXIHorizontal.reverse()
   // const [awayLineup, setAwayLineup] = useState<LineUpStartXIPlayer[][]>(awayStartXIHorizontal.reverse())
 
   return (
