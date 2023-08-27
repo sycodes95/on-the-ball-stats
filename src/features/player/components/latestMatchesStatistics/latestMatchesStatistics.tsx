@@ -16,8 +16,8 @@ function LatestMatchesStatistics ({
   
   return (
     <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
-      <div className="flex items-center h-8 gap-2 font-semibold">
-        <span className="text-xl font-semibold font-display text-black">LATEST MATCHES</span>
+      <div className="flex items-center h-8 gap-2 font-semibold border-b border-stone-300">
+        <span className="text-xl font-semibold text-black font-display">LATEST MATCHES</span>
         {
         playerStatisticsForAllFixturesIsLoading && playerStatisticsForAllFixtures.length === 0 &&
         <RotatingSquare

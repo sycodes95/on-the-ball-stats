@@ -11,8 +11,8 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
   
   return (
     <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
-      <div className="flex items-center h-8 ">
-        <span className="text-xl font-semibold font-display text-black">LEAGUE STATISTICS</span>
+      <div className="flex items-center h-8 border-b border-stone-300">
+        <span className="text-xl font-semibold text-black font-display">LEAGUE STATISTICS</span>
       </div>
       <div className="flex flex-col w-full overflow-x-scroll">
         <table>
@@ -31,7 +31,7 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
           <tbody>
             {
             playerDetails.statistics.map((stats, index) => (
-              <tr className="h-12 font-semibold">
+              <tr className="h-12 font-semibold" key={index}>
                 <td className="w-36">
                   <div className="flex items-center gap-1">
                     <img className="object-contain w-6 h-6" src={stats.league.logo} alt="" />

@@ -98,7 +98,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
             awayStartXIHorizontal.map((col, index) => (
               <div className='z-10 flex flex-col items-center w-full h-full justify-evenly' key={index}>
                 {
-                col.map((player, i) => (
+                [...col].reverse().map((player, i) => (
                   <Link className="z-20 flex flex-col items-center justify-center w-full gap-1 text-white h-fit group hover:opacity-70" to={`/player/${player.id}`}
                   key={i}>
                     {

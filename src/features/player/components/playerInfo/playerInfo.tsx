@@ -16,12 +16,12 @@ function PlayerInfo ({playerDetails} : PlayerDetailsProps) {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-4 md:grid-cols-6 ">
+    <div className="grid grid-cols-3 gap-8 md:grid-cols-6 ">
       {
         playerDetailsMap.filter(details => details.value).map((details, index) => (
           <div className="flex flex-col items-center w-full gap-2" key={index}>
-            <span className="text-xs font-semibold text-primary ">{details.title}</span>
-            <span className="flex items-center justify-center w-full h-12 text-lg font-semibold rounded-2xl text-black bg-stone-300 font-display">{details.value}</span>
+            <span className="w-full p-2 text-xs font-semibold text-center border-b text-primary border-stone-300">{details.title}</span>
+            <span className="flex items-center justify-center w-full h-8 text-lg font-semibold text-black rounded-2xl font-display">{details.value}</span>
           </div>
         ))
       }

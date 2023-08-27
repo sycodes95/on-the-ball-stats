@@ -14,7 +14,7 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
 
   return (
     <div className={`flex flex-col w-full text-xs gap-4 ${bgMain} p-4`}>
-      <div className="relative w-full text-xl text-black border-b rounded-sm shadow-lg font-display border-stone-300" >
+      <div className="relative w-full text-xl text-black border-b rounded-sm font-display border-stone-300" >
         <span className="pl-2">TOP PLAYERS</span>
       </div>
 
@@ -24,7 +24,8 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
       topGoalContributors.map((player: Player, index) => {
         if(player.statistics && player.statistics[0].team && player.statistics[0].goals){
         return (
-        <div className="flex items-center h-6 gap-1 text-xs">
+        <div className="flex items-center h-6 gap-1 text-xs"
+        key={player.player.id}>
           <div className="flex items-center h-6 gap-2 ">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <Link 

@@ -19,7 +19,8 @@ function TopCards ({topCards, cardType}: TopCardsProps) {
       <div className="flex flex-col gap-1">
       {
         topCards.map((player: Player, index) => (
-        <div className="flex items-center justify-between gap-1 text-xs ">
+        <div className="flex items-center justify-between gap-1 text-xs "
+        key={player.player.id}>
           <div className="flex items-center h-6 gap-2">
             <p className="w-4 text-center text-primary">{index + 1}</p>
             <ListClubImage src={player.statistics[0].team.logo}/>

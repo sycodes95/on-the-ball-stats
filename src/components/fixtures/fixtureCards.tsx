@@ -26,7 +26,7 @@ function FixtureCards ({fixtures} : FixturesProps) {
           return (
             <Link className="relative flex flex-col items-center justify-center w-full h-32 gap-2 p-2 text-xs transition-all rounded-2xl hover:bg-stone-300 hover:opacity-70 text-primary hover:cursor-pointer "
             to={`/fixture-statistics/${fixture.fixture.id}`}
-            >
+            key={fixture.fixture.id}>
               <div className="flex items-center justify-between w-full">
               <FixtureHeader
               leagueLogo={fixture.league.logo} 
