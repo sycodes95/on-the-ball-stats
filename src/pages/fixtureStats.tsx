@@ -60,7 +60,7 @@ function FixtureStats () {
         <div className="justify-center w-full h-full gap-4 fixture-grid"> 
           <Link
           className="flex items-center justify-end gap-4 hover:opacity-70 hover:underline" 
-          to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
+          to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
             <span className="md:text-lg">{fixture.teams.home.name}</span>
             <img className="object-contain w-6 h-6 md:w-10 md:h-10" src={fixture.teams.home.logo} alt="" />
             
