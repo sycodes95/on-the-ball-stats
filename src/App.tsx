@@ -16,7 +16,7 @@ function App() {
   return (
     
     <BrowserRouter>
-      <div id='app' className='flex flex-col items-center min-h-screen text-xs bg-white font-main text-stone-700'>
+      <div id='app' className='flex flex-col items-center min-h-screen text-xs text-black bg-white font-main'>
         <Header/>
         <div className='relative flex flex-grow w-full h-full max-w-5xl '>
         <Routes>

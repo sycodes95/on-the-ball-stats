@@ -5,7 +5,7 @@ import { top20Leagues } from "../../../../constants/top20Leagues";
 function Top20Leagues () {
   return (
     <div className={` flex flex-col  ${bgMain} p-2`}>
-      <div className="flex items-center justify-between p-1 border-b-2 shadow-lg shadow-stone-300">
+      <div className="flex items-center justify-between p-1 border-b-2 border-stone-300">
         <span className="text-xl font-semibold font-display text-stone-700">TOP LEAGUES</span>
         <Link 
         to={`/leagues`}

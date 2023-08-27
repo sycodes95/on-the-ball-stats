@@ -19,12 +19,12 @@ function FixtureCards ({fixtures} : FixturesProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 `}>
+      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-4 lg:grid-cols-2 `}>
       {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
           return (
-            <Link className="relative flex flex-col items-center justify-center w-full gap-2 p-2 text-xs transition-all bg-opacity-80 bg-stone-300 rounded-xl hover:shadow-md hover:shadow-stone-300 h-28 text-primary hover:cursor-pointer hover:bg-opacity-100 "
+            <Link className="relative flex flex-col items-center justify-center w-full h-32 gap-2 p-2 text-xs transition-all rounded-2xl hover:bg-stone-300 hover:opacity-70 text-primary hover:cursor-pointer "
             to={`/fixture-statistics/${fixture.fixture.id}`}
             >
               <div className="flex items-center justify-between w-full">

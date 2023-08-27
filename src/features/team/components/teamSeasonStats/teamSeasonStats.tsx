@@ -9,8 +9,8 @@ type TeamSeasonStatsProps = {
 function TeamSeasonStats ({teamStatistics} : TeamSeasonStatsProps) {
   return (
     <div className={`${bgMain} w-full p-2 flex flex-col gap-2`}>
-      <div className="flex items-center h-8 border-b-2 shadow-lg shadow-stone-300">
-        <span className="font-semibold text-stone-600">Season Stats</span>
+      <div className="flex items-center h-8">
+        <span className="font-semibold text-black">Season Stats</span>
       </div>
       <div className="grid grid-cols-3 gap-2 p-2 border-b-2">
         <div className="flex flex-col items-center gap-2 font-semibold text-blue-500">
