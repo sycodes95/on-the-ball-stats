@@ -13,7 +13,7 @@ function Top20Leagues () {
           View More
         </Link>
       </div>
-      <div className={` grid grid-rows-10 grid-cols-2 md:grid-rows-4 md:grid-cols-5 grid-flow-col gap-1 p-2`}>
+      <div className={` grid grid-rows-10 grid-cols-2 md:grid-rows-4 md:grid-cols-5 grid-flow-col gap-2 p-2`}>
         {
         top20Leagues.map((league, index) => (
           <Link 
