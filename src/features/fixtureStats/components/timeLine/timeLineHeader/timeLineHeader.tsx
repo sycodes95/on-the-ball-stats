@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store/store";
+import { Link } from "react-router-dom";
+import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
 
 function TimeLineHeader () {
 
@@ -10,17 +12,21 @@ function TimeLineHeader () {
     {
     fixture &&
     <div className="flex items-center justify-center w-full gap-12">
-      <div className="flex justify-end">
+      <Link 
+      className="flex justify-end hover:opacity-70"
+      to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
         <img className="object-contain w-12 h-12" src={fixture.teams.home.logo} alt="" />
-      </div>
+      </Link>
 
       <div className="flex items-center justify-center">
         <span className="font-bold">Timeline</span>
       </div>
 
-      <div className="flex items-center justify-start">
+      <Link 
+      className="flex justify-end hover:opacity-70"
+      to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
         <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
-      </div>
+      </Link>
     </div>
     }
     </>
