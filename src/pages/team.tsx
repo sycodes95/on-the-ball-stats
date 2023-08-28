@@ -24,7 +24,6 @@ function TeamPage () {
   const teamViewOptions = [
     'Overview',
     'Squad',
-    'Stats'
   ];
 
 

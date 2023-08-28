@@ -7,6 +7,7 @@ type TeamSeasonStatsProps = {
 }
 
 function TeamSeasonStats ({teamStatistics} : TeamSeasonStatsProps) {
+
   return (
     <div className={`${bgMain} w-full p-2 flex flex-col gap-2`}>
       <div className="flex items-center h-8 border-b border-stone-300">

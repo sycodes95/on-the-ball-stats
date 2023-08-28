@@ -84,13 +84,14 @@ function TableRow ({
         <div className="grid w-32 grid-cols-5 gap-1 pl-1 pr-1">
         {
         form && form.length > 0 &&
-        Array.from(form).map((result) => (
+        Array.from(form).map((result, index) => (
           <span className={`
           w-5 rounded-md text-white text-xs text-center
           ${result.toLowerCase() === 'w'&& 'bg-emerald-400'}
           ${result.toLowerCase() === 'l' && 'bg-red-400'}
           ${result.toLowerCase() === 'd' && 'bg-gray-400'}
-          `}>{result}</span>
+          `}
+          key={index}>{result}</span>
         ))
         }
         </div>
