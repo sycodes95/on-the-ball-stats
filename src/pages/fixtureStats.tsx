@@ -53,6 +53,7 @@ function FixtureStats () {
         leagueLogo={fixture.league.logo} 
         leagueName={fixture.league.name}
         countryFlag={fixture.league.flag}
+        leagueId={fixture.league.id}
         fixtureDate={formatYMD(new Date(fixture.fixture.date))}
         />
         
