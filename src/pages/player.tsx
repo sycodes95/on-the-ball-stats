@@ -19,6 +19,7 @@ import { getPlayerStatisticsById } from "../features/player/services/getPlayerSt
 import '../features/player/styles.css'
 import CareerStatistics from "../features/player/components/careerStatistics/careerStatistics";
 import PlayerInfo from "../features/player/components/playerInfo/playerInfo";
+import { defaultTitle } from "../constants/defaultTitle";
 
 function PlayerPage () {
   const { playerId } = useParams()
@@ -49,6 +50,15 @@ function PlayerPage () {
       });
     }
   },[playerDetails, playerId]);
+
+  useEffect(()=>{
+    if(playerDetails) {
+      document.title = playerDetails.player.name
+    }
+    return () => {
+      document.title = defaultTitle;
+    } 
+  },[playerDetails])
 
   return (
     <div className="flex flex-col w-full gap-4 text-primary">

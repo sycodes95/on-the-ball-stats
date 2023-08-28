@@ -16,6 +16,7 @@ import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import { League } from "./leagues";
 import { getLeagueFixtures } from "../features/league/services/getLeagueFixtures";
 import LeagueFixtures from "../features/league/components/leagueFixtures/leagueFixtures";
+import { defaultTitle } from "../constants/defaultTitle";
 
 function LeaguePage () {
   const { leagueId } = useParams()
@@ -44,7 +45,18 @@ function LeaguePage () {
       setIsLoading(false); // Set loading to false after all fetches are complete
     })
     .catch((err) => console.error(err));
+
   }, [leagueId]);
+
+  useEffect(()=>{
+    if(leagueInfo) {
+      document.title = leagueInfo.league.name
+    }
+    return () => {
+      document.title = defaultTitle;
+    } 
+    
+  },[leagueInfo])
 
   const hasLeagueTopScorers = leagueTopScorers.length > 0;
   const hasLeagueTopAssists = leagueTopAssists.length > 0;

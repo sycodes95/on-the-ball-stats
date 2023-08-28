@@ -4,6 +4,7 @@ import { getLeagues } from "../features/leagues/services/getLeagues";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
+import { defaultTitle } from "../constants/defaultTitle";
 
 export type League = {
   [key: string] : {
@@ -39,6 +40,14 @@ function Leagues () {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(()=>{
+    
+    document.title = 'Leagues'
+    return () => {
+      document.title = defaultTitle;
+    } 
+  },[])
 
   return (
     <div className="flex flex-wrap w-full mt-8 mb-8 text-black">

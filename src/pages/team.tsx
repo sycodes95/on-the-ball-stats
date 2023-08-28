@@ -62,6 +62,15 @@ function TeamPage () {
     }
   },[teamId, leagueId])  
 
+  useEffect(()=>{
+    if(teamInfo) {
+      document.title = teamInfo.team.name
+    }
+    return () => {
+      document.title = defaultTitle;
+    } 
+  },[teamInfo])
+
 
   return (
     <div className="flex flex-col w-full gap-4 text-primary">
