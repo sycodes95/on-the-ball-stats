@@ -21,5 +21,4 @@ function LeagueHeader ({ leagueInfo }: LeagueHeaderProps) {
     </div>
   )
 }
-
 export default LeagueHeader; 

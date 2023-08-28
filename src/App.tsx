@@ -10,9 +10,12 @@ import FixtureStats from './pages/fixtureStats';
 import Player from './pages/player';
 import Team from './pages/team';
 import League from './pages/league';
+import { useEffect } from 'react';
 function App() {
 
-  
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   return (
     
     <BrowserRouter>
