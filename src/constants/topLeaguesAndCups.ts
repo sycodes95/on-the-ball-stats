@@ -35,7 +35,13 @@ export const topLeaguesAndCups = [
   {id: 2, name: 'UEFA Champions League'},
   {id: 220, name: 'Cup'},
 
-  {id: 848, name: 'UEFA Europa Conference League'}
+  {id: 848, name: 'UEFA Europa Conference League'},
+  {id: 292, name: 'K League 1'},
+  {id: 79, name: '2. Bundesliga'},
+  {id: 210, name: 'HNL (Croatia)'},
+  {id: 113, name: 'Allsvenskan'},
 
+  {id: 239, name: 'Primera A (Colombia)'},
+  {id: 239, name: 'Primera A (Colombia)'}
 
 ]

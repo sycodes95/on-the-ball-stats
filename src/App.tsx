@@ -4,7 +4,6 @@ import 'react-circular-progressbar/dist/styles.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Leagues from './pages/leagues';
-import LeagueStats from './pages/league';
 import Homepage from './pages/homepage';
 import FixtureStats from './pages/fixtureStats';
 import Player from './pages/player';
