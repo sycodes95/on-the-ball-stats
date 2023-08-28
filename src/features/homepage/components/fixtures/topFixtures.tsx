@@ -36,7 +36,7 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
   <div className="flex flex-col gap-4 p-2">
     
 
-    <div className="flex items-center gap-2">
+    <div className="flex items-center justify-center gap-2 md:justify-start">
       <div className="flex gap-2 text-xs font-semibold w-fit">
         {
         fixturesDayOptions.map((day, index) => (
@@ -53,22 +53,26 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
       </div>
       {
       isLoading && 
-      <RotatingSquare
-      height="32"
-      width="32"
-      color="#999999"
-      ariaLabel="rotating-square-loading"
-      strokeWidth="4"
-      wrapperStyle={{}}
-      wrapperClass=""
-      visible={true}
-      />
+      <div className="hidden md:contents">
+        <RotatingSquare
+        height="32"
+        width="32"
+        color="#999999"
+        ariaLabel="rotating-square-loading"
+        strokeWidth="4"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        />
+      </div>
+      
+      
       }
     </div>
 
     <div className="relative w-full h-full ">
       <div className={`${isLoading ? 'flex' : 'hidden'}
-      bg-stone-300 bg-opacity-70 z-10 absolute top-0 left-0 w-full h-full rounded-lg transition-all items-center justify-center
+      bg-stone-200 bg-opacity-70 z-10 absolute top-0 left-0 w-full h-full rounded-lg transition-all items-center justify-center
       `}>
         <div className="z-20 h-fit"></div>
       </div>
