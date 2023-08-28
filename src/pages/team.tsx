@@ -17,6 +17,7 @@ import { getPlayersStatisticsByFixtureId } from "../features/player/services/get
 import { getPlayersStatsByTeamId } from "../features/team/services/getPlayersStatsByTeamId";
 import { getTeamSquad } from "../features/team/services/getTeamSquad";
 import TeamSquad from "../features/team/components/teamSquad/teamSquad";
+import { defaultTitle } from "../constants/defaultTitle";
 
 
 
