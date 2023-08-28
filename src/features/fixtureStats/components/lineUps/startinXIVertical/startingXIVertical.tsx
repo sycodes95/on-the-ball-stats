@@ -3,6 +3,7 @@ import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
 import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldVertical from "../footballField/footballFIeldVertical";
 import { useEffect, useState } from "react";
+import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
 
 type StartingXIVerticalProps = {
   fixture: Fixture;
@@ -25,7 +26,9 @@ function StartingXIVertical ({
     fixture.lineups && fixture.lineups.length > 0 &&  
     <div className={`flex flex-col gap-4 ${className}`}>
       <div className='flex justify-between w-full'>
-        <div className='flex gap-4'>
+        <Link 
+        className='flex gap-4 p-2 hover:opacity-70'
+        to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
           <div className='flex items-center gap-4'>
             <img className='w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
             <span className='text-xs font-bold'>{fixture.lineups[0].formation}</span>
@@ -44,7 +47,7 @@ function StartingXIVertical ({
             </div>
           </div>
           
-        </div>
+        </Link>
 
         
       </div>
@@ -112,7 +115,9 @@ function StartingXIVertical ({
         </div>
       </div>
 
-      <div className='flex gap-4'>
+      <Link 
+        className='flex gap-4 p-2 hover:opacity-70'
+        to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
         <div className='flex items-center gap-4'>
           <img className='w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
           <span className='text-xs font-bold'>{fixture.lineups[1].formation}</span>
@@ -131,7 +136,7 @@ function StartingXIVertical ({
           </div>
         </div>
         
-      </div>
+      </Link>
     </div>
     }
   </>
