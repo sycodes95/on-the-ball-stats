@@ -3,6 +3,8 @@ import { FixtureStatistics } from "../../../../types/types";
 import { translateMatchStatisticTypes } from "../../constants/constants";
 import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
 import { RootState } from "../../../../store/store";
+import { Link } from "react-router-dom";
+import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 
 type MatchStatisticsProps = {
   homeTeamStatistics: FixtureStatistics;
@@ -26,18 +28,22 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
       fixtureHasStatistics ?
       <>
       <div className="grid w-full grid-cols-3">
-        <div className="flex justify-center">
-          <img className="object-contain w-12 h-12 " src={fixture.teams.home.logo} alt="" />
-        </div>
+        <Link 
+        className="flex items-center justify-center hover:opacity-70"
+        to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
+          <img className="object-contain w-12 h-12 " src={fixture.teams.home.logo} alt="home team logo" />
+        </Link>
 
         <div className="flex items-center justify-center">
 
           <span className="font-semibold">Match Statistics</span>
         </div>
 
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
-        </div>
+        <Link 
+        className="flex items-center justify-center hover:opacity-70"
+        to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
+          <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="away team logo" />
+        </Link>
       </div>
       
       <div className="grid justify-center w-full grid-cols-3">

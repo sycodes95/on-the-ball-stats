@@ -23,7 +23,7 @@ function TimeLineHeader () {
       </div>
 
       <Link 
-      className="flex justify-end hover:opacity-70"
+      className="flex justify-start hover:opacity-70"
       to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
         <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
       </Link>
