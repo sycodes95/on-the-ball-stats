@@ -19,7 +19,7 @@ function Homepage () {
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
   const [isLoading, setIsLoading] = useState(false)
-  const [fixtures, setFixtures] = useState<Fixture[]>()
+  const [fixtures, setFixtures] = useState<Fixture[]>([])
 
   useEffect(()=>{
     
@@ -39,6 +39,9 @@ function Homepage () {
     })
   },[])
 
+  const haveTopGoalContributors = topGoalContributors && topGoalContributors.length > 0;
+  const haveTopReds = topReds && topReds.length > 0;
+  const haveTopYellows = topYellows && topYellows.length > 0;
   return (
     <>
     {
@@ -50,15 +53,23 @@ function Homepage () {
       <div className="flex flex-col w-full gap-4 p-2 text-primary">
         <Top20Leagues />
         {
-        fixtures && 
+        fixtures && fixtures.length > 0 &&
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />
         }
-       
-        {/* <YoutubeFootball /> */}
+        {
+        haveTopGoalContributors && 
         <TopGoalContributorsGraph topGoalContributors={topGoalContributors}/>
+        }
+        
         <div className="flex flex-col gap-4 md:flex-row">
-        <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
-        <TopCardsGraph topCards={topReds} cardType="RED"/>
+          {
+          haveTopReds &&
+            <TopCardsGraph topCards={topYellows} cardType="YELLOW"/>
+          }
+          {
+          haveTopYellows && 
+            <TopCardsGraph topCards={topReds} cardType="RED"/>
+          }
         </div>
       </div>
 

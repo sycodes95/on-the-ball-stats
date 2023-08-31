@@ -7,7 +7,7 @@ import FixtureCards from "../../../../components/fixtures/fixtureCards";
 
 type FixturesProps = {
   fixtures: Fixture[];
-  setFixtures : React.Dispatch<React.SetStateAction<Fixture[] | undefined>>;
+  setFixtures : React.Dispatch<React.SetStateAction<Fixture[] | []>>;
   
 }
 
