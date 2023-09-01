@@ -35,9 +35,7 @@ function FixtureCards ({fixtures, displayAmount} : FixturesProps) {
                 countryFlag={fixture.league.flag}
                 fixtureDate={formatYMD(new Date(fixture.fixture.date))}
                 />
-
               </div>
-              
               
               <div className="justify-center w-full h-full gap-2 fixture-grid"> 
                 <FixtureTeam 

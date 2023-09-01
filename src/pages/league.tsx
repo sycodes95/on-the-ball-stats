@@ -24,7 +24,7 @@ function LeaguePage () {
   const [isLoading, setIsLoading] = useState(true);
   const [leagueTopScorers, setLeagueTopScorers] = useState<Player[]>([])
   const [leagueTopAssists, setLeagueTopAssists] = useState<Player[]>([])
-  const [leagueTeamStandings, setLeagueTeamStandings] = useState<TeamStanding[]>([])
+  const [leagueTeamStandings, setLeagueTeamStandings] = useState<TeamStanding[] | null>(null)
   const [leagueFixtures, setLeagueFixtures] = useState<Fixture[]>([])
   const [leagueInfo, setLeagueInfo] = useState<League | null>(null)
   
@@ -60,7 +60,7 @@ function LeaguePage () {
 
   const hasLeagueTopScorers = leagueTopScorers.length > 0;
   const hasLeagueTopAssists = leagueTopAssists.length > 0;
-  const hasLeagueTeamStandings = leagueTeamStandings.length > 0;
+  const hasLeagueTeamStandings = leagueTeamStandings && leagueTeamStandings.length > 0;
   const hasLeagueFixtures = leagueFixtures.length > 0;
 
   

@@ -18,6 +18,7 @@ import { getPlayersStatsByTeamId } from "../features/team/services/getPlayersSta
 import { getTeamSquad } from "../features/team/services/getTeamSquad";
 import TeamSquad from "../features/team/components/teamSquad/teamSquad";
 import { defaultTitle } from "../constants/defaultTitle";
+import { TeamStanding } from "../features/league/types/types";
 
 
 
@@ -33,7 +34,7 @@ function TeamPage () {
   const [teamStatistics, setTeamStatistics] = useState<TeamStatistics | null>(null)
   const [teamInfo, setTeamInfo] = useState<TeamInfo | null>(null)
   const [teamFixtures, setTeamFixtures] = useState<Fixture[] | []>([])
-  const [teamStandings, setTeamStandings] = useState(null)
+  const [teamStandings, setTeamStandings] = useState<TeamStanding[] | null>(null)
   const [teamViewMode, setTeamViewMode] = useState(teamViewOptions[0])
   const [teamPlayersStats, setTeamPlayersStats] = useState<Player[] | []>()
   const [teamSquad, setTeamSquad] = useState<TeamSquadType | null>(null)

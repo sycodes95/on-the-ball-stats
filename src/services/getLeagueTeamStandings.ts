@@ -9,11 +9,11 @@ export const getLeagueTeamStandings = ( leagueId: number, season:number ) => {
     if(data.response && data.response.length > 0 && data.response[0].league) {
       return data.response[0].league.standings[0]
     }
-    return []
+    return null
     
   })
   .catch(error => {
     console.error(error)
-    return []
+    return null
   })
 }

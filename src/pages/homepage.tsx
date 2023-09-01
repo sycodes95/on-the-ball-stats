@@ -11,6 +11,7 @@ import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import TopFixtures from "../features/homepage/components/fixtures/topFixtures";
 import Top20Leagues from "../features/homepage/components/top20Leagues/top20Leagues";
 import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
+import { getTopTeamsFromTop5Leagues } from "../features/homepage/services/getTopTeamsFromTop5Leagues";
 
 function Homepage () {
 
@@ -28,7 +29,8 @@ function Homepage () {
       getTopGoalContributors(),
       getTopYellows(), 
       getTopReds(), 
-      getFixturesByDate()
+      getFixturesByDate(),
+      getTopTeamsFromTop5Leagues()
     ])
     .then(([topPlayers, topYellows, topReds, fixtures ]) => {
       setTopGoalContributors(topPlayers);
