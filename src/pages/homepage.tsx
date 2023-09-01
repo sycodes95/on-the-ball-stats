@@ -42,6 +42,7 @@ function Homepage () {
   const haveTopGoalContributors = topGoalContributors && topGoalContributors.length > 0;
   const haveTopReds = topReds && topReds.length > 0;
   const haveTopYellows = topYellows && topYellows.length > 0;
+
   return (
     <>
     {

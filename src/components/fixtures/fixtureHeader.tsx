@@ -17,7 +17,7 @@ function FixtureHeader ({leagueLogo, leagueName, fixtureDate, leagueId} : Fixtur
         leagueId ? 
         <Link className="relative flex w-full gap-1 overflow-hidden hover:opacity-70" to={`/leagues/${leagueId}`}>
           <img className="object-contain w-4 h-4" src={leagueLogo} alt="team-icon"/>
-          <span className="flex items-center pl-2 pr-2 text-xs font-semibold text-opacity-0 rounded-md ">{leagueName.toUpperCase()}</span>
+          <span className="flex items-center pl-2 pr-2 text-xs font-semibold text-opacity-0 rounded-md whitespace-nowrap ">{leagueName.toUpperCase()}</span>
           
         </Link>
         :
@@ -33,7 +33,7 @@ function FixtureHeader ({leagueLogo, leagueName, fixtureDate, leagueId} : Fixtur
       <div className="flex items-center gap-2">
         {
         fixtureDate &&
-        <span className="text-black">{fixtureDate}</span>
+        <span className="text-black whitespace-nowrap">{fixtureDate}</span>
         }
         
       </div>
