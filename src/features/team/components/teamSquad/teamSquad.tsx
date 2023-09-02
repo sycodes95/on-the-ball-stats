@@ -37,7 +37,7 @@ function TeamSquad ({teamSquad} : TeamSquadProps){
        squad && 
        Object.keys(squad).map((key, index) => (
         <div className="flex flex-col w-full " key={index}>
-          <div className="flex items-center h-12 border-b-2 border-stone-300">
+          <div className="flex items-center h-12 border-b border-stone-300">
             <span className="text-sm">{key}s</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 p-4 md:justify-start">

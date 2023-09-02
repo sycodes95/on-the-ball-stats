@@ -8,7 +8,7 @@ type TeamVenueProps = {
 function TeamVenue ({teamInfo} : TeamVenueProps){
   return (
     <div className={`${bgMain} w-full p-2 flex flex-col gap-2`}>
-      <div className="flex items-center h-8 border-b-2 border-stone-300">
+      <div className="flex items-center h-8 border-b border-stone-300">
         <span className="font-semibold text-black">Venue</span>
       </div>
       <div className="flex flex-col gap-2">

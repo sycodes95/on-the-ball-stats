@@ -65,9 +65,9 @@ function MatchStatistics ({homeTeamStatistics, awayTeamStatistics} : MatchStatis
         {
         homeTeamStatistics.statistics.map((stats, index) => (
           <div className="flex items-center justify-center w-full h-6 rounded-full" key={index}>
-            {/* <div className="flex items-center w-full h-0 border-b-2 border-slate-300"></div> */}
+            {/* <div className="flex items-center w-full h-0 border-b border-slate-300"></div> */}
             <span className="p-2 min-w-max">{translateMatchStatisticTypes[stats.type] ? translateMatchStatisticTypes[stats.type] : stats.type}</span>
-            {/* <div className="flex items-center w-full h-0 border-b-2 border-slate-300"></div> */}
+            {/* <div className="flex items-center w-full h-0 border-b border-slate-300"></div> */}
 
           </div>
         ))

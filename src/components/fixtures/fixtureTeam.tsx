@@ -17,7 +17,7 @@ function FixtureTeam ({teamLogo, teamName, side} : FixtureTeamProps) {
       </div>
       
       <div className="relative w-full h-4 overflow-hidden text-ellipsis">
-        <span className={`text-center min-w-min absolute right-1/2 translate-x-1/2 top-0 md:right-0 md:-translate-x-0 
+        <span className={`text-center min-w-min absolute right-1/2 translate-x-1/2 top-0 md:right-0 md:-translate-x-0 font-semibold text-stone-600
         ${side === 'home' ? 'md:text-right' : 'md:text-left'}`}>{teamName}</span>
       </div>
 
@@ -35,7 +35,7 @@ function FixtureTeam ({teamLogo, teamName, side} : FixtureTeamProps) {
         <img className="object-contain" src={teamLogo} alt="Away team logo"/>
       </div>
       <div className="relative w-full h-4">
-        <span className={`text-center  min-w-min absolute left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 top-0 
+        <span className={`text-center  min-w-min absolute left-1/2 -translate-x-1/2 md:left-0 md:-translate-x-0 top-0 font-semibold text-stone-600 
         ${side === 'home' ? 'md:text-right' : 'md:text-left'}`}>{teamName}</span>
       </div>
       

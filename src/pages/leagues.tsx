@@ -71,7 +71,7 @@ function Leagues () {
         {
         Object.keys(leagues).map((key, index) => (
           <div className="flex flex-col gap-2 p-4 rounded-2xl h-fit" key={index}>
-            <div className="flex items-center gap-4 pb-2 border-b-2-2 border-stone-300">
+            <div className="flex items-center gap-4 pb-2 border-b-2 border-stone-300">
               <img className="object-contain w-6 rounded-2xl " src={leagues[key].flag} alt="league country flag"/>
               <span className="font-semibold">{key}</span>
             </div>

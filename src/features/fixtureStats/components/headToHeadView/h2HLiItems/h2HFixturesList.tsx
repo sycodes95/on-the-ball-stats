@@ -14,7 +14,7 @@ function H2HFixturesList ({headToHeadFixtures} : H2HFixturesListProps) {
      <span className="p-2 font-semibold">Last {headToHeadFixtures.length} {headToHeadFixtures.length > 1 ? 'Matches' : 'Match'}</span>
       {
       headToHeadFixtures.map((fixture, index) => (
-      <div className="flex items-center gap-4 p-2 border-b-2 border-opacity-30 border-stone-400 md:gap-8" key={index}>
+      <div className="flex items-center gap-4 p-2 border-b border-opacity-30 border-stone-400 md:gap-8" key={index}>
         <div  className="flex items-center gap-2 md:w-32 ">
           <img className="object-contain w-4 h-4" src={fixture.league.logo} />
           <span className="hidden md:flex">{fixture.league.name}</span>

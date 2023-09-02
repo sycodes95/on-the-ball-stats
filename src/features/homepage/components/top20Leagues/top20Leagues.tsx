@@ -7,7 +7,7 @@ type Top20LeaguesProps = {
 function Top20Leagues ({mobileView} : Top20LeaguesProps) {
   return (
     <div className={`${mobileView ? 'flex flex-col' : 'hidden md:flex md:flex-col'} md: w-full  ${bgMain} p-2`}>
-      <div className="flex items-center justify-between p-1 border-b-2 border-stone-300">
+      <div className="flex items-center justify-between p-1 border-b border-stone-300">
         <span className="text-xl font-semibold text-black font-display">TOP LEAGUES</span>
         <Link 
         to={`/leagues`}

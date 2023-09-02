@@ -11,7 +11,7 @@ function CareerStatistics ({ playerDetails } : CareerStatisticsProps) {
   
   return (
     <div className={`flex flex-col w-full gap-4 ${bgMain} p-4`}>
-      <div className="flex items-center h-8 border-b-2 border-stone-300">
+      <div className="flex items-center h-8 border-b border-stone-300">
         <span className="text-xl font-semibold text-black font-display">LEAGUE STATISTICS</span>
       </div>
       <div className="flex flex-col w-full overflow-x-scroll">

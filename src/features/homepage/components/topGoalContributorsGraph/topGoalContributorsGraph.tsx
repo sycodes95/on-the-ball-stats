@@ -14,7 +14,7 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
 
   return (
     <div className={`flex flex-col w-full text-xs gap-4 ${bgMain} p-2`}>
-      <div className="relative w-full text-xl text-black border-b-2 rounded-sm font-display border-stone-300" >
+      <div className="relative w-full text-xl text-black border-b rounded-sm font-display border-stone-300" >
         <span className="pl-2">TOP PLAYERS</span>
       </div>
 

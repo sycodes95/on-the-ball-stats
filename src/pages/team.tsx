@@ -94,7 +94,7 @@ function TeamPage () {
           {
           teamViewOptions.map((option, index) => (
             <button className={` w-20 h-full
-            border-b-2-2 border-b-2lack border-opacity-0 text-black text-opacity-80
+            border-b-2 border-black border-opacity-0 text-black text-opacity-80
             ${teamViewMode === option && 'border-opacity-100 text-black text-opacity-100 font-semibold'}
             `}
             onClick={()=> setTeamViewMode(option)}

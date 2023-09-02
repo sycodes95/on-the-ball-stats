@@ -20,7 +20,7 @@ function FixtureCards ({fixtures, displayAmount} : FixturesProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-2 lg:grid-cols-2 `}>
+      <div className={`relative grid w-full rounded-sm grid-cols-1 gap-x-4 gap-y-2 lg:grid-cols-2 `}>
       {
       fixtures.map((fixture, index) => {
         if (index < fixturesDisplayAmount) {
@@ -28,7 +28,7 @@ function FixtureCards ({fixtures, displayAmount} : FixturesProps) {
             <Link className="relative flex flex-col items-center justify-center w-full h-40 p-2 text-xs transition-all rounded-2xl hover:bg-stone-300 hover:opacity-70 text-primary hover:cursor-pointer "
             to={`/fixture-statistics/${fixture.fixture.id}`}
             key={fixture.fixture.id}>
-              <div className="flex items-center justify-between w-full p-2 border-b-2 border-dashed border-stone-300">
+              <div className="flex items-center justify-between w-full p-2 border-b border-dashed border-stone-300">
                 <FixtureHeader
                 leagueLogo={fixture.league.logo} 
                 leagueName={fixture.league.name}
