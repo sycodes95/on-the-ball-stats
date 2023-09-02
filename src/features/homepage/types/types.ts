@@ -1,3 +1,12 @@
+import { TeamStanding } from "../../league/types/types"
 
 
-//players, lineups, statistics
+export type TopTeamsType = {
+  country : string,
+  flag: string,
+  id: number,
+  logo: string,
+  name: string,
+  season: number,
+  standings: TeamStanding[][];
+}

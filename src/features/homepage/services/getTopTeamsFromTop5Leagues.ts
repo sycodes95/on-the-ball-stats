@@ -1,16 +1,22 @@
 import { season } from "../../../constants/season"
 import { top5Leagues } from "../../../constants/top5Leagues"
-import { getLeagueTeamStandings } from "../../../services/getLeagueTeamStandings"
 import { TeamStanding } from "../../league/types/types";
+import { getLeagueTeamStandingsWithLeague } from "./getLeagueTeamStandingsWithLeague";
 
 export const getTopTeamsFromTop5Leagues = async () => {
   const topTeams = await Promise.all(
     top5Leagues.map(async (league) => {
-      const data: TeamStanding[] = await getLeagueTeamStandings(league.id, season)
-      return data
-      .sort((a, b) => a.rank - b.rank)
-      .splice(0, 4)
+      const data = await getLeagueTeamStandingsWithLeague(league.id, season)
+      if(data && data.standings.length > 0) {
+        data.standings[0] = data.standings[0]
+        .sort((a: TeamStanding, b: TeamStanding) => a.rank - b.rank)
+        .slice(0, 4)
+        return data
+      }
+      return null
     })
   );
-  console.log(topTeams);
+
+  const topTeamsWithoutNull = topTeams.filter(team => team !== null)
+  return topTeamsWithoutNull.length > 0 ? topTeamsWithoutNull : []
 }

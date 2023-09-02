@@ -12,6 +12,9 @@ import TopFixtures from "../features/homepage/components/fixtures/topFixtures";
 import Top20Leagues from "../features/homepage/components/top20Leagues/top20Leagues";
 import YoutubeFootball from "../features/homepage/components/youtubeFootball/youtubeFootball";
 import { getTopTeamsFromTop5Leagues } from "../features/homepage/services/getTopTeamsFromTop5Leagues";
+import { TeamStanding } from "../features/league/types/types";
+import TopTeams from "../features/homepage/components/topTeams/topTeams";
+import { TopTeamsType } from "../features/homepage/types/types";
 
 function Homepage () {
 
@@ -19,6 +22,7 @@ function Homepage () {
   // const [topDefenders, setTopDefenders] = useState<Player[]>([]);
   const [topYellows, setTopYellows] = useState<Player[]>([])
   const [topReds, setTopReds] = useState<Player[]>([])
+  const [topTeams, setTopTeams] = useState<TopTeamsType[] | []>([])
   const [isLoading, setIsLoading] = useState(false)
   const [fixtures, setFixtures] = useState<Fixture[]>([])
 
@@ -32,11 +36,12 @@ function Homepage () {
       getFixturesByDate(),
       getTopTeamsFromTop5Leagues()
     ])
-    .then(([topPlayers, topYellows, topReds, fixtures ]) => {
+    .then(([topPlayers, topYellows, topReds, fixtures, topTeams ]) => {
       setTopGoalContributors(topPlayers);
       setTopYellows(topYellows);
       setTopReds(topReds);
       setFixtures(fixtures)
+      setTopTeams(topTeams)
       setIsLoading(false)
     })
   },[])
@@ -58,6 +63,10 @@ function Homepage () {
         {
         fixtures && fixtures.length > 0 &&
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />
+        }
+        {
+        topTeams.length > 0 && 
+        <TopTeams topTeams={topTeams}/>
         }
         {
         haveTopGoalContributors && 
