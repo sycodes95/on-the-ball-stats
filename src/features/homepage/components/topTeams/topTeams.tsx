@@ -13,7 +13,7 @@ function TopTeams ({topTeams} : TopTeamsProps) {
   }, [ ])
   return (
     <div className="flex flex-col w-full gap-8 p-2">
-      <div className="h-8 text-xl border-b font-display border-stone-300">
+      <div className="h-8 text-xl border-b-2 font-display border-stone-300">
         <span className="">Top Teams</span>
       </div>
       {

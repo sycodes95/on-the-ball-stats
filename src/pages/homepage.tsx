@@ -59,7 +59,7 @@ function Homepage () {
       </div>
       :
       <div className="flex flex-col w-full gap-4 p-2 text-primary">
-        <Top20Leagues />
+        <Top20Leagues mobileView={false} />
         {
         fixtures && fixtures.length > 0 &&
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />

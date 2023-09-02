@@ -34,7 +34,11 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
 
   return (
   <div className="flex flex-col gap-4 p-2">
-    
+    <div className="p-1 border-b-2 border-stone-300">
+      <span className="text-xl font-display">
+        TOP FIXTURES
+      </span>
+    </div>
 
     <div className="flex items-center justify-center gap-2 md:justify-start">
       <div className="flex gap-2 text-xs font-semibold w-fit">
