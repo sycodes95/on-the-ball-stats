@@ -10,7 +10,7 @@ function Top20Leagues () {
         <Link 
         to={`/leagues`}
         className="hover:underline">
-          View More
+          View all
         </Link>
       </div>
       <div className={` grid grid-rows-10 grid-cols-2 md:grid-rows-4 md:grid-cols-5 grid-flow-col gap-2 p-2`}>

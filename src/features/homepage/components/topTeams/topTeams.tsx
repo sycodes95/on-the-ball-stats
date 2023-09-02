@@ -32,7 +32,7 @@ function TopTeams ({topTeams} : TopTeamsProps) {
               <Link className="relative flex flex-col items-center w-full gap-4 hover:opacity-70 "
               to={`/team/${league.id}/${team.team.id}/${getURLFriendlyString(team.team.name)}`}
               >
-                <img className="object-contain w-20 h-20" src={team.team.logo} alt="" />
+                <img className="object-contain w-16 h-16" src={team.team.logo} alt="" />
                 <span className="font-semibold">{team.team.name}</span>
                 
               </Link>
