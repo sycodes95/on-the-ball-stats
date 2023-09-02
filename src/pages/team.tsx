@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useFetcher, useParams } from "react-router-dom";
 import { getTeamStatistics } from "../features/team/services/getTeamStatistics";
 import { TeamInfo, TeamSquadType, TeamStatistics } from "../features/team/types";
 import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
@@ -19,6 +19,7 @@ import { getTeamSquad } from "../features/team/services/getTeamSquad";
 import TeamSquad from "../features/team/components/teamSquad/teamSquad";
 import { defaultTitle } from "../constants/defaultTitle";
 import { TeamStanding } from "../features/league/types/types";
+import { getLeagueIdByTeamId } from "../services/getLeagueIdByTeamId";
 
 
 
@@ -29,7 +30,7 @@ function TeamPage () {
   ];
 
 
-  const { teamId, leagueId } = useParams()
+  const { teamId } = useParams()
   const [isLoading, setIsLoading] = useState(false)
   const [teamStatistics, setTeamStatistics] = useState<TeamStatistics | null>(null)
   const [teamInfo, setTeamInfo] = useState<TeamInfo | null>(null)
@@ -38,31 +39,58 @@ function TeamPage () {
   const [teamViewMode, setTeamViewMode] = useState(teamViewOptions[0])
   const [teamPlayersStats, setTeamPlayersStats] = useState<Player[] | []>()
   const [teamSquad, setTeamSquad] = useState<TeamSquadType | null>(null)
+  
 
+  const [leagueId, setLeagueId] = useState<number | null>(null)
   
   
   useEffect(()=>{
-    if(teamId && leagueId){
+    if(teamId){
       setIsLoading(true)
       Promise.all([
-        getTeamStatistics(Number(teamId), Number(leagueId)),
         getTeamInfo(Number(teamId)),
         getTeamFixtures(Number(teamId), season),
         getLeagueTeamStandings(Number(leagueId), season),
         getPlayersStatsByTeamId(Number(teamId), season),
-        getTeamSquad(Number(teamId))
+        getTeamSquad(Number(teamId)),
+        getLeagueIdByTeamId(Number(teamId))
       ])
-      .then(([teamStatisticsData, teamInfoData, teamFixturesData, leagueTeamStandingsData, teamPlayersStatsData, teamSquadData]) => {
-        setTeamStatistics(teamStatisticsData)
+      .then(([
+        teamInfoData, 
+        teamFixturesData, 
+        leagueTeamStandingsData, 
+        teamPlayersStatsData, 
+        teamSquadData,
+        leagueId
+      ]) => {
         setTeamInfo(teamInfoData)
         setTeamFixtures(teamFixturesData)
         setTeamStandings(leagueTeamStandingsData)
         setTeamPlayersStats(teamPlayersStatsData)
         setTeamSquad(teamSquadData)
+        setLeagueId(leagueId)
         setIsLoading(false)
       })
     }
-  },[teamId, leagueId])  
+  },[teamId])  
+
+  useEffect(()=> {
+    if(leagueId){
+      Promise.all([
+        getTeamStatistics(Number(teamId), Number(leagueId)),
+        getLeagueTeamStandings(Number(leagueId), season),
+      ])
+      .then(([
+        teamStatisticsData, 
+        leagueTeamStandingsData, 
+      ]) => {
+        setTeamStatistics(teamStatisticsData)
+        setTeamStandings(leagueTeamStandingsData)
+        setIsLoading(false)
+      })
+
+    }
+  },[leagueId])
 
   useEffect(()=>{
     if(teamInfo) {
