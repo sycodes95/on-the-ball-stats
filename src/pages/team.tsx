@@ -22,13 +22,11 @@ import { TeamStanding } from "../features/league/types/types";
 import { getLeagueIdByTeamId } from "../services/getLeagueIdByTeamId";
 
 
-
 function TeamPage () {
   const teamViewOptions = [
     'Overview',
     'Squad',
   ];
-
 
   const { teamId } = useParams()
   const [isLoading, setIsLoading] = useState(false)

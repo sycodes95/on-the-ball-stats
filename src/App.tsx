@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage/>}/> 
           <Route path='/leagues' element={<Leagues/>}/>
-          <Route path='/leagues/:leagueId' element={<League/>}/>
+          <Route path='/league/:leagueId/:leagueName' element={<League/>}/>
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           <Route path='/player/:playerId' element={<Player/>}/>

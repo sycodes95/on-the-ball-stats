@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { bgMain } from "../../../../constants/colors";
 import { top20Leagues } from "../../../../constants/top20Leagues";
+import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 type Top20LeaguesProps = {
   mobileView : boolean;
 }
@@ -19,7 +20,7 @@ function Top20Leagues ({mobileView} : Top20LeaguesProps) {
         {
         top20Leagues.map((league, index) => (
           <Link 
-          to={`/leagues/${league.id}`}
+          to={`/league/${league.id}/${getURLFriendlyString(league.name)}`}
           className={`flex items-center gap-6 hover:underline w-fit`}
           key={index}>
             <img className="object-contain w-6 h-6" src={league.logo} alt="" />

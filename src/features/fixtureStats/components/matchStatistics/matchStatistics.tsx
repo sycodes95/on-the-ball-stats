@@ -3,7 +3,6 @@ import { FixtureStatistics } from "../../../../types/types";
 import { translateMatchStatisticTypes } from "../../constants/constants";
 import { hasFixtureStarted } from "../../utils/hasFixtureStarted";
 import { RootState } from "../../../../store/store";
-import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 import TeamLink from "../../../../components/links/teamLink";
 

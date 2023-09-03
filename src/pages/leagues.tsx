@@ -5,6 +5,7 @@ import OvalLoadingSpinner from "../components/ui/ovalLoadingSpinner";
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import { defaultTitle } from "../constants/defaultTitle";
+import { getURLFriendlyString } from "../utils/getURLFriendlyString";
 
 export type League = {
   [key: string] : {
@@ -79,7 +80,7 @@ function Leagues () {
               {
               leagues[key].leagues.map((league, index) => (
                 <Link 
-                to={`/leagues/${league.id}`}
+                to={`/league/${league.id}/${getURLFriendlyString(league.name)}`}
                 key={index}
                 className="flex items-center gap-2 hover:underline">
                   <img className="object-contain w-4 h-4 rounded-2xl" src={league.logo} alt="league country flag"/>

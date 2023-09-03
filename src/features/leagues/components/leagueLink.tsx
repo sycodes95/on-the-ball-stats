@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getURLFriendlyString } from "../../../utils/getURLFriendlyString";
 
 type LeagueLinkProps = {
   leagueId: number;
@@ -10,7 +11,7 @@ type LeagueLinkProps = {
 function LeagueLink ({ leagueId, leagueName, leagueLogo, countryFlag }: LeagueLinkProps) {
   
   return (
-    <Link className="flex items-center justify-between gap-2 p-2 hover:cursor-pointer hover:bg-stone-300 hover:bg-opacity-90 rounded-2xl" to={`/leagues/${leagueId}`}>
+    <Link className="flex items-center justify-between gap-2 p-2 hover:cursor-pointer hover:bg-stone-300 hover:bg-opacity-90 rounded-2xl" to={`/league/${leagueId}/${getURLFriendlyString(leagueName)}`}>
       <div className="flex items-center gap-2">
         
         <div className="flex justify-center w-16 h-10">

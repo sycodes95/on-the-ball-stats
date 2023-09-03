@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getURLFriendlyString } from "../../utils/getURLFriendlyString";
 
 type FixtureHeaderProps = {
   leagueLogo: string;
@@ -15,7 +16,7 @@ function FixtureHeader ({leagueLogo, leagueName, fixtureDate, leagueId} : Fixtur
       <div className="flex items-center gap-2">
         {
         leagueId ? 
-        <Link className="relative flex w-full gap-1 overflow-hidden hover:opacity-70" to={`/leagues/${leagueId}`}>
+        <Link className="relative flex w-full gap-1 overflow-hidden hover:opacity-70" to={`/league/${leagueId}/${getURLFriendlyString(leagueName)}`}>
           <img className="object-contain w-4 h-4" src={leagueLogo} alt="team-icon"/>
           <span className="flex items-center pl-2 pr-2 text-xs font-semibold text-opacity-0 rounded-md whitespace-nowrap ">{leagueName.toUpperCase()}</span>
           
