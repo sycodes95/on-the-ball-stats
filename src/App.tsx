@@ -10,7 +10,6 @@ import Player from './pages/player';
 import Team from './pages/team';
 import League from './pages/league';
 import { useEffect } from 'react';
-import Top20Leagues from './features/homepage/components/top20Leagues/top20Leagues';
 import MobileTopLeagues from './pages/mobileTopLeagues';
 function App() {
 
@@ -30,7 +29,7 @@ function App() {
           <Route path='/fixture-statistics' element={<Homepage/>}/>
           <Route path='/fixture-statistics/:fixtureId' element={<FixtureStats/>}/>
           <Route path='/player/:playerId' element={<Player/>}/>
-          <Route path='/team/:leagueId/:teamId/:teamName' element={<Team/>}/>
+          <Route path='/team/:teamId/:teamName' element={<Team/>}/>
           <Route path='/top-leagues' element={<MobileTopLeagues/>}/>
           {/* <Route path='/players' element={<Players/>}/>
           <Route path='/teams' element={<Teams/>}/> */}

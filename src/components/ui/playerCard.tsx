@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../utils/getURLFriendlyString";
+import TeamLink from "../links/teamLink";
 
 type PlayerCardProps = {
   number: number;
@@ -33,14 +34,14 @@ function PlayerCard ({
       
       <div className="flex items-center h-full gap-2 text-xs text-gray-700 whitespace-nowrap">
         <p className="flex items-center justify-center w-5 h-5 whitespace-nowrap">{number}</p>
-        
-        <Link 
-        className="flex items-center justify-center w-6 h-6 hover:opacity-70"
-        to={`/team/${leagueId}/${teamId}/${getURLFriendlyString(teamName)}`}
+
+        <TeamLink 
+        className="flex items-center justify-center w-6 h-6 hover:opacity-70" 
+        teamId={teamId}
+        teamName={teamName}
         >
           <img className="object-fit" src={teamLogo} alt="league-logo"/>
-        </Link>
-        
+        </TeamLink>
         
         <Link 
         className="flex items-center gap-2 hover:underline"

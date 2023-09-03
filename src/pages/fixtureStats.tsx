@@ -18,6 +18,7 @@ import FixtureScore from "../components/fixtures/fixtureScore";
 import { bgMain } from "../constants/colors";
 import { getURLFriendlyString } from "../utils/getURLFriendlyString";
 import { formatYMD } from "../utils/formatYMD";
+import TeamLink from "../components/links/teamLink";
 
 function FixtureStats () {
   
@@ -59,13 +60,15 @@ function FixtureStats () {
         
         
         <div className="justify-center w-full h-full gap-4 fixture-grid"> 
-          <Link
+          <TeamLink
           className="flex items-center justify-end gap-4 hover:opacity-70 hover:underline" 
-          to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
+          teamId={fixture.teams.home.id}
+          teamName={getURLFriendlyString(fixture.teams.home.name)}
+          >
             <span className="md:text-lg">{fixture.teams.home.name}</span>
             <img className="object-contain w-6 h-6 md:w-10 md:h-10" src={fixture.teams.home.logo} alt="" />
             
-          </Link>
+          </TeamLink>
           
           <div className="flex flex-col items-center justify-center w-full gap-2">
             <FixtureStatus  

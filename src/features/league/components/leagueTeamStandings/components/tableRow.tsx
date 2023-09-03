@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
+import TeamLink from "../../../../../components/links/teamLink";
 
 type TableRowProps = { 
   description: string;
@@ -49,11 +50,14 @@ function TableRow ({
     `}>
       <td className="flex items-center h-8">
         <span className="text-center rounded-l-sm w-32px">{rank}</span>
-        <Link to={`/team/${leagueId}/${teamId}/${getURLFriendlyString(teamName)}`} 
-        className="flex items-center hover:underline">
+        <TeamLink
+        className="flex items-center hover:underline"
+        teamId={teamId}
+        teamName={teamName}
+        >
           <img className="object-contain w-8 h-8 p-2" src={teamLogo} alt="team-logo"/>
           <span className="overflow-hidden whitespace-nowrap text-ellipsis">{teamName}</span>
-        </Link>
+        </TeamLink>
         
       </td>
       <td className="text-center ">

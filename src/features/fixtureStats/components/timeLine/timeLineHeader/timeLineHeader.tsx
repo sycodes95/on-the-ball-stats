@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store/store";
-import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
+import TeamLink from "../../../../../components/links/teamLink";
 
 function TimeLineHeader () {
 
@@ -12,21 +12,25 @@ function TimeLineHeader () {
     {
     fixture &&
     <div className="flex items-center justify-center w-full gap-12">
-      <Link 
+      <TeamLink 
       className="flex justify-end hover:opacity-70"
-      to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
+      teamId={fixture.teams.home.id}
+      teamName={getURLFriendlyString(fixture.teams.home.name)}
+      >
         <img className="object-contain w-12 h-12" src={fixture.teams.home.logo} alt="" />
-      </Link>
+      </TeamLink>
 
       <div className="flex items-center justify-center">
         <span className="font-bold">Timeline</span>
       </div>
 
-      <Link 
-      className="flex justify-start hover:opacity-70"
-      to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
+      <TeamLink 
+      className="flex justify-end hover:opacity-70"
+      teamId={fixture.teams.away.id}
+      teamName={getURLFriendlyString(fixture.teams.away.name)}
+      >
         <img className="object-contain w-12 h-12" src={fixture.teams.away.logo} alt="" />
-      </Link>
+      </TeamLink>
     </div>
     }
     </>

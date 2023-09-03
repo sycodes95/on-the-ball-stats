@@ -3,6 +3,7 @@ import { Fixture, LineUpStartXIPlayer } from "../../../../../types/types";
 import { playerPositionColors } from "../../../constants/constants";
 import FootballFieldHorizontal from "../footballField/footballFieldHorizontal";
 import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
+import TeamLink from "../../../../../components/links/teamLink";
 
 type StartingXIHorizontalProps = {
   fixture: Fixture;
@@ -18,9 +19,11 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
     fixture.lineups && fixture.lineups.length > 0 &&  
     <div className={`flex flex-col gap-4 ${className}`}>
       <div className='flex justify-between w-full'>
-        <Link 
+        <TeamLink 
         className='flex gap-4 p-2 hover:opacity-70'
-        to={`/team/${fixture.league.id}/${fixture.teams.home.id}/${getURLFriendlyString(fixture.teams.home.name)}`}>
+        teamId={fixture.teams.home.id}
+        teamName={getURLFriendlyString(fixture.teams.home.name)}
+        >
           <div className='flex items-center gap-4'>
             <img className='object-contain w-12 h-12' src={fixture.lineups[0].team.logo} alt="" />
             <span className='text-xs font-bold'>{fixture.lineups[0].formation}</span>
@@ -39,12 +42,13 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
             </div>
           </div>
           
-        </Link>
+        </TeamLink>
 
-        <Link 
+        <TeamLink
         className='flex gap-4 p-2 hover:opacity-70'
-        to={`/team/${fixture.league.id}/${fixture.teams.away.id}/${getURLFriendlyString(fixture.teams.away.name)}`}>
-          
+        teamId={fixture.teams.away.id}
+        teamName={getURLFriendlyString(fixture.teams.away.name)}
+        >
 
           <div className='flex items-center gap-4'>
             <div className='flex flex-col items-end'>
@@ -64,7 +68,7 @@ function StartingXIHorizontal ({fixture, homeStartXIHorizontal, awayStartXIHoriz
             <img className='object-contain w-12 h-12' src={fixture.lineups[1].team.logo} alt="" />
           </div>
           
-        </Link>
+        </TeamLink>
       </div>
       <div className={`relative h-full w-full`}>
         <FootballFieldHorizontal />

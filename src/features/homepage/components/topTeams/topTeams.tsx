@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { TopTeamsType } from "../../types/types";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 import { Link } from "react-router-dom";
+import TeamLink from "../../../../components/links/teamLink";
 
 type TopTeamsProps = {
   topTeams: TopTeamsType[]
@@ -29,13 +30,15 @@ function TopTeams ({topTeams} : TopTeamsProps) {
           league.standings[0].map((team, index) => (
             <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 rounded-2xl" key={index}
             >
-              <Link className="relative flex flex-col items-center w-full gap-4 hover:opacity-70 "
-              to={`/team/${league.id}/${team.team.id}/${getURLFriendlyString(team.team.name)}`}
+              <TeamLink 
+              className="relative flex flex-col items-center w-full gap-4 hover:opacity-70 "
+              teamId={team.team.id}
+              teamName={getURLFriendlyString(team.team.name)}
               >
                 <img className="object-contain w-16 h-16" src={team.team.logo} alt="" />
                 <span className="font-semibold">{team.team.name}</span>
                 
-              </Link>
+              </TeamLink>
               
               <div className="grid grid-cols-3 gap-2 text-xs font-semibold text-white ">
                 <span className="flex items-center justify-center p-2 text-center border rounded-full md:w-12 border-emerald-600 text-emerald-600 whitespace-nowrap">{team.all.win} W</span>

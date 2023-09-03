@@ -5,6 +5,7 @@ import { returnContributionWidthPct } from "../../utils/returnContributionWidthP
 import { returnSubContributionWidthPct } from "../../utils/returnSubContributionWidthPct";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 import { bgMain } from "../../../../constants/colors";
+import TeamLink from "../../../../components/links/teamLink";
 
 type TopGoalContributorsGraphProps = {
   topGoalContributors: Player[]
@@ -28,11 +29,15 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
         key={player.player.id}>
           <div className="flex items-center h-6 gap-2 ">
             <p className="w-4 text-center text-primary">{index + 1}</p>
-            <Link 
+            
+            <TeamLink
             className="hover:opacity-70" 
-            to={`team/${player.statistics[0].league.id}/${player.statistics[0].team.id}/${getURLFriendlyString(player.statistics[0].team.name)}`}>
+            teamId={player.statistics[0].team.id}
+            teamName={getURLFriendlyString(player.statistics[0].team.name)}
+            >
               <ListClubImage src={player.statistics[0].team.logo}/>
-            </Link>
+            </TeamLink>
+
             <Link className="flex items-center gap-2 hover:underline" to={`/player/${player.player.id}`}>
               <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
               <span className="flex items-center w-32 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</span>
