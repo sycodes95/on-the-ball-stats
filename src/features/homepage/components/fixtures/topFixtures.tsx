@@ -80,7 +80,13 @@ function TopFixtures ({fixtures, setFixtures} : FixturesProps) {
       `}>
         <div className="z-20 h-fit"></div>
       </div>
+      {
+      fixtures.length > 0 ? 
       <FixtureCards fixtures={fixtures}/>
+      :
+      <span className="p-2">No fixtures available.</span>
+      }
+      
     </div>
     
    

@@ -61,7 +61,7 @@ function Homepage () {
       <div className="flex flex-col w-full gap-4 p-2 text-primary">
         <Top20Leagues mobileView={false} />
         {
-        fixtures && fixtures.length > 0 &&
+        fixtures && 
         <TopFixtures fixtures={fixtures} setFixtures={setFixtures} />
         }
         {
