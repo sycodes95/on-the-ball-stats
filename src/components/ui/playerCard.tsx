@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../utils/getURLFriendlyString";
 import TeamLink from "../links/teamLink";
+import LazyLoad from "react-lazy-load";
 
 type PlayerCardProps = {
   number: number;
@@ -40,13 +41,17 @@ function PlayerCard ({
         teamId={teamId}
         teamName={teamName}
         >
-          <img className="object-fit" src={teamLogo} alt="league-logo"/>
+          <LazyLoad offset={100} >
+            <img className="object-fit" src={teamLogo} alt="league-logo"/>
+          </LazyLoad>
         </TeamLink>
         
         <Link 
         className="flex items-center gap-2 hover:underline"
         to={`/player/${playerID}`}>
-          <img className="object-contain h-6 rounded-full" src={playerPhoto} alt="player-photo" />
+          <LazyLoad offset={100} >
+            <img className="object-contain h-6 rounded-full" src={playerPhoto} alt="player-photo" />
+          </LazyLoad>
           <p>{playerName}</p>
         </Link>
         

@@ -6,6 +6,7 @@ import { returnSubContributionWidthPct } from "../../utils/returnSubContribution
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 import { bgMain } from "../../../../constants/colors";
 import TeamLink from "../../../../components/links/teamLink";
+import LazyLoad from 'react-lazy-load';
 
 type TopGoalContributorsGraphProps = {
   topGoalContributors: Player[]
@@ -35,11 +36,16 @@ function TopGoalContributorsGraph ({topGoalContributors}: TopGoalContributorsGra
             teamId={player.statistics[0].team.id}
             teamName={getURLFriendlyString(player.statistics[0].team.name)}
             >
-              <ListClubImage src={player.statistics[0].team.logo}/>
+              <LazyLoad offset={100}>
+                <ListClubImage src={player.statistics[0].team.logo}/>
+              </LazyLoad>
+              
             </TeamLink>
 
             <Link className="flex items-center gap-2 hover:underline" to={`/player/${player.player.id}`}>
-              <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
+              <LazyLoad offset={100}>
+                <img className="object-contain w-6 h-6 rounded-full" src={player.player.photo} alt="player-photo"/>
+              </LazyLoad>
               <span className="flex items-center w-32 h-full border-r-4 border-slate-300 whitespace-nowrap min-w-max">{player.player.name}</span>
             </Link>
           </div>

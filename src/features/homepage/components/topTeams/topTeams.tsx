@@ -3,6 +3,7 @@ import { TopTeamsType } from "../../types/types";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
 import { Link } from "react-router-dom";
 import TeamLink from "../../../../components/links/teamLink";
+import LazyLoad from "react-lazy-load";
 
 type TopTeamsProps = {
   topTeams: TopTeamsType[]
@@ -21,7 +22,9 @@ function TopTeams ({topTeams} : TopTeamsProps) {
       topTeams.map((league, index) => (
         <div className="relative flex flex-col gap-4" key={index}>
           <div className="flex items-center gap-4 col-span-full ">
-            <img className="object-contain w-12 h-12" src={league.logo} alt="" />
+            <LazyLoad offset={100}>
+              <img className="object-contain w-12 h-12" src={league.logo} alt="" />
+            </LazyLoad>
             <span className="flex items-center w-full h-full p-2 text-lg font-semibold ">{league.name}</span>
           </div>
 
@@ -35,7 +38,9 @@ function TopTeams ({topTeams} : TopTeamsProps) {
               teamId={team.team.id}
               teamName={getURLFriendlyString(team.team.name)}
               >
-                <img className="object-contain w-16 h-16" src={team.team.logo} alt="" />
+                <LazyLoad offset={100}>
+                  <img className="object-contain w-16 h-16" src={team.team.logo} alt="" />
+                </LazyLoad>
                 <span className="font-semibold">{team.team.name}</span>
                 
               </TeamLink>

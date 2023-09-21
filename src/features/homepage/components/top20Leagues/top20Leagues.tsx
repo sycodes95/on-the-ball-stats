@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { bgMain } from "../../../../constants/colors";
 import { top20Leagues } from "../../../../constants/top20Leagues";
 import { getURLFriendlyString } from "../../../../utils/getURLFriendlyString";
+import LazyLoad from "react-lazy-load";
 type Top20LeaguesProps = {
   mobileView : boolean;
 }
@@ -23,7 +24,9 @@ function Top20Leagues ({mobileView} : Top20LeaguesProps) {
           to={`/league/${league.id}/${getURLFriendlyString(league.name)}`}
           className={`flex items-center gap-6 hover:underline w-fit`}
           key={index}>
-            <img className="object-contain w-6 h-6" src={league.logo} alt="" />
+            <LazyLoad offset={100} >
+              <img className="object-contain w-6 h-6" src={league.logo} alt="" />
+            </LazyLoad>
             <span className={`${mobileView ? 'text-lg font-semibold' : 'text-xs'} text-black whitespace-nowrap`}>{league.name}</span>
           </Link>
         ))

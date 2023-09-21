@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getURLFriendlyString } from "../../../../../utils/getURLFriendlyString";
 import TeamLink from "../../../../../components/links/teamLink";
+import LazyLoad from "react-lazy-load";
 
 type TableRowProps = { 
   description: string;
@@ -55,7 +56,9 @@ function TableRow ({
         teamId={teamId}
         teamName={teamName}
         >
-          <img className="object-contain w-8 h-8 p-2" src={teamLogo} alt="team-logo"/>
+          <LazyLoad offset={100} >
+            <img className="object-contain w-8 h-8 p-2" src={teamLogo} alt="team-logo"/>
+          </LazyLoad>
           <span className="overflow-hidden whitespace-nowrap text-ellipsis">{teamName}</span>
         </TeamLink>
         
