@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import { defaultTitle } from "../constants/defaultTitle";
 import { getURLFriendlyString } from "../utils/getURLFriendlyString";
+import LazyLoad from "react-lazy-load";
 
 export type League = {
   [key: string] : {
@@ -73,7 +74,9 @@ function Leagues () {
         Object.keys(leagues).map((key, index) => (
           <div className="flex flex-col gap-2 p-4 rounded-2xl h-fit" key={index}>
             <div className="flex items-center gap-4 pb-2 border-b-2 border-stone-300">
-              <img className="object-contain w-6 rounded-2xl " src={leagues[key].flag} alt="league country flag"/>
+              <LazyLoad offset={100}>
+                <img className="object-contain w-6 rounded-2xl " src={leagues[key].flag} alt="league country flag"/>
+              </LazyLoad>
               <span className="font-semibold">{key}</span>
             </div>
             <div className="flex flex-col gap-2">
@@ -83,7 +86,6 @@ function Leagues () {
                 to={`/league/${league.id}/${getURLFriendlyString(league.name)}`}
                 key={index}
                 className="flex items-center gap-2 hover:underline">
-                  <img className="object-contain w-4 h-4 rounded-2xl" src={league.logo} alt="league country flag"/>
                   <span>{league.name}</span>
                 </Link>
               ))

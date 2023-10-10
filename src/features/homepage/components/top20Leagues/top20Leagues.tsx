@@ -35,7 +35,6 @@ function Top20Leagues ({mobileView} : Top20LeaguesProps) {
 
     </div>
     
-    
   )
 }
 
