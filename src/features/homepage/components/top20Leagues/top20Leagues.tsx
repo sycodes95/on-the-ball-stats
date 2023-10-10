@@ -17,7 +17,7 @@ function Top20Leagues ({mobileView} : Top20LeaguesProps) {
           View all
         </Link>
       </div>
-      <div className={`${mobileView ? 'flex flex-col' : 'grid grid-cols-5'} gap-2 p-2`}>
+      <div className={`${mobileView ? 'flex flex-col' : 'grid grid-cols-5 grid-rows-4'} grid-flow-col gap-2 p-2`}>
         {
         top20Leagues.map((league, index) => (
           <Link 
